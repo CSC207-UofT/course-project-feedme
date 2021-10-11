@@ -1,8 +1,8 @@
-import java.util.ArrayList;
+import javax.xml.xpath.XPathEvaluationResult;
 
 abstract class User {
     private int phone_num, id;
-    private String name, password;
+    private String name;
 
     public User(String name, int id, int phone_num){
         this.name = name;
@@ -14,12 +14,10 @@ abstract class User {
 class Customer extends User{
     private char type_;
     private String address;
-    private List<Product> product_list;
     public Customer(String name, String address, int id, int phone_num){
         super(name, id, phone_num);
         this.address = address;
         this.type_ = 'c';
-        this,product_list = new List<Product>();
     }
 }
 
