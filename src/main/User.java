@@ -5,5 +5,13 @@ public class User {
 }
 
 public class Customer extends User{
-    wo shi sb
+
+}
+
+public class Resturant extends User{
+
+}
+
+public class Courier extends User{
+
 }
