@@ -8,7 +8,7 @@ public class Order {
     private List<Product>  list_products;
     private String status;
     public Order(int o_id, List<Product> list_products, String status){
-        int total_price = 0;
+        double total_price = 0;
         this.o_id = o_id;
         this.list_products = list_products;
         this.status = status;
