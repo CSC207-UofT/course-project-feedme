@@ -1,4 +1,4 @@
-public class User {
+abstract class User {
     private int id, phone_num;
     private String name;
 
