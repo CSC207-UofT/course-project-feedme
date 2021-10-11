@@ -14,4 +14,8 @@ public class Product {
         this.stock = stock;
     }
 
+    public double getPrice(){
+        return this.price;
+    }
+
 }

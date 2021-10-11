@@ -13,7 +13,7 @@ public class Order {
         this.list_products = list_products;
         this.status = status;
         for(Product p: list_products){
-            total_price += get_price(p);
+            total_price += p.getPrice();
         }
         this.total_price = total_price;
     }
