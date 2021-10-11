@@ -7,10 +7,11 @@ public class Order {
     private List<Product>  list_products;
     private String status;
 
-    public Order(int o_id, List<Product> list_products, String status){
+    //Initialize a order
+    public Order(int o_id, List<Product> list_products){
         this.o_id = o_id;
         this.list_products = list_products;
-        this.status = status;
+        this.status = new String("Order placed");
     }
 
     public int getOrderId() { return this.o_id; }
