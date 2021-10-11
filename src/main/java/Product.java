@@ -2,11 +2,13 @@
  * Products name, id, price, and stock will store in here.
  */
 public class Product {
+
     private String name;
     private int p_id;
     private double price;
     private int stock;
 
+    // Initialize Product
     public Product(String name, int p_id, float price, int stock){
         this.name = name;
         this.p_id = p_id;
