@@ -5,5 +5,5 @@ public class User {
 }
 
 public class Customer extends User{
-
+    wo shi sb
 }
