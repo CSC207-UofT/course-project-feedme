@@ -14,7 +14,7 @@ abstract class User {
 class Customer extends User{
     private char type_;
     private String address;
-    public Customer(char name, String address, int id, int phone_num){
+    public Customer(String name, String address, int id, int phone_num){
         super(name, id, phone_num);
         this.address = address;
         this.type_ = 'c';
