@@ -1,11 +1,11 @@
 package Entity;
 
-class Customer extends User {
+public class Customer extends User {
     private String address;
-    public Customer(String name, String address, int id, int phone_num, int password, char type_){
-        super(name, id, phone_num, password, type_);
+    public Customer(String name, String address, String phone_num, String password, char type_){
+        super(name, phone_num, password, type_);
         this.address = address;
     }
 
-    public String getCustomerAddress() { return this.address; }g
+    public String getCustomerAddress() { return this.address; }
 }

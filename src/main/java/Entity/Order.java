@@ -6,18 +6,18 @@ import java.util.List;
  * This is a controller to our ordering process.
  */
 public class Order {
-    private int o_id;
+    private String id;
     private List<Product> list_products;
     private String status;
 
     //Initialize a order
-    public Order(int o_id, List<Product> list_products){
-        this.o_id = o_id;
+    public Order(String id, List<Product> list_products){
+        this.id = id;
         this.list_products = list_products;
         this.status = new String("Order placed");
     }
 
-    public int getOrderId() { return this.o_id; }
+    public String getOrderId() { return this.id; }
 
     public List<Product> getOrderProducts() { return this.list_products; }
 
