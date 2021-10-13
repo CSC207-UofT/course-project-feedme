@@ -1,0 +1,11 @@
+Class name: SignUp
+Parent class: None
+
+Responsibilities:
+* select an user type
+* create an user account according to the user type selected
+* give an user identifier to user account
+* store user information and password that user entered
+
+Collaborators:
+* UserManager
