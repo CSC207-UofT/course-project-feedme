@@ -3,7 +3,7 @@ package Entity;
 import java.util.ArrayList;
 import java.util.List;
 
-class Restaurant extends User {
+public class Restaurant extends User {
     private String address;
     private List<Product> list_products;
     public Restaurant(String name, String address, String phone_num, String password, char type_){

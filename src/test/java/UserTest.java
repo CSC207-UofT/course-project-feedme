@@ -12,6 +12,11 @@ public class UserTest {
 
     @Before
     public void setUp() {
-        user = new Customer("Alex", "25 St. George St" ,"4168237263", "asdf234", 'c');
+        user = new Customer("Alex", "25 St. George St" ,"4168237263", "asdf1234", 'c');
+    }
+
+    @Test
+    public void TestEmptyConstructor() {
+
     }
 }
