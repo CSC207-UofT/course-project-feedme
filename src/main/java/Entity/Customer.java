@@ -7,5 +7,5 @@ class Customer extends User {
         this.address = address;
     }
 
-    public String getCustomerAddress() { return this.address; }g
+    public String getCustomerAddress() { return this.address; }
 }
