@@ -2,7 +2,7 @@ import javax.xml.xpath.XPathEvaluationResult;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class User {
+class User {
     private int phone_num, id;
     private String name;
     private int password;
