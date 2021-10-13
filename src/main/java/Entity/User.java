@@ -1,9 +1,12 @@
+package Entity;
+
 import javax.xml.xpath.XPathEvaluationResult;
 import java.util.ArrayList;
 import java.util.List;
 
-class User {
-    private int phone_num, id;
+abstract class User {
+    private int phone_num;
+    private int id;
     private String name;
     private int password;
     private char type_;
