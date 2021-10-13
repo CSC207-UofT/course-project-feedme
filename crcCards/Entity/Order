@@ -1,0 +1,9 @@
+Class name: Order
+Parent class: None
+
+Responsibilities:
+* Store name, price, id, list of products and  of the order
+* Getter for all of above.
+
+Collaborators:
+* OderManager

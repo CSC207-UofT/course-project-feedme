@@ -1,0 +1,11 @@
+Class name: UserManager
+Parent class: None
+
+Responsibilities:
+* Create user corresponding to type_ and store all users
+* Delete users
+* Able to check users
+
+Collaborators:
+* User
+* SignUp

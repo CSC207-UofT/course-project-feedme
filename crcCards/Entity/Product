@@ -1,0 +1,9 @@
+Class name: Product
+Parent class: None
+
+Responsibilities:
+* Store name, price, stock, id of the product
+* Getter for all of above.
+
+Collaborators:
+* ProductManager

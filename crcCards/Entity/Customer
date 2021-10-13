@@ -1,0 +1,10 @@
+Class name: Customer
+Parent class: User
+
+Responsibilities:
+* Store name, id, phone number, address and password of the customer
+* Getter for all of above.
+
+Collaborators:
+* User
+* UserManager

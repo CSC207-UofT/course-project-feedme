@@ -1,0 +1,10 @@
+Class name: Restaurant
+Parent: User
+
+Responsibilities:
+- Store name, id, phone number, address, list of products and price of the restaurant.
+- Getters for all of above.
+
+Collaborators:
+- User
+- UserManager

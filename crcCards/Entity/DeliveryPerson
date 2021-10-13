@@ -1,0 +1,10 @@
+Class name:  DeliveryPerson
+Parent class: User
+
+Responsibilities:
+* Store name, id, phone number and password of the delivery_person
+* Getter for all of above.
+
+Collaborators:
+* User
+* UserManager
