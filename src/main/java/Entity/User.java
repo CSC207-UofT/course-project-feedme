@@ -1,25 +1,25 @@
+package Entity;
+
 import javax.xml.xpath.XPathEvaluationResult;
 import java.util.ArrayList;
 import java.util.List;
 
-class User {
-    private int phone_num, id;
+public abstract class User {
+    private String phone_num;
     private String name;
-    private int password;
+    private String password;
     private char type_;
 
-    public User(String name, int id, int phone_num, int password, char type_){
+    public User(String name, String phone_num, String password, char type_){
         this.name = name;
         this.phone_num = phone_num;
-        this.id = id;
         this.password = password;
         this.type_ = type_;
     }
 
     public String getUserName() { return this.name; }
-    public int getUserPhone_num() { return this.phone_num; }
-    public int getUserId() { return this.id; }
-    public int getUserPassword() { return this.password; }
+    public String getUserPhone_num() { return this.phone_num; }
+    public String getUserPassword() { return this.password; }
     public char getUserType_() { return this.type_; }
 }
 
