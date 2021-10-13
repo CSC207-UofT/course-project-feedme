@@ -1,3 +1,5 @@
+package UseCases;
+
 /**
  * this is the class that stores all the managers.
  */
