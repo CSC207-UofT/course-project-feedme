@@ -47,9 +47,8 @@ class Restaurant extends User{
     public void removeRestaurantProducts(Product p) {this.list_products.remove(p); }
 }
 
-// courier or delivery_man?
-class Courier extends User{
-    public Courier(String name, int id, int phone_num, int password, char type_){
+class DeliveryPerson extends User{
+    public DeliveryPerson(String name, int id, int phone_num, int password, char type_){
         super(name, id, phone_num, password, type_);
     }
 }
