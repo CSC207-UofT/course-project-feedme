@@ -1,3 +1,7 @@
+package java;
+
+import java.util.List;
+
 /**
  * Products name, id, price, and stock will store in here.
  */
@@ -5,7 +9,7 @@ public class Product {
 
     private String name;
     private int p_id;
-    private double price;
+    private float price;
     private int stock;
 
     // Initialize Product
