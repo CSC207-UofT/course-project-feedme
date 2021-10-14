@@ -11,14 +11,18 @@ public class OrderManager {
     }
 
     public void createOrder(Order item) {
-        this.orderlist.add(item);
+        if(!orderlist.contains(item)){
+            this.orderlist.add(item);
+        };
     }
 
     public void deleteOrder(Order item) {
-        this.orderlist.remove(item);
+        if(orderlist.contains(item)){
+            this.orderlist.remove(item);
+        }
     }
 
-    public List<Order> getOrder() {
+    public List<Order> displayOrders() {
         return this.orderlist;
     }
 
