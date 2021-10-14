@@ -1,7 +1,7 @@
 package Entity;
 
-class DeliveryPerson extends User {
-    public DeliveryPerson(String name, int id, int phone_num, int password, char type_) {
-        super(name, id, phone_num, password, type_);
+public class DeliveryPerson extends User {
+    public DeliveryPerson(String name, String phone_num, String password, char type_) {
+        super(name, phone_num, password, type_);
     }
 }

@@ -3,11 +3,11 @@ package Entity;
 import java.util.ArrayList;
 import java.util.List;
 
-class Restaurant extends User {
+public class Restaurant extends User {
     private String address;
     private List<Product> list_products;
-    public Restaurant(String name, String address, int id, int phone_num, int password, char type_){
-        super(name, id, phone_num, password, type_);
+    public Restaurant(String name, String address, String phone_num, String password, char type_){
+        super(name, phone_num, password, type_);
         this.address = address;
         this.list_products = new ArrayList<Product>();
     }
