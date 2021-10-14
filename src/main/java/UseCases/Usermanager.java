@@ -7,7 +7,11 @@ import Entity.User;
 import java.util.HashMap;
 
 public class Usermanager {
-    private HashMap<String, User> user_map = new HashMap<String, User>();
+    private HashMap<String, User> user_map;
+
+    public Usermanager(){
+        this.user_map = new HashMap<String, User>();
+    }
 
     public boolean add_user(String phone_num, User user){
         if(!this.user_map.containsKey(phone_num)){
