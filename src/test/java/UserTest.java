@@ -31,7 +31,7 @@ public class UserTest {
 
     @Test
     public void TestDeliverypersonConstructor() {
-        assertEquals('d', deliveryperosn.getUserType_());
+        assertEquals('d', deliveryperosn.getUserType());
     }
 
 
