@@ -11,14 +11,17 @@ class ProductManager {
     }
 
     public void createProduct(Product item) {
-        this.productlist.add(item);
+        if (!productlist.contains(item)) {
+            this.productlist.add(item);
+        }
     }
-
     public void deleteProduct(Product item) {
-        this.productlist.remove(item);
+        if (productlist.contains(item)){
+            this.productlist.remove(item);
+        }
     }
 
-    public List<Product> getProducts() {
+    public List<Product> displayProducts() {
         return this.productlist;
     }
 
