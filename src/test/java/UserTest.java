@@ -10,13 +10,13 @@ import static org.junit.Assert.*;
 public class UserTest {
     User customer;
     User restaurant;
-    User deliveryperosn;
+    User deliveryperson;
 
     @Before
     public void setUp() {
         customer = new Customer("Alex", "25 St. George St" ,"4168237263", "asdf1234",'c');
         restaurant = new Restaurant("Ramen", "7 St Mary St", "4161234554", "sdfa89789", 'r');
-        deliveryperosn = new DeliveryPerson("Jack", "4167892537", "1234567", 'd');
+        deliveryperson = new DeliveryPerson("Jack", "4167892537", "1234567", 'd');
     }
 
     @Test
@@ -31,7 +31,7 @@ public class UserTest {
 
     @Test
     public void TestDeliveryPersonConstructor() {
-        assertEquals('d', deliveryperosn.getUserType());
+        assertEquals('d', deliveryperson.getUserType());
     }
 
 
