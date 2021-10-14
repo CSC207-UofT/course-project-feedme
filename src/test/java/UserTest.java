@@ -30,7 +30,7 @@ public class UserTest {
     }
 
     @Test
-    public void TestDeliverypersonConstructor() {
+    public void TestDeliveryPersonConstructor() {
         assertEquals('d', deliveryperosn.getUserType());
     }
 
