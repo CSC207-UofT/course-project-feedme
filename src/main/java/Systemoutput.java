@@ -28,7 +28,7 @@ public class Systemoutput {
                         "provide your address.");
                 String in_address = sc.nextLine();
 
-                usermanager.addUser(in_phone_num, usermanager.customerSignup(in_name, in_phone_num,
+                usermanager.createUser(in_phone_num, usermanager.customerSignup(in_name, in_phone_num,
                         in_password, 'c', in_address));
             }
             System.out.println(usermanager.userLookup(in_phone_num));
