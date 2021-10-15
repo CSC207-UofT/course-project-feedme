@@ -1,5 +1,5 @@
 /**
- * Test file for User class
+ * Test file for User class. Test all methods in User class.
  */
 
 import Entity.*;
@@ -19,20 +19,64 @@ public class UserTest {
         deliveryperson = new DeliveryPerson("Jack", "4167892537", "1234567", 'd');
     }
 
-    @Test
-    public void TestCustomerConstructor() {
+    @Test (timeout = 50)
+    public void TestGetCustomerUserName() {
         assertEquals("Alex", customer.getUserName());
     }
 
-    @Test
-    public void TestRestaurantConstructor() {
+    @Test (timeout = 50)
+    public void TestGetRestaurantUserName() {
+        assertEquals("Ramen", restaurant.getUserName());
+    }
+
+    @Test (timeout = 50)
+    public void TestGetDeliveryPersonUserName() {
+        assertEquals("Jack", deliveryperson.getUserName());
+    }
+
+    @Test (timeout = 50)
+    public void TestGetCustomerPhone_num() {
+        assertEquals("4168237263", customer.getUserPhone_num());
+    }
+
+    @Test (timeout = 50)
+    public void TestGetRestaurantPhone_num() {
         assertEquals("4161234554", restaurant.getUserPhone_num());
     }
 
-    @Test
-    public void TestDeliveryPersonConstructor() {
-        assertEquals('d', deliveryperson.getUserType());
+    @Test (timeout = 50)
+    public void TestGetDeliveryPeronPhone_num() {
+        assertEquals("4167892537", deliveryperson.getUserPhone_num());
     }
 
+    @Test (timeout = 50)
+    public void TestGetCustomerPassword() {
+        assertEquals("asdf1234", customer.getUserPassword());
+    }
+
+    @Test (timeout = 50)
+    public void TestGetRestaurantPassword() {
+        assertEquals("sdfa89789", restaurant.getUserPassword());
+    }
+
+    @Test (timeout = 50)
+    public void TestGetDeliveryPersonPassword() {
+        assertEquals("1234567", deliveryperson.getUserPassword());
+    }
+
+    @Test (timeout = 50)
+    public void TestGetCustomerUserType() {
+        assertEquals('c', customer.getUserType());
+    }
+
+    @Test (timeout = 50)
+    public void TestGetRestaurantUserType() {
+        assertEquals('r', restaurant.getUserType());
+    }
+
+    @Test (timeout = 50)
+    public void TestGetDeliveryPersonUserType() {
+        assertEquals('d', deliveryperson.getUserType());
+    }
 
 }
