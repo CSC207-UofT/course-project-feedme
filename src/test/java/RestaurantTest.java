@@ -1,4 +1,3 @@
-package src.test.java;
 
 import Entity.Product;
 import Entity.Restaurant;
@@ -20,16 +19,16 @@ public class RestaurantTest {
 
     @Test
     public void testRestaurantAddress() {
-        assertEquals("645 Yonge St", popeyes.getAddress());
+        assertEquals("645 Yonge St", popeyes.getRestaurantAddress());
     }
 
     @Test
     public void testAddProduct() {
         Product ten_wings = new Product("10 Wings", "1", 16.49, 2);
         Product tender_combo = new Product("Tender Combo", "2", 11.79, 2);
-        assertTrue(popeyes.addProduct(ten_wings));
-        assertFalse(popeyes.addProduct(ten_wings));
-        assertTrue(popeyes.addProduct(tender_combo));
-        assertEquals(2, popeyes.getProduct().size());
+        assertTrue(popeyes.addRestaurantProduct(ten_wings));
+        assertFalse(popeyes.addRestaurantProduct(ten_wings));
+        assertTrue(popeyes.addRestaurantProduct(tender_combo));
+        assertEquals(2, popeyes.getRestaurantProducts().size());
     }
 }

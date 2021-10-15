@@ -8,17 +8,34 @@ import java.util.List;
 
 public class Restaurant extends User {
     private String address;
-    private List<Product> list_products;
+    private List<Product> productList;
 
-    //Initiate a Restaurant
+    // Initiate a Restaurant
     public Restaurant(String name, String address, String phone_num, String password, char type_){
         super(name, phone_num, password, type_);
         this.address = address;
-        this.list_products = new ArrayList<Product>();
+        this.productList = new ArrayList<Product>();
     }
 
     public String getRestaurantAddress() { return this.address; }
-    public List<Product> getRestaurantProducts() { return this.list_products; }
-    public void addRestaurantProducts(Product p) { this.list_products.add(p); }
-    public void removeRestaurantProducts(Product p) {this.list_products.remove(p); }
+
+    public List<Product> getRestaurantProducts() { return this.productList; }
+
+    public boolean addRestaurantProduct(Product p) {
+        if (this.productList.contains(p)) {
+            return false;
+        } else {
+            this.productList.add(p);
+            return true;
+        }
+    }
+
+    public boolean removeRestaurantProduct(Product p) {
+            if (!this.productList.contains(p)) {
+                return false;
+            } else {
+                this.productList.remove(p);
+                return true;
+            }
+    }
 }
