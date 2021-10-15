@@ -1,11 +1,16 @@
 package Entity;
-
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Restaurant is a child class of User. User type 'r' is assigned to Restaurant class.
+ */
 
 public class Restaurant extends User {
     private String address;
     private List<Product> list_products;
+
+    //Initiate a Restaurant
     public Restaurant(String name, String address, String phone_num, String password, char type_){
         super(name, phone_num, password, type_);
         this.address = address;
