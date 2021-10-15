@@ -16,6 +16,7 @@ public class Restaurant extends User {
         this.address = address;
         this.list_products = new ArrayList<Product>();
     }
+
     public String getRestaurantAddress() { return this.address; }
     public List<Product> getRestaurantProducts() { return this.list_products; }
     public void addRestaurantProducts(Product p) { this.list_products.add(p); }
