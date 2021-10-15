@@ -20,37 +20,37 @@ public class UserTest {
     }
 
     @Test (timeout = 50)
-    public void TestGetCustomerUserName() {
+    public void testGetCustomerUserName() {
         assertEquals("Alex", customer.getUserName());
     }
 
     @Test (timeout = 50)
-    public void TestGetRestaurantUserName() {
+    public void testGetRestaurantUserName() {
         assertEquals("Ramen", restaurant.getUserName());
     }
 
     @Test (timeout = 50)
-    public void TestGetDeliveryPersonUserName() {
+    public void testGetDeliveryPersonUserName() {
         assertEquals("Jack", deliveryperson.getUserName());
     }
 
     @Test (timeout = 50)
-    public void TestGetCustomerPhone_num() {
+    public void testGetCustomerPhone_num() {
         assertEquals("4168237263", customer.getUserPhone_num());
     }
 
     @Test (timeout = 50)
-    public void TestGetRestaurantPhone_num() {
+    public void testGetRestaurantPhone_num() {
         assertEquals("4161234554", restaurant.getUserPhone_num());
     }
 
     @Test (timeout = 50)
-    public void TestGetDeliveryPeronPhone_num() {
+    public void testGetDeliveryPeronPhone_num() {
         assertEquals("4167892537", deliveryperson.getUserPhone_num());
     }
 
     @Test (timeout = 50)
-    public void TestGetCustomerPassword() {
+    public void testGetCustomerPassword() {
         assertEquals("asdf1234", customer.getUserPassword());
     }
 
@@ -60,22 +60,22 @@ public class UserTest {
     }
 
     @Test (timeout = 50)
-    public void TestGetDeliveryPersonPassword() {
+    public void testGetDeliveryPersonPassword() {
         assertEquals("1234567", deliveryperson.getUserPassword());
     }
 
     @Test (timeout = 50)
-    public void TestGetCustomerUserType() {
+    public void testGetCustomerUserType() {
         assertEquals('c', customer.getUserType());
     }
 
     @Test (timeout = 50)
-    public void TestGetRestaurantUserType() {
+    public void testGetRestaurantUserType() {
         assertEquals('r', restaurant.getUserType());
     }
 
     @Test (timeout = 50)
-    public void TestGetDeliveryPersonUserType() {
+    public void testGetDeliveryPersonUserType() {
         assertEquals('d', deliveryperson.getUserType());
     }
 
