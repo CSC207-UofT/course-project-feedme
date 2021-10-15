@@ -9,10 +9,21 @@ public class Restaurant extends User {
     public Restaurant(String name, String address, String phone_num, String password, char type_){
         super(name, phone_num, password, type_);
         this.address = address;
-        this.list_products = new ArrayList<Product>();
+        this.list_products = new ArrayList<>();
     }
+
     public String getRestaurantAddress() { return this.address; }
+
     public List<Product> getRestaurantProducts() { return this.list_products; }
-    public void addRestaurantProducts(Product p) { this.list_products.add(p); }
-    public void removeRestaurantProducts(Product p) {this.list_products.remove(p); }
+
+    public void removeRestaurantProducts(Product product) {this.list_products.remove(product); }
+
+    public boolean addProduct(Product product) {
+        if (!list_products.contains(product)) {
+            list_products.add(product);
+            return true;
+        }
+        return false;
+    }
 }
+
