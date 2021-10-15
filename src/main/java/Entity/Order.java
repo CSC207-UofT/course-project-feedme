@@ -10,7 +10,7 @@ public class Order {
     private List<Product> list_products;
     private String status;
 
-    //Initialize a order
+    //Initialize an order
     public Order(String id, List<Product> list_products){
         this.id = id;
         this.list_products = list_products;

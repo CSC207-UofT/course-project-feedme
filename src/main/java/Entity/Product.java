@@ -1,8 +1,5 @@
 package Entity;
 
-/**
- * Products name, id, price, and stock will store in here.
- */
 public class Product {
 
     private String name;
