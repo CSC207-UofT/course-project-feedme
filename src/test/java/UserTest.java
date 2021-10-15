@@ -1,8 +1,11 @@
-/**
+package src.test.java; /**
  * Test file for User class
  */
 
-import Entity.*;
+import Entity.Customer;
+import Entity.DeliveryPerson;
+import Entity.Restaurant;
+import Entity.User;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -20,17 +23,17 @@ public class UserTest {
     }
 
     @Test
-    public void TestCustomerConstructor() {
+    public void testCustomerConstructor() {
         assertEquals("Alex", customer.getUserName());
     }
 
     @Test
-    public void TestRestaurantConstructor() {
+    public void testRestaurantConstructor() {
         assertEquals("4161234554", restaurant.getUserPhone_num());
     }
 
     @Test
-    public void TestDeliveryPersonConstructor() {
+    public void testDeliveryPersonConstructor() {
         assertEquals('d', deliveryperson.getUserType());
     }
 
