@@ -12,9 +12,9 @@ public class Restaurant extends User {
         this.list_products = new ArrayList<>();
     }
 
-    public String getRestaurantAddress() { return this.address; }
+    public String getAddress() { return this.address; }
 
-    public List<Product> getRestaurantProducts() { return this.list_products; }
+    public List<Product> getProduct() { return this.list_products; }
 
     public boolean addProduct(Product product) {
         if (!list_products.contains(product)) {
@@ -24,7 +24,7 @@ public class Restaurant extends User {
         return false;
     }
 
-    public boolean removeRestaurantProducts(Product product) {
+    public boolean removeProduct(Product product) {
         if (list_products.contains(product)) {
             this.list_products.remove(product);
             return true;

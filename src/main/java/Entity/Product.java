@@ -11,7 +11,7 @@ public class Product {
     private int stock;
 
     // Initialize Product
-    public Product(String name, String id, float price, int stock){
+    public Product(String name, String id, double price, int stock){
         this.name = name;
         this.id = id;
         this.price = price;
