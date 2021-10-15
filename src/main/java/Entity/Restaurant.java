@@ -16,8 +16,6 @@ public class Restaurant extends User {
 
     public List<Product> getRestaurantProducts() { return this.list_products; }
 
-    public void removeRestaurantProducts(Product product) {this.list_products.remove(product); }
-
     public boolean addProduct(Product product) {
         if (!list_products.contains(product)) {
             list_products.add(product);
@@ -25,5 +23,14 @@ public class Restaurant extends User {
         }
         return false;
     }
+
+    public boolean removeRestaurantProducts(Product product) {
+        if (list_products.contains(product)) {
+            this.list_products.remove(product);
+            return true;
+        }
+        return false;
+    }
+
 }
 
