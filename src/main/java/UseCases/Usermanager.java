@@ -10,7 +10,7 @@ public class Usermanager {
     private HashMap<String, User> userHashMap;
 
     public Usermanager(){
-        this.userHashMap = new HashMap<String, User>();
+        this.userHashMap = new HashMap<>();
     }
 
     public boolean addUser(String phone_num, User user){
@@ -23,8 +23,11 @@ public class Usermanager {
 
     public boolean userLookup(String phone_num) { return this.userHashMap.containsKey(phone_num); }
 
-    public boolean checkPassword(String phone_num, String enter_password) {
-        return (this.userHashMap.get(phone_num).getUserPassword().equals(enter_password));
+    public boolean verifyUser(String phone_num, String enter_password) {
+        if (this.userHashMap.containsKey(phone_num)) {
+            return (this.userHashMap.get(phone_num).getUserPassword().equals(enter_password));
+        }
+        return false;
     }
 
     public Customer customerSignup(String name, String phone_num, String password, char type_, String address){

@@ -2,7 +2,6 @@ package src.test.java;
 
 import Entity.Order;
 import Entity.Product;
-import Entity.Restaurant;
 import org.junit.Before;
 import org.junit.Test;
 

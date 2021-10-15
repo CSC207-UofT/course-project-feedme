@@ -1,9 +1,5 @@
 package Entity;
 
-import javax.xml.xpath.XPathEvaluationResult;
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class User {
     private String name;
     private String phone_num;
