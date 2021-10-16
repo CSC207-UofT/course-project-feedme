@@ -22,7 +22,7 @@ Customer can order foods, Restaurant sells foods, and Delivery person can earn m
 #### 10/15/2021
 
 #####Signup
-* customer can now signup to our system!
+* customer can now sign up to our system!
 
 
 
