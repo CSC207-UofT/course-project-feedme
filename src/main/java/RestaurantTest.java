@@ -1,5 +1,7 @@
 package java;
 
+import Entity.Product;
+import Entity.Restaurant;
 import org.junit.Before;
 import org.junit.Test;
 

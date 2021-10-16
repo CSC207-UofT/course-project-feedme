@@ -2,7 +2,9 @@ Class name: OrderManager
 Parent class: None
 
 Responsibilities:
-*
+* create orders to the list
+* delete orders from the list
+* display all the orders that is in the list
 
 Collaborators:
-*
+* Order
