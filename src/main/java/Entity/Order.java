@@ -26,22 +26,23 @@ public class Order {
 
     public void setOrderStatus(String status) { this.status = status; }
 
-    // Add n number of Product p to listProduct. If there is enough stock for p, update p's stock and listProducts,
+    // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's stock and listProducts,
     // and return true. If stock is not enough, return false.
-    public boolean addProductToOrder(Product p, Integer n) {
-        if (listProducts.containsKey(p)) {
-            if (p.getProductStock() >= n) {// Check if there is enough stock
-                listProducts.put(p, listProducts.get(p) + n);
-                p.reduceProductStock(n);
+    public boolean addProductToOrder(Product product, Integer quantity) {
+        if (listProducts.containsKey(product)) {
+            if (product.getProductStock() >= quantity) {// Check if there is enough stock
+                listProducts.put(product, listProducts.get(product) + quantity);
+                product.reduceProductStock(quantity);
                 return true;
             } else {
+
                 return false;
             }
         }
         else {
-            if (p.getProductStock() >= n) {// Check if there is enough stock
-                listProducts.put(p, n);
-                p.reduceProductStock(n);
+            if (product.getProductStock() >= quantity) {// Check if there is enough stock
+                listProducts.put(product, quantity);
+                product.reduceProductStock(quantity);
                 return true;
             } else {
                 return false;
@@ -71,10 +72,10 @@ public class Order {
 
     public double getOrderPrice(){
         double order_price = 0.00;
-        Integer n = null;
-        for(Product p: listProducts.keySet()){
-            n = listProducts.get(p);
-            order_price += p.getProductPrice() * n ;
+        Integer quantity = null;
+        for(Product product: listProducts.keySet()){
+            quantity = listProducts.get(product);
+            order_price += product.getProductPrice() * quantity ;
         }
         return order_price;
     }
