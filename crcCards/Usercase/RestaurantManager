@@ -2,11 +2,11 @@ Class name: RestaurantManager
 Parent class: None
 
 Responsibilities:
-* Link restaurants with list of products(menu)
+* Renew restaurants menu
 * Link restaurants with orders
-* Assign order to Delivery person
+* Restaurant liquidate the inventory according to the products in the given orders
 
 Collaborators:
-+ Order
+* Order
 * Product
-* DeliveryPerson
+* OrderManager
