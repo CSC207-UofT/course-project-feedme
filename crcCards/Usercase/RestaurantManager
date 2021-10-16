@@ -1,0 +1,12 @@
+Class name: RestaurantManager
+Parent class: None
+
+Responsibilities:
+* Link restaurants with list of products(menu)
+* Link restaurants with orders
+* Assign order to Delivery person
+
+Collaborators:
++ Order
+* Product
+* DeliveryPerson

@@ -2,9 +2,10 @@ Class name: OrderManager
 Parent class: None
 
 Responsibilities:
-* create orders to the list
-* delete orders from the list
-* display all the orders that is in the list
+* Create an new order
+* Add or delete products of order
+* Track order status
 
 Collaborators:
+* Product
 * Order
