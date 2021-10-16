@@ -3,6 +3,7 @@ Parent class: User
 
 Responsibilities:
 * Store name, id, phone number and password of the delivery_person
+* Have a special character 'd' representing type of user
 * Getter for all of above.
 
 Collaborators:

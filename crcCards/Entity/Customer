@@ -2,8 +2,9 @@ Class name: Customer
 Parent class: User
 
 Responsibilities:
-* Store name, id, phone number, address and password of the customer
-* Getter for all of above.
+* Store name, phone number, address and password of the customer
+* Have a special character 'c' representing type of user
+* Getters for all of above.
 
 Collaborators:
 * User

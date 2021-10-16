@@ -2,7 +2,8 @@ Class name: Product
 Parent class: None
 
 Responsibilities:
-* Store name, price, stock, id of the product
+* Store name, price, product id of the product
+* Store stock of the product which is able to edit
 * Getter for all of above.
 
 Collaborators:

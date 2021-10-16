@@ -2,8 +2,10 @@ Class name: Order
 Parent class: None
 
 Responsibilities:
-* Store name, price, id, list of products and  of the order
-* Getter for all of above.
+* Store order id, list of products of the order
+* Store order status, which is able to edit
+* Getters for all of above
+* Be able to return the total price for the list of products
 
 Collaborators:
 * OderManager
