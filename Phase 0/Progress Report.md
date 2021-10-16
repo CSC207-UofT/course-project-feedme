@@ -15,7 +15,7 @@ system mode. As for the outer layer, the only class we have for controllers is `
 more classes as the project develops. However, you can hardly find a single trace of our first CRC cards version 
 since we came up with lots more ideas and better ways to achieve our goal as the coding progressed.
 
-###Summary of Skeleton Code
+###Summary of Skeleton Program
 The skeleton code contains six entity classes(`User`, `Restaurant`, `Customer`, `DeliveryPerson`, `Product` and 
 `Order`); four use cases(`OrderManager`, `ProductManager`, `RestaurantManager` and `UserManager`); one controller 
 (`UserSystemController`); one basic command line interface(`Systemoutput`); four unittest(`UserTest`, 
@@ -70,11 +70,11 @@ The skeleton code contains six entity classes(`User`, `Restaurant`, `Customer`, 
 - Wrote unittests for `Customer`.
 
 ####Bingchen Liu
-- Join in every group meeting and discuss ideas with group members.
-- Implement Class `Order` and modify Class `Restaurant`.
+- Join in every group meeting and participate in making decision of the project
+- Implement Class `Order` and modify Class `Restaurant`
 - Implement controller `UserSystemController`
-- Write JavaDoc for Class `User`,  `Restaurant`, `Customer`, `DeliveryPerson`, `Product` and `Order`.
-- Write unittest for `Order` and `Restaurant`.
+- Write JavaDoc for Class `User`,  `Restaurant`, `Customer`, `DeliveryPerson`, `Product` and `Order`
+- Write unittest for Class `Order` and `Restaurant`
 - Write summary of skeleton program
 
 ###Next Step
