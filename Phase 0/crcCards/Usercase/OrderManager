@@ -1,0 +1,12 @@
+Class name: OrderManager
+Parent class: None
+
+Responsibilities:
+* Create an new order
+* Add or delete products of order
+* Track order status
+
+Collaborators:
+* Product
+* Order
+* RestaurantManager
