@@ -3,9 +3,10 @@ Parent class: None
 
 Responsibilities:
 * Create user corresponding to type_ and store all users
+* Able to store users
 * Delete users
-* Able to check users
+* Verify users
 
 Collaborators:
-* User
+* User(Restaurant, Customer, DeliveryPerson)
 * SignUp

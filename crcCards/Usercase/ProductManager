@@ -4,8 +4,8 @@ Parent class: None
 Responsibilities:
 * create products to the list
 * delete products from the list
-* display all the products that is in the list
-* edit the status of stock availability of the product
+* Return products from the list
+* edit the stock of the product
 
 Collaborators:
 * Product
