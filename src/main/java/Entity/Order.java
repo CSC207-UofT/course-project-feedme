@@ -49,23 +49,23 @@ public class Order {
         }
     }
 
-    public boolean removeProductFromOrder(Product p, Integer n) {
-        if (listProducts.containsKey(p)) {
-            if (n.equals(listProducts.get(p))) {
-                listProducts.remove(p);
-                p.addProductStock(n);
+    public boolean removeProductFromOrder(Product product, Integer quantity) {
+        if (listProducts.containsKey(product)) {
+            if (quantity.equals(listProducts.get(product))) {
+                listProducts.remove(product);
+                product.addProductStock(quantity);
                 return true;
             }
-            else if (n < listProducts.get(p)) {
-                listProducts.put(p, listProducts.get(p) - n);
-                p.addProductStock(n);
+            else if (quantity < listProducts.get(product)) {
+                listProducts.put(product, listProducts.get(product) - quantity);
+                product.addProductStock(quantity);
                 return true;
             }
             else {
                 return false; // Number of product to remove > Product number in listProducts.
             }
         } else {
-            return false; // listProduct does not contain Product p.
+            return false; // listProduct does not contain Product product.
         }
     }
 
