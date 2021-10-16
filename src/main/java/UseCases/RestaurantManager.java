@@ -9,20 +9,23 @@ import java.util.HashMap;
 import java.util.List;
 
 public class RestaurantManager {
+    Restaurant restaurant;
     OrderManager o_manager;
-    public RestaurantManager(){this.o_manager = new OrderManager();}
+    public RestaurantManager(Restaurant restaurant){
+        this.restaurant = restaurant;
+        this.o_manager = new OrderManager();}
 
     //Add product to restaurant menu if boolean is true, vice versa.
-    public void editRestaurantMenu(Restaurant restaurant, Product item, boolean bool){
+    public void editRestaurantMenu(Product item, boolean bool){
         if(bool){
-            restaurant.addRestaurantProduct(item);
+            this.restaurant.addRestaurantProduct(item);
         }
-        restaurant.removeRestaurantProduct(item);
+        this.restaurant.removeRestaurantProduct(item);
     }
 
     //Change restaurant menu to a new one.
-    public void changeMenu(Restaurant restaurant, List<Product> menu){
-        restaurant.setProductList(menu);
+    public void changeMenu(List<Product> menu){
+        this.restaurant.setProductList(menu);
     }
 
     //Precondition: products in order are all from the restaurant.
