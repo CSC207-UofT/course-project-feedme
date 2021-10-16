@@ -30,7 +30,7 @@ public class Order {
     // and return true. If stock is not enough, return false.
     public boolean addProductToOrder(Product p, Integer n) {
         if (listProducts.containsKey(p)) {
-            if (p.checkProductAvailability(n)) {
+            if (p.getProductStock() >= n) {// Check if there is enough stock
                 listProducts.put(p, listProducts.get(p) + n);
                 p.reduceProductStock(n);
                 return true;
@@ -39,7 +39,7 @@ public class Order {
             }
         }
         else {
-            if (p.checkProductAvailability(n)) {
+            if (p.getProductStock() >= n) {// Check if there is enough stock
                 listProducts.put(p, n);
                 p.reduceProductStock(n);
                 return true;

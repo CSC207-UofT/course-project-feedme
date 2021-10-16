@@ -30,10 +30,4 @@ public class Product {
 
     public void reduceProductStock(int n) { this.stock -= n; }
 
-    // Check if there is enough stock if n number of products is ordered. Return true if stock is enough for making a
-    // order of n products. Return false if stock is not enough.
-    public boolean checkProductAvailability( Integer n) {
-        return this.stock >= n;
-    }
-
 }
