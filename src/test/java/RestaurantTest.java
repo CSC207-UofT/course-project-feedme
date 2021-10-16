@@ -15,6 +15,7 @@ public class RestaurantTest {
     @Before
     public void setUp() {
         popeyes = new Restaurant("Popeyes", "645 Yonge St", "0123456789", "abcd123", 'r');
+        assertEquals('r', popeyes.getUserType());
     }
 
     @Test

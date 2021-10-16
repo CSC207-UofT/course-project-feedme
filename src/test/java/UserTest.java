@@ -1,11 +1,11 @@
-/**
- * Test file for User class. Test all methods in User class.
- */
-
-import Entity.*;
+import Entity.Customer;
+import Entity.DeliveryPerson;
+import Entity.Restaurant;
+import Entity.User;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 public class UserTest {
     User customer;

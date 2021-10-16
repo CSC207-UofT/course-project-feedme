@@ -1,6 +1,5 @@
 package Entity;
 
-import java.util.List;
 import java.util.HashMap;
 
 /**
@@ -14,8 +13,8 @@ public class Order {
     //Initialize an order
     public Order(String id){
         this.id = id;
-        this.listProducts = new HashMap<Product, Integer>();
-        this.status = new String("Order placed");
+        this.listProducts = new HashMap<>();
+        this.status = "Order placed";
     }
 
     public String getOrderId() { return this.id; }
@@ -26,8 +25,8 @@ public class Order {
 
     public void setOrderStatus(String status) { this.status = status; }
 
-    // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's stock and listProducts,
-    // and return true. If stock is not enough, return false.
+    // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
+    // stock and listProducts, and return true. If stock is not enough, return false.
     public boolean addProductToOrder(Product product, Integer quantity) {
         if (listProducts.containsKey(product)) {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock
@@ -72,7 +71,7 @@ public class Order {
 
     public double getOrderPrice(){
         double order_price = 0.00;
-        Integer quantity = null;
+        Integer quantity;
         for(Product product: listProducts.keySet()){
             quantity = listProducts.get(product);
             order_price += product.getProductPrice() * quantity ;
