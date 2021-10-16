@@ -1,6 +1,29 @@
-## Replace this README.md!
+# FeedMe 
+##### Yoooo I need something to eat!
 
-This is a standard README.md file for you to replace. You'll want to include your own content here!
+---
 
-MD (Markdown) files use [Markdown formatting](https://guides.github.com/features/mastering-markdown/): 
-these look very much like .txt files, so you can write them in a very similar way.
+##Table of contents
+* Introduction
+* Updates
+* Specification
+* Installation
+
+---
+##Introduction
+This is a food ordering app that contains three type of users: Customer, Restaurant and Delivery person. 
+You only need to login with your account then we will automatically direct you to where you belong! 
+Customer can order foods, Restaurant sells foods, and Delivery person can earn money from delivering food!
+
+---
+
+##Update
+
+#### 10/15/2021
+
+#####Signup
+* customer can now signup to our system!
+
+
+
+
