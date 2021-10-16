@@ -1,11 +1,10 @@
 #Specification of Feedme 
 
 This software a food delivery system that allows users to browse and order food in the local restaurants. While 
-using this system, users can choose whether they are a customer, restaurant owner, or a delivery person. Then, a 
-unique user id will be created for each user based on user’s selection (i.e. user id for a customer will start with 
-“C” followed by five digits, while user id for a restaurant owner will start with “R”, and user id for a delivery 
-person will start “D). Users login to this system with their phone number. While logging in, the system will check 
-their user id and direct them to different interfaces.
+using this system, users can choose whether they are a customer, restaurant owner, or a delivery person. Then, each 
+user will be assigned to a specific type based on their selection (i.e. 'c' for customer, 'r' for restaurant, and 
+'d' for delivery person). Users login to this system with their phone number. While logging in, the system will check 
+their user type and direct them to different interfaces.
 
 There are three interfaces in this system: customer, restaurant owner, and delivery person that they all share an 
 order tracking feature, and they can all users ordering system to edit order status. In customer interface, users 

@@ -1,12 +1,8 @@
 package Entity;
 
-import javax.xml.xpath.XPathEvaluationResult;
-import java.util.ArrayList;
-import java.util.List;
-
 public abstract class User {
-    private String phone_num;
     private String name;
+    private String phone_num;
     private String password;
     private char type_;
 
@@ -20,7 +16,7 @@ public abstract class User {
     public String getUserName() { return this.name; }
     public String getUserPhone_num() { return this.phone_num; }
     public String getUserPassword() { return this.password; }
-    public char getUserType_() { return this.type_; }
+    public char getUserType() { return this.type_; }
 }
 
 
