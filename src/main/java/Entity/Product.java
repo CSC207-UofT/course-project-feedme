@@ -2,13 +2,20 @@ package Entity;
 
 
 public class Product {
-
     private String name;
     private String id;
     private double price;
     private int stock;
 
-    // Initialize Product
+
+    /**
+     * Construct a Product, giving the name, id, price and stock.
+     *
+     * @param name      The name of Product
+     * @param id        The id of Product
+     * @param price     The price of Product
+     * @param stock     The stock of Product
+     */
     public Product(String name, String id, double price, int stock){
         this.name = name;
         this.id = id;

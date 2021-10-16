@@ -9,7 +9,7 @@ public class Restaurant extends User {
 
     /**
      * Restaurant is a child class of User. User type 'r' is assigned to Restaurant class.
-     * Construct a Restaurant, giving them the name, phone_num, password, type and address.
+     * Construct a Restaurant, giving the name, phone_num, password, type and address.
      *
      * @param name        The name of Restaurant
      * @param phone_num   The phone number of Restaurant
@@ -20,7 +20,7 @@ public class Restaurant extends User {
     public Restaurant(String name, String address, String phone_num, String password, char type_){
         super(name, phone_num, password, type_);
         this.address = address;
-        this.productList = new ArrayList<Product>();
+        this.productList = new ArrayList<>();
     }
 
 
@@ -56,7 +56,7 @@ public class Restaurant extends User {
 
 
     /**
-     * Attempt to remove an exiting Product from the Restaurant's productList, if the product
+     * Attempt to remove an existing Product from the Restaurant's productList, if the product
      * is in the productList. Otherwise, return False.
      *
      * @return True if Product removes from the productList successfully.
