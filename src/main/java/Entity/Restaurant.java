@@ -21,6 +21,10 @@ public class Restaurant extends User {
 
     public List<Product> getRestaurantProducts() { return this.productList; }
 
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
+    }
+
     public boolean addRestaurantProduct(Product p) {
         if (this.productList.contains(p)) {
             return false;
