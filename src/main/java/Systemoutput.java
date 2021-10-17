@@ -1,10 +1,10 @@
-import UseCases.Usermanager;
+import UseCases.UserManager;
 
 import java.util.Scanner;
 
 public class Systemoutput {
     public static void main(String[] args) {
-        Usermanager usermanager = new Usermanager();
+        UserManager usermanager = new UserManager();
         System.out.println("Welcome to Feed Me! Do you have a account? Type Y or N. If no, I will direct you to sign" +
                 " up page!");
 

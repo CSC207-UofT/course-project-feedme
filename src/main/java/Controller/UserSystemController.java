@@ -1,12 +1,12 @@
 package Controller;
 
 import Entity.User;
-import UseCases.Usermanager;
+import UseCases.UserManager;
 
 public class UserSystemController {
-    private Usermanager um;
+    private UserManager um;
 
-    private UserSystemController(Usermanager um) { this.um = um; }
+    private UserSystemController(UserManager um) { this.um = um; }
 
     public void create(String phone_num, User user) { um.createUser(phone_num, user); }
 

@@ -6,10 +6,10 @@ import Entity.Restaurant;
 import Entity.User;
 import java.util.HashMap;
 
-public class Usermanager {
-    private HashMap<String, User> userHashMap;
+public class UserManager {
+    private final HashMap<String, User> userHashMap;
 
-    public Usermanager(){
+    public UserManager(){
         this.userHashMap = new HashMap<>();
     }
 
@@ -33,6 +33,8 @@ public class Usermanager {
     public Customer customerSignup(String name, String phone_num, String password, char type_, String address){
         return new Customer(name, address, phone_num, password, type_);
     }
+
+    //Since we are not sure when we need to use them , we just leave it.
     public Restaurant restaurantSignup(String name, String phone_num, String password, char type_, String address){
         return new Restaurant(name, address, phone_num, password, type_);
     }
