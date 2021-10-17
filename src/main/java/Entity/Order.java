@@ -6,8 +6,9 @@ import java.util.HashMap;
  * This is a controller to our ordering process.
  */
 public class Order {
-    private String id;
-    private HashMap<Product, Integer> listProducts; // key is a Product, value is product number
+    private final String id;
+    private HashMap<Product, Integer> listProducts; // key is a Product, value is product number. Since we are adding
+    // Products to listProducs, we wil not make listProducts final.
     private String status;
 
     //Initialize an order
