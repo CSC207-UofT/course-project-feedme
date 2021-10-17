@@ -13,7 +13,6 @@ public class OrderTest {
         order_1 = new Order("1");
     }
 
-
     @Test
     public void testRemoveProduct() {
         Product ten_wings = new Product("10 Wings", "1", 16.49, 5);
