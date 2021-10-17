@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
 
-public class UsermanagerTest {
+public class UserManagerTest {
     UserManager um;
 
     @Before
@@ -19,6 +19,6 @@ public class UsermanagerTest {
         User customer = new Customer("Alex", "25 St. George St" ,"4168237263", "asdf1234",'c');
         assertTrue(um.createUser("0123456789", customer));
         assertTrue(um.userLookup("0123456789"));
-     }
+    }
 
 }
