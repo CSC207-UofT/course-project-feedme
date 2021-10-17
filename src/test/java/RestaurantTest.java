@@ -1,11 +1,8 @@
-
 import Entity.Product;
 import Entity.Restaurant;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -31,5 +28,15 @@ public class RestaurantTest {
         assertFalse(popeyes.addRestaurantProduct(ten_wings));
         assertTrue(popeyes.addRestaurantProduct(tender_combo));
         assertEquals(2, popeyes.getRestaurantProducts().size());
+    }
+
+    @Test
+    public void testRemoveProduct() {
+        Product ten_wings = new Product("10 Wings", "1", 16.49, 2);
+        Product tender_combo = new Product("Tender Combo", "2", 11.79, 2);
+        assertTrue(popeyes.addRestaurantProduct(ten_wings));
+        assertTrue(popeyes.addRestaurantProduct(tender_combo));
+        assertTrue(popeyes.removeRestaurantProduct(ten_wings));
+        assertEquals(1, popeyes.getRestaurantProducts().size());
     }
 }
