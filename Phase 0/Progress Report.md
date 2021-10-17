@@ -79,8 +79,8 @@ The skeleton code contains six entity classes(`User`, `Restaurant`, `Customer`, 
 
 ### Next Step
 We be divided into two subgroups:  
-1.Edward Wan and Huiru Tan will finish the Login/Signup System.
-2.Jing Liu, Bingchen Liu, Lulu Cheng, and Bowen Liang will finish the order system (customer can make an order, 
+- Edward Wan and Huiru Tan will finish the Login/Signup System.
+- Jing Liu, Bingchen Liu, Lulu Cheng, and Bowen Liang will finish the order system (customer can make an order, 
 restaurant can confirm order, delivery person can pick up order)
 - Code implementation:
   - Login/Signup System 
