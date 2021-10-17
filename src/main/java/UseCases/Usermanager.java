@@ -6,11 +6,10 @@ import Entity.Restaurant;
 import Entity.User;
 import java.util.HashMap;
 
-public class UserManager {
-    private HashMap<String, User> userHashMap;  //Since a UserManager could add and remove users, the field may not
-                                                // noy be final
+public class Usermanager {
+    private HashMap<String, User> userHashMap;
 
-    public UserManager(){
+    public Usermanager(){
         this.userHashMap = new HashMap<>();
     }
 
@@ -34,13 +33,9 @@ public class UserManager {
     public Customer customerSignup(String name, String phone_num, String password, char type_, String address){
         return new Customer(name, address, phone_num, password, type_);
     }
-
-    // For method restaurantSignup and deliveryPersonSignup, since we are not sure the relation between them and Login &
-    // Signup, we just leave them as they are
     public Restaurant restaurantSignup(String name, String phone_num, String password, char type_, String address){
         return new Restaurant(name, address, phone_num, password, type_);
     }
-
     public DeliveryPerson deliveryPersonSignup(String name, String phone_num, String password, char type_){
         return new DeliveryPerson(name, phone_num, password, type_);
     }

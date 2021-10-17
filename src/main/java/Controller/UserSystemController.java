@@ -1,13 +1,12 @@
 package Controller;
 
 import Entity.User;
-import UseCases.UserManager;
+import UseCases.Usermanager;
 
-// Since we have not decided how to use this class, the class and its methods are never used
 public class UserSystemController {
-    private UserManager um;
+    private Usermanager um;
 
-    private UserSystemController(UserManager um) { this.um = um; }
+    private UserSystemController(Usermanager um) { this.um = um; }
 
     public void create(String phone_num, User user) { um.createUser(phone_num, user); }
 
