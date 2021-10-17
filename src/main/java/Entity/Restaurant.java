@@ -3,8 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant extends User {
-    private String address;
-    private List<Product> productList;
+    private final String address;
+    private List<Product> productList;  //Since restaurant can add and remove products from productList, the field may
+                                        //not be final.
 
 
     /**
