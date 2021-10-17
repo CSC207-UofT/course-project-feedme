@@ -6,10 +6,10 @@ import Entity.Restaurant;
 import Entity.User;
 import java.util.HashMap;
 
-public class Usermanager {
+public class UserManager {
     private HashMap<String, User> userHashMap;
 
-    public Usermanager(){
+    public UserManager(){
         this.userHashMap = new HashMap<>();
     }
 
