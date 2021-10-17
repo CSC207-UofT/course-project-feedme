@@ -1,7 +1,7 @@
 package Entity;
 
 public class Customer extends User {
-    private String address;
+    private final String address;
 
 
     /**
