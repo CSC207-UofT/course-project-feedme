@@ -54,7 +54,7 @@ The skeleton code contains six entity classes(`User`, `Restaurant`, `Customer`, 
 - Joining the discussion about the specification and CRC Cards model. Collecting the opinion and forming a primary 
   edition of the CRC model for the entity layer. Generating the CRC cards for the use case and controller according 
   to the code.
-  - Write the `OrderManager` and `ProductManager` parts.
+- Write the `OrderManager` and `ProductManager` parts.
 - Write the unittests for the `Product` and join to write the unittests for the `Restaurant`.
 
 #### Bowen Liang
