@@ -33,9 +33,12 @@ public class UserManager {
     public Customer customerSignup(String name, String phone_num, String password, char type_, String address){
         return new Customer(name, address, phone_num, password, type_);
     }
+    
+    //Since we are not sure when we need to use them , we just leave it.
     public Restaurant restaurantSignup(String name, String phone_num, String password, char type_, String address){
         return new Restaurant(name, address, phone_num, password, type_);
     }
+    
     public DeliveryPerson deliveryPersonSignup(String name, String phone_num, String password, char type_){
         return new DeliveryPerson(name, phone_num, password, type_);
     }
