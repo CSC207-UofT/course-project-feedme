@@ -32,7 +32,7 @@ public class Order {
         if (listProducts.containsKey(product)) {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock
                 listProducts.put(product, listProducts.get(product) + quantity);
-                product.reduceProductStock(quantity);
+                product.updateStock(-quantity);
                 return true;
             } else {
 
@@ -42,7 +42,7 @@ public class Order {
         else {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock
                 listProducts.put(product, quantity);
-                product.reduceProductStock(quantity);
+                product.updateStock(-quantity);
                 return true;
             } else {
                 return false;
@@ -54,12 +54,12 @@ public class Order {
         if (listProducts.containsKey(product)) {
             if (quantity.equals(listProducts.get(product))) {
                 listProducts.remove(product);
-                product.addProductStock(quantity);
+                product.updateStock(quantity);
                 return true;
             }
             else if (quantity < listProducts.get(product)) {
                 listProducts.put(product, listProducts.get(product) - quantity);
-                product.addProductStock(quantity);
+                product.updateStock(quantity);
                 return true;
             }
             else {

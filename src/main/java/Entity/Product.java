@@ -33,8 +33,6 @@ public class Product {
 
     public int getProductStock() { return this.stock; }
 
-    public void addProductStock(int n) { this.stock += n; }
-
-    public void reduceProductStock(int n) { this.stock -= n; }
+    public void updateStock(int n) { this.stock += n; }
 
 }
