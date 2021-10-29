@@ -1,0 +1,13 @@
+Class name: Restaurant
+Parent: User
+
+Responsibilities:
+* Store name, phone number, address and password of the restaurant
+* Store list of products for the restaurant which is able to edit
+* Have a special character 'r' representing type of user
+* Getters for all of above.
+
+Collaborators:
+* User
+* UserManage
+* Product

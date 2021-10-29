@@ -1,0 +1,13 @@
+Class name: ProductManager
+Parent class: None
+
+Responsibilities:
+* create products to the list
+* delete products from the list
+* Return products from the list
+* edit the stock of the product
+
+Collaborators:
+* Product
+* Restaurant
+* Order

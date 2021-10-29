@@ -1,4 +1,4 @@
-##Scenario Walk-through
+## Scenario Walk-through
 Feed Me app starts with a login/signup page, it requires user to 
 log in on their account for Usermanager to identify its user type, 
 to direct the user into the different interface(customer, restaurant and

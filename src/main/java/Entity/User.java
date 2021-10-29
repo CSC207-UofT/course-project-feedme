@@ -1,10 +1,10 @@
 package Entity;
 
 public abstract class User {
-    private String name;
-    private String phone_num;
-    private String password;
-    private char type_;
+    private final String name;
+    private final String phone_num;
+    private final String password;
+    private final char type_;
 
     /**
      * Construct a User, giving the name, phone_num, password, and type.

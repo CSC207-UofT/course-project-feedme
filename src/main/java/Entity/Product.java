@@ -2,9 +2,9 @@ package Entity;
 
 
 public class Product {
-    private String name;
-    private String id;
-    private double price;
+    private final String name;
+    private final String id;
+    private final double price;
     private int stock;
 
 
@@ -33,8 +33,6 @@ public class Product {
 
     public int getProductStock() { return this.stock; }
 
-    public void addProductStock(int n) { this.stock += n; }
-
-    public void reduceProductStock(int n) { this.stock -= n; }
+    public void updateStock(int n) { this.stock += n; }
 
 }

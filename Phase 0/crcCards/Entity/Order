@@ -1,0 +1,11 @@
+Class name: Order
+Parent class: None
+
+Responsibilities:
+* Store order id, list of products of the order
+* Store order status, which is able to edit
+* Getters for all of above
+* Be able to return the total price for the list of products
+
+Collaborators:
+* OderManager
