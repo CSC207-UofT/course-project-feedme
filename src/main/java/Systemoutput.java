@@ -1,8 +1,6 @@
-import UseCases.Usermanager;
-import UserInterface.Login;
-import UserInterface.Signup;
+import Controller.Login;
+import Controller.Signup;
 
-import java.util.Objects;
 import java.util.Scanner;
 
 public class Systemoutput {

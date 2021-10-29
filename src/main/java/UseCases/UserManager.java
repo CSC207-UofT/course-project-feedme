@@ -14,7 +14,7 @@ public class UserManager {
         this.userHashMap = new HashMap<>();
     }
 
-    public boolean createUser(String phone_num, User user){
+    public boolean addUser(String phone_num, User user){
         if(!this.userHashMap.containsKey(phone_num)){
             this.userHashMap.put(phone_num, user);
             return true;
