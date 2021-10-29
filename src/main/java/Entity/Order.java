@@ -1,34 +1,80 @@
 package Entity;
 
-import java.util.List;
+import java.util.HashMap;
 
 /**
  * This is a controller to our ordering process.
  */
 public class Order {
-    private int o_id;
-    private List<Product> list_products;
+    private String id;
+    private HashMap<Product, Integer> listProducts; // key is a Product, value is product number
     private String status;
 
-    //Initialize a order
-    public Order(int o_id, List<Product> list_products){
-        this.o_id = o_id;
-        this.list_products = list_products;
-        this.status = new String("Order placed");
+    //Initialize an order
+    public Order(String id){
+        this.id = id;
+        this.listProducts = new HashMap<>();
+        this.status = "Order placed";
     }
 
-    public int getOrderId() { return this.o_id; }
+    public String getOrderId() { return this.id; }
 
-    public List<Product> getOrderProducts() { return this.list_products; }
+    public HashMap<Product, Integer> getOrderProducts() { return this.listProducts; }
 
     public String getOrderStatus() { return this.status; }
 
     public void setOrderStatus(String status) { this.status = status; }
 
+    // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
+    // stock and listProducts, and return true. If stock is not enough, return false.
+    public boolean addProductToOrder(Product product, Integer quantity) {
+        if (listProducts.containsKey(product)) {
+            if (product.getProductStock() >= quantity) {// Check if there is enough stock
+                listProducts.put(product, listProducts.get(product) + quantity);
+                product.reduceProductStock(quantity);
+                return true;
+            } else {
+
+                return false;
+            }
+        }
+        else {
+            if (product.getProductStock() >= quantity) {// Check if there is enough stock
+                listProducts.put(product, quantity);
+                product.reduceProductStock(quantity);
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public boolean removeProductFromOrder(Product product, Integer quantity) {
+        if (listProducts.containsKey(product)) {
+            if (quantity.equals(listProducts.get(product))) {
+                listProducts.remove(product);
+                product.addProductStock(quantity);
+                return true;
+            }
+            else if (quantity < listProducts.get(product)) {
+                listProducts.put(product, listProducts.get(product) - quantity);
+                product.addProductStock(quantity);
+                return true;
+            }
+            else {
+                return false; // Number of product to remove > Product number in listProducts.
+            }
+        } else {
+            return false; // listProduct does not contain Product product.
+        }
+    }
+
     public double getOrderPrice(){
-        double order_price = 0;
-        for(Product p: list_products){
-            order_price += p.getProductPrice();
+        double order_price = 0.00;
+        Integer quantity;
+        for(Product product: listProducts.keySet()){
+            quantity = listProducts.get(product);
+            order_price += product.getProductPrice() * quantity ;
         }
         return order_price;
     }
