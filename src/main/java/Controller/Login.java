@@ -1,7 +1,7 @@
-package UserInterface;
+package Controller;
 
 import Entity.User;
-import UseCases.Usermanager;
+import UseCases.UserManager;
 
 import java.util.Scanner;
 
@@ -10,7 +10,7 @@ import java.util.Scanner;
  */
 public class Login {
     public void output(){
-        Usermanager usermanager = new Usermanager();
+        UserManager userManager = new UserManager();
         Scanner sc = new Scanner(System.in);
 
         boolean verifier = false;
@@ -19,7 +19,7 @@ public class Login {
             String phone_input = sc.nextLine();
             System.out.println("Please enter your password: ");
             String password_input = sc.nextLine();
-            if (usermanager.check_password(phone_input, password_input)){
+            if (userManager.verifyUser(phone_input, password_input)){
                 verifier = true;
             }
         }

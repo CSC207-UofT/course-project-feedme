@@ -14,7 +14,7 @@ public class UserManager {
         this.userHashMap = new HashMap<>();
     }
 
-    public boolean createUser(String phone_num, User user){
+    public boolean addUser(String phone_num, User user){
         if(!this.userHashMap.containsKey(phone_num)){
             this.userHashMap.put(phone_num, user);
             return true;
@@ -31,7 +31,7 @@ public class UserManager {
         return false;
     }
 
-    public Customer customerSignup(String name, String phone_num, String password, char type_, String address){
+    public Customer createUser(String name, String phone_num, String password, char type_, String address){
         return new Customer(name, address, phone_num, password, type_);
     }
 
