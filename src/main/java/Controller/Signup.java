@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Signup {
     public void output(){
-        UserManager usermManager = new UserManager();
+        UserManager userManager = new UserManager();
         Scanner sc = new Scanner(System.in);
         System.out.println("Thank you to join Feed Me! May I get your name please?");
         String in_name = sc.nextLine();
@@ -25,7 +25,7 @@ public class Signup {
                     "provide your address.");
             String in_address = sc.nextLine();
 
-            usermManager.addUser(in_phone_num, usermManager.customerSignup(in_name, in_phone_num,
+            userManager.addUser(in_phone_num, userManager.customerSignup(in_name, in_phone_num,
                     in_password, 'c', in_address));
             System.out.println("We have created your account, you are now able to sign in!");
         }
@@ -34,7 +34,7 @@ public class Signup {
             System.out.println(("Thank you for partnering with FeedMe, the last step we would like to know your " +
                     "restaurant location."));
             String in_address = sc.nextLine();
-            usermManager.addUser(in_phone_num, usermManager.customerSignup(in_name, in_phone_num, in_password,
+            userManager.addUser(in_phone_num, userManager.customerSignup(in_name, in_phone_num, in_password,
                             'r', in_address));
 
             System.out.println("We have created your account! You are now able to sign in to your account!");
