@@ -7,20 +7,20 @@ import java.util.HashMap;
  */
 public class Order {
     private final String id;
-    private HashMap<Product, Integer> listProducts; // key is a Product, value is product number. Since we are adding
+    private HashMap<Product, Integer> productList; // key is a Product, value is product number. Since we are adding
     // Products to listProducs, we wil not make listProducts final.
     private String status;
 
     //Initialize an order
     public Order(String id){
         this.id = id;
-        this.listProducts = new HashMap<>();
+        this.productList = new HashMap<>();
         this.status = "Order placed";
     }
 
     public String getOrderId() { return this.id; }
 
-    public HashMap<Product, Integer> getOrderProducts() { return this.listProducts; }
+    public HashMap<Product, Integer> getOrderProducts() { return this.productList; }
 
     public String getOrderStatus() { return this.status; }
 
@@ -29,9 +29,9 @@ public class Order {
     // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
     // stock and listProducts, and return true. If stock is not enough, return false.
     public boolean addProductToOrder(Product product, Integer quantity) {
-        if (listProducts.containsKey(product)) {
+        if (productList.containsKey(product)) {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock
-                listProducts.put(product, listProducts.get(product) + quantity);
+                productList.put(product, productList.get(product) + quantity);
                 product.updateStock(-quantity);
                 return true;
             } else {
@@ -41,7 +41,7 @@ public class Order {
         }
         else {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock
-                listProducts.put(product, quantity);
+                productList.put(product, quantity);
                 product.updateStock(-quantity);
                 return true;
             } else {
@@ -51,14 +51,14 @@ public class Order {
     }
 
     public boolean removeProductFromOrder(Product product, Integer quantity) {
-        if (listProducts.containsKey(product)) {
-            if (quantity.equals(listProducts.get(product))) {
-                listProducts.remove(product);
+        if (productList.containsKey(product)) {
+            if (quantity.equals(productList.get(product))) {
+                productList.remove(product);
                 product.updateStock(quantity);
                 return true;
             }
-            else if (quantity < listProducts.get(product)) {
-                listProducts.put(product, listProducts.get(product) - quantity);
+            else if (quantity < productList.get(product)) {
+                productList.put(product, productList.get(product) - quantity);
                 product.updateStock(quantity);
                 return true;
             }
@@ -73,8 +73,8 @@ public class Order {
     public double getOrderPrice(){
         double order_price = 0.00;
         Integer quantity;
-        for(Product product: listProducts.keySet()){
-            quantity = listProducts.get(product);
+        for(Product product: productList.keySet()){
+            quantity = productList.get(product);
             order_price += product.getProductPrice() * quantity ;
         }
         return order_price;
