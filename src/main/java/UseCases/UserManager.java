@@ -31,7 +31,7 @@ public class UserManager {
         return false;
     }
 
-    public Customer customerSignup(String name, String phone_num, String password, char type_, String address){
+    public Customer createUser(String name, String phone_num, String password, char type_, String address){
         return new Customer(name, address, phone_num, password, type_);
     }
 
