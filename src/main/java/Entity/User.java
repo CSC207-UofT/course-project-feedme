@@ -4,7 +4,7 @@ public abstract class User {
     private final String name;
     private final String phone_num;
     private final String password;
-    private final char type_;
+    private final String type_;
 
     /**
      * Construct a User, giving the name, phone_num, password, and type.
@@ -14,7 +14,7 @@ public abstract class User {
      * @param password    The password of User
      * @param type_       The type of User
      */
-    public User(String name, String phone_num, String password, char type_){
+    public User(String name, String phone_num, String password, String type_){
         this.name = name;
         this.phone_num = phone_num;
         this.password = password;
@@ -27,7 +27,7 @@ public abstract class User {
 
     public String getUserPassword() { return this.password; }
 
-    public char getUserType() { return this.type_; }
+    public String getUserType() { return this.type_; }
 }
 
 
