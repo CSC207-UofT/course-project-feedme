@@ -1,10 +1,14 @@
 package Entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public abstract class User {
     private final String name;
     private final String phone_num;
     private final String password;
     private final char type_;
+    private final List<Order> orderHistory;
 
     /**
      * Construct a User, giving the name, phone_num, password, and type.
@@ -19,6 +23,7 @@ public abstract class User {
         this.phone_num = phone_num;
         this.password = password;
         this.type_ = type_;
+        this.orderHistory = new ArrayList<>();
     }
 
     public String getUserName() { return this.name; }
@@ -28,6 +33,10 @@ public abstract class User {
     public String getUserPassword() { return this.password; }
 
     public char getUserType() { return this.type_; }
+
+    public void addOrderToOrderHistory(Order order) { this.orderHistory.add(order);}
+
+    public List<Order> getOrderHistory() {return this.orderHistory;}
 }
 
 

@@ -31,19 +31,19 @@ public class UserManager {
         return false;
     }
 
-    public Customer customerSignup(String name, String phone_num, String password, char type_, String address){
-        return new Customer(name, address, phone_num, password, type_);
-    }
-
-    // For method restaurantSignup and deliveryPersonSignup, since we are not sure the relation between them and Login &
-    // Signup, we just leave them as they are
-    public Restaurant restaurantSignup(String name, String phone_num, String password, char type_, String address){
-        return new Restaurant(name, address, phone_num, password, type_);
-    }
-
-    public DeliveryPerson deliveryPersonSignup(String name, String phone_num, String password, char type_){
-        return new DeliveryPerson(name, phone_num, password, type_);
-    }
+//    public Customer createCustomer(String name, String phone_num, String password, char type_, String address){
+//        return new Customer(name, address, phone_num, password, type_);
+//    }
+//
+//    // For method restaurantSignup and deliveryPersonSignup, since we are not sure the relation between them and Login &
+//    // Signup, we just leave them as they are
+//    public Restaurant createRestaurant(String name, String phone_num, String password, char type_, String address){
+//        return new Restaurant(name, address, phone_num, password, type_);
+//    }
+//
+//    public DeliveryPerson createDeliveryPerson(String name, String phone_num, String password, char type_){
+//        return new DeliveryPerson(name, phone_num, password, type_);
+//    }
 }
 
 

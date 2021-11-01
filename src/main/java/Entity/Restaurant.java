@@ -24,7 +24,6 @@ public class Restaurant extends User {
         this.productList = new ArrayList<>();
     }
 
-
     /**
      * Get Restaurant's address.
      *

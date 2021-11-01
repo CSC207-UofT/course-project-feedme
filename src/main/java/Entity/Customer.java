@@ -1,5 +1,7 @@
 package Entity;
 
+import java.util.ArrayList;
+
 public class Customer extends User {
     private final String address;
 
