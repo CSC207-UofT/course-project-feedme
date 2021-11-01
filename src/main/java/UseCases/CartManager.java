@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.HashMap;
 
 
-public class OrderManager {
+public class CartManager {
 
-    private HashMap<Product, Integer> cart;
+    private Cart cart;
 
-    public OrderManager(){ this.cart = new HashMap<Product, Integer>(); }
+    public CartManager(){ this.cart = new Cart(); }
 
     public boolean verifyProductName(Restaurant restaurant, String productName) {
         for (Product product: restaurant.getRestaurantMenu()) {

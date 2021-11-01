@@ -1,7 +1,7 @@
 package Controller;
 
 import Entity.*;
-import UseCases.OrderManager;
+import UseCases.CartManager;
 import java.util.Scanner;
 import java.util.List;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ public class OrderSystem {
     private Restaurant restaurant;
 
     public void orderSystem() {
-        OrderManager orderManager = new OrderManager();
+        CartManager cartManager = new CartManager();
         Scanner scan = new Scanner(System.in);
         //TODO: Show menu
 
@@ -26,21 +26,21 @@ public class OrderSystem {
                 System.out.println("Please enter the name of the product that you would like to order:");
                 productNameIn = scan.nextLine();
                 //TODO: Check if product name is input correctly if not ask client to input again.
-                if (!orderManager.verifyProductName(restaurant, productNameIn)) {
+                if (!cartManager.verifyProductName(restaurant, productNameIn)) {
                     System.out.println("The product you entered is not in the menu, please check the menu and entered " +
                             "again:");
                     //TODO: Show menu
                 } else {
                     verifyProductName = true;
-                    productIn = orderManager.productNameToProduct(restaurant, productNameIn);
+                    productIn = cartManager.productNameToProduct(restaurant, productNameIn);
                 }
             }
 
             System.out.println("Please enter the quantity you would like to order:");
             quantityIn = Integer.valueOf(scan.nextLine());
             //TODO: Check if there is enough stock. If there isn't enough stock, print stock number.
-            if (orderManager.checkStockAvailability(productIn, quantityIn)) {
-                orderManager.addToCart(productIn, quantityIn);
+            if (cartManager.checkStockAvailability(productIn, quantityIn)) {
+                cartManager.addToCart(productIn, quantityIn);
                 System.out.println(productNameIn + " has added to your cart");
                 //TODO: Show cart
             } else {
