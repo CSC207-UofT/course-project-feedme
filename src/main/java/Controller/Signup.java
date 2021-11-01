@@ -2,13 +2,12 @@ package Controller;
 
 import UseCases.UserManager;
 
-import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Signup {
-    public void output() throws FileNotFoundException {
+    public void output() {
         UserManager userManager = new UserManager();
-        userManager.init();
+        userManager.initUserMap();
         Scanner sc = new Scanner(System.in);
         System.out.println("Thank you to join Feed Me! May I get your name please?");
         String in_name = sc.nextLine();
