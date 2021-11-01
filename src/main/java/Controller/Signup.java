@@ -23,7 +23,7 @@ public class Signup {
                     "provide your address.");
             String in_address = sc.nextLine();
 
-            userManager.addUser(in_phone_num, userManager.createUser(in_name, in_phone_num,
+            userManager.addUser(in_phone_num, userManager.createCustomer(in_name, in_phone_num,
                     in_password, 'c', in_address));
             System.out.println("We have created your account, you are now able to sign in!");
         }
@@ -32,7 +32,7 @@ public class Signup {
             System.out.println(("Thank you for partnering with FeedMe, the last step we would like to know your " +
                     "restaurant location."));
             String in_address = sc.nextLine();
-            userManager.addUser(in_phone_num, userManager.createUser(in_name, in_phone_num, in_password,
+            userManager.addUser(in_phone_num, userManager.createRestaurant(in_name, in_phone_num, in_password,
                             'r', in_address));
 
             System.out.println("We have created your account! You are now able to sign in to your account!");

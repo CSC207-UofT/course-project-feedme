@@ -1,20 +1,49 @@
 package UseCases;
 
-import Entity.Order;
-
+import Entity.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 
+
 public class OrderManager {
-    // TODO implement Command Design Pattern
-    HashMap<String, Order> OrderHistroy;
 
-    public OrderManager(){ this.OrderHistroy = new HashMap<String, Order>(); }
+    private HashMap<Product, Integer> cart;
 
-    public boolean createOrder(String id, Order order) {
-        if (! this.OrderHistroy.containsKey(id)) {
-            this.OrderHistroy.put(id, order);
-            return true;
+    public OrderManager(){ this.cart = new HashMap<Product, Integer>(); }
+
+    public boolean verifyProductName(Restaurant restaurant, String productName) {
+        for (Product product: restaurant.getRestaurantMenu()) {
+            if (product.getProductName().equals(productName)) {
+                return true;
+            }
         }
         return false;
     }
+
+    public Product productNameToProduct(Restaurant restaurant, String productName) {
+        for (Product product: restaurant.getRestaurantMenu()) {
+            if (product.getProductName().equals(productName)) {
+                return product;
+            }
+        }
+        return null;
+    }
+
+    public void addToCart(Product product, Integer quantity) {
+        if (cart.containsKey(product)) {
+            cart.put(product, cart.get(product) + quantity);
+        } else {
+            cart.put(product, quantity);
+        }
+        product.updateStock(-quantity);
+    }
+
+    public boolean checkStockAvailability(Product product, Integer quantity) {
+        return quantity >= product.getProductStock();
+    }
+
+
+
+
 }

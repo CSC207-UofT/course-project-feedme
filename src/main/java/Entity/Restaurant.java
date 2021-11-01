@@ -38,7 +38,7 @@ public class Restaurant extends User {
      *
      * @return a list of Product.
      */
-    public List<Product> getRestaurantProducts() { return this.menu; }
+    public List<Product> getRestaurantMenu() { return this.menu; }
 
 
     /**
