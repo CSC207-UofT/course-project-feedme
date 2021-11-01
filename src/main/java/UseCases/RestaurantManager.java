@@ -28,8 +28,8 @@ public class RestaurantManager {
     //Change restaurant menu to a new one.
     public void getMenu(){
         for(Product prod : this.restaurant.getRestaurantProducts()){
-            System.out.println(prod.getProductName() + ": " + prod.getProductPrice() + ", " +
-                    prod.inStockStatus() + "\n");
+            System.out.println(prod.getProductName() + ": " + prod.getProductPrice() + " (" +
+                    prod.inStockStatus() + ") " +  "\n");
         }
     }
 
