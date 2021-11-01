@@ -28,6 +28,7 @@ public class OrderTest {
         Product tender_combo = new Product("Tender Combo", "2", 11.79, 2);
         order_1.addProductToOrder(ten_wings, 1);
         order_1.addProductToOrder(tender_combo, 1);
+        System.out.println(order_1);
         assertEquals(28.28, order_1.getOrderPrice(), 0.01);
     }
 
