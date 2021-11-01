@@ -14,8 +14,8 @@ public class UserTest {
 
     @Before
     public void setUp() {
-        customer = new Customer("Alex", "25 St. George St" ,"4168237263", "asdf1234",'c');
-        restaurant = new Restaurant("Ramen", "7 St Mary St", "4161234554", "sdfa89789", 'r');
+        customer = new Customer("Alex" ,"4168237263", "asdf1234",'c', "25 St. George St");
+        restaurant = new Restaurant("Ramen", "4161234554", "sdfa89789", 'r', "7 St Mary St");
         deliveryperson = new DeliveryPerson("Jack", "4167892537", "1234567", 'd');
     }
 

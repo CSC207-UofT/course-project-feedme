@@ -12,7 +12,7 @@ public class DeliveryPerson extends User {
      * @param password    The password of DeliveryPerson
      * @param type_       The type of User
      */
-    public DeliveryPerson(String name, String phone_num, String password, char type_) {
+    public DeliveryPerson(String name, String phone_num, String password, String type_) {
         super(name, phone_num, password, type_);
     }
 }

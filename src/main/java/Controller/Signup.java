@@ -2,11 +2,13 @@ package Controller;
 
 import UseCases.UserManager;
 
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Signup {
-    public void output(){
+    public void output() throws FileNotFoundException {
         UserManager userManager = new UserManager();
+        userManager.init();
         Scanner sc = new Scanner(System.in);
         System.out.println("Thank you to join Feed Me! May I get your name please?");
         String in_name = sc.nextLine();
@@ -24,7 +26,7 @@ public class Signup {
             String in_address = sc.nextLine();
 
             userManager.addUser(in_phone_num, userManager.createCustomer(in_name, in_phone_num,
-                    in_password, 'c', in_address));
+                    in_password, "c", in_address));
             System.out.println("We have created your account, you are now able to sign in!");
         }
 
@@ -33,13 +35,15 @@ public class Signup {
                     "restaurant location."));
             String in_address = sc.nextLine();
             userManager.addUser(in_phone_num, userManager.createRestaurant(in_name, in_phone_num, in_password,
-                            'r', in_address));
+                            "r", in_address));
 
             System.out.println("We have created your account! You are now able to sign in to your account!");
         }
 
         if (in_type.equals("d")){
             System.out.println("Thank you for delivery for us! We have created your account, please sign in now!");
+            userManager.addUser(in_phone_num, userManager.createDeliveryPerson(in_name, in_phone_num,
+                                                                                in_password, "d"));
         }
     }
 }
