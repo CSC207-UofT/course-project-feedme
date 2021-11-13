@@ -11,7 +11,7 @@ public class CustomerTest {
 
     @Before
     public void setUp() {
-        customer = new Customer("Jenny", "St George","2508862345","asdfa132", 'c');
+        customer = new Customer("Jenny", "St George","2508862345","asdfa132");
     }
 
 
@@ -20,6 +20,8 @@ public class CustomerTest {
         assertEquals("St George", customer.getCustomerAddress());
     }
 
-
-
+    @Test
+    public void testGetCustomerType() {
+        assertEquals("c", customer.getUserType());
+    }
 }

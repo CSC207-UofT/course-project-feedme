@@ -86,6 +86,7 @@ public class Order {
         return b.setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
+    @Override
     public String toString() {
         StringBuilder content = new StringBuilder("Order id: " + getOrderId() + ", " + "total price: " + getOrderPrice() + "\n");
         for (Product product : listProducts.keySet()) {

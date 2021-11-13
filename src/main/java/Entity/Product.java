@@ -7,7 +7,6 @@ public class Product {
     private final double price;
     private int stock;
 
-
     /**
      * Construct a Product, giving the name, id, price and stock.
      *

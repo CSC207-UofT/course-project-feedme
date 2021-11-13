@@ -1,5 +1,6 @@
 import Entity.Order;
 import Entity.Product;
+import UseCases.OrderManager;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -7,6 +8,7 @@ import static org.junit.Assert.*;
 
 public class OrderTest {
     Order order_1;
+    // TODO: OrderManager?
 
     @Before
     public void setUp() {
@@ -17,6 +19,7 @@ public class OrderTest {
     public void testRemoveProduct() {
         Product ten_wings = new Product("10 Wings", "1", 16.49, 5);
         Product tender_combo = new Product("Tender Combo", "2", 11.79, 7);
+
         assertTrue(order_1.addProductToOrder(ten_wings, 1));
         assertFalse(order_1.removeProductFromOrder(tender_combo, 3));
         assertFalse(order_1.removeProductFromOrder(ten_wings, 3));

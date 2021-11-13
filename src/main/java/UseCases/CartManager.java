@@ -1,14 +1,9 @@
 package UseCases;
-
 import Entity.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.HashMap;
-
 
 public class CartManager {
 
-    private Cart cart;
+    private final Cart cart;
 
     public CartManager(){ this.cart = new Cart(); }
 
@@ -31,10 +26,10 @@ public class CartManager {
     }
 
     public void addToCart(Product product, Integer quantity) {
-        if (cart.containsKey(product)) {
-            cart.put(product, cart.get(product) + quantity);
+        if (cart.getCart().containsKey(product)) {
+            cart.getCart().put(product, cart.getCart().get(product) + quantity);
         } else {
-            cart.put(product, quantity);
+            cart.getCart().put(product, quantity);
         }
         product.updateStock(-quantity);
     }
@@ -42,8 +37,6 @@ public class CartManager {
     public boolean checkStockAvailability(Product product, Integer quantity) {
         return quantity >= product.getProductStock();
     }
-
-
 
 
 }
