@@ -14,9 +14,9 @@ public class UserTest {
 
     @Before
     public void setUp() {
-        customer = new Customer("Alex" ,"4168237263", "asdf1234","c", "25 St. George St");
-        restaurant = new Restaurant("Ramen", "4161234554", "sdfa89789", "c", "7 St Mary St");
-        deliveryperson = new DeliveryPerson("Jack", "4167892537", "1234567", "c");
+        customer = new Customer("Alex", "25 St. George St" ,"4168237263", "asdf1234","c");
+        restaurant = new Restaurant("Ramen", "7 St Mary St", "4161234554", "sdfa89789", "r");
+        deliveryperson = new DeliveryPerson("Jack", "4167892537", "1234567", "d");
     }
 
     @Test (timeout = 50)
@@ -66,17 +66,17 @@ public class UserTest {
 
     @Test (timeout = 50)
     public void testGetCustomerUserType() {
-        assertEquals('c', customer.getUserType());
+        assertEquals("c", customer.getUserType());
     }
 
     @Test (timeout = 50)
     public void testGetRestaurantUserType() {
-        assertEquals('r', restaurant.getUserType());
+        assertEquals("r", restaurant.getUserType());
     }
 
     @Test (timeout = 50)
     public void testGetDeliveryPersonUserType() {
-        assertEquals('d', deliveryperson.getUserType());
+        assertEquals("d", deliveryperson.getUserType());
     }
 
 }
