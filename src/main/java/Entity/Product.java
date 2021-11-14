@@ -1,15 +1,17 @@
 package Entity;
 
 
+import java.io.Serializable;
+
 public class Product {
 
     private final String name;
-    private final String id;
+    private final Integer id;
     private final double price;
     private int stock;
 
     // Initialize Product
-    public Product(String name, String id, double price, int stock){
+    public Product(String name, Integer id, double price, int stock){
         this.name = name;
         this.id = id;
         this.price = price;
@@ -22,7 +24,7 @@ public class Product {
 
     public String getProductName(){ return this.name;}
 
-    public String getProductId() { return this.id; }
+    public Integer getProductId() { return this.id; }
 
     public int getProductStock() { return this.stock; }
 
@@ -33,8 +35,20 @@ public class Product {
     public String inStockStatus(){
         if(this.stock > 0){
             return "in Stock";
-        };
+        }
         return "not in Stock";
     }
 
+    public String toString(){
+        return name + price + inStockStatus();
+    }
+
+    public void setPrice(double price) {
+    }
+
+    public void setName(String name) {
+    }
+
+    public void setStock(int stock) {
+    }
 }
