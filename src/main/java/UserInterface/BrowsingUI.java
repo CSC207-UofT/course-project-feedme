@@ -10,7 +10,7 @@ import Controller.BrowsingController;
 public class BrowsingUI {
 
     public void viewRestaurants(BrowsingController controller) {
-
+        System.out.println("Here is the list of restaurants");
     }
 
 }
