@@ -1,2 +1,0 @@
-edawrd,abc,123,c,1 a st.
-helen,abcd,1234,r,2 ab st.

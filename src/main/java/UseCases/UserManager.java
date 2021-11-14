@@ -5,10 +5,8 @@ import Entity.Restaurant;
 import Entity.User;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.util.HashMap;
-import java.util.Scanner;
 
 public class UserManager {
     private HashMap<String, User> userHashMap;  //Since a UserManager could add and remove users, the field may not
@@ -16,36 +14,36 @@ public class UserManager {
     private final String file_path= "C:\\Users\\Edward\\IdeaProjects\\course-project-feedme\\data\\user_data.txt";
 
     public UserManager(){
-        this.userHashMap = new HashMap<>();
+        UserGatherer userGatherer = new UserGatherer();
+        this.userHashMap = userGatherer.loadUser();
 
     }
 
-
-    public void initUserMap()  {
-        try {
-            File file = new File(this.file_path);
-            Scanner sc = new Scanner(file);
-            while (sc.hasNextLine()) {
-                String[] user_info = sc.nextLine().split(",");
-                if (user_info[3].equals("c")) {
-                    this.addUser(user_info[1], this.createCustomer(user_info[0], user_info[1],
-                            user_info[2], user_info[3], user_info[4]));
-                }
-                if (user_info[3].equals("r")) {
-                    this.addUser(user_info[1], this.createRestaurant(user_info[0], user_info[1],
-                            user_info[2], user_info[3], user_info[4]));
-                }
-                if (user_info[3].equals("d")) {
-                    this.addUser(user_info[1], this.createDeliveryPerson(user_info[0],
-                            user_info[1], user_info[2], user_info[3]));
-                }
-            }
-
-        }
-        catch (Exception e){
-            System.out.println("There is error reading user data. Please contact us.");
-        }
-    }
+//    public void initUserMap()  {
+//        try {
+//            File file = new File(this.file_path);
+//            Scanner sc = new Scanner(file);
+//            while (sc.hasNextLine()) {
+//                String[] user_info = sc.nextLine().split(",");
+//                if (user_info[3].equals("c")) {
+//                    this.addUser(user_info[1], this.createCustomer(user_info[0], user_info[1],
+//                            user_info[2], user_info[3], user_info[4]));
+//                }
+//                if (user_info[3].equals("r")) {
+//                    this.addUser(user_info[1], this.createRestaurant(user_info[0], user_info[1],
+//                            user_info[2], user_info[3], user_info[4]));
+//                }
+//                if (user_info[3].equals("d")) {
+//                    this.addUser(user_info[1], this.createDeliveryPerson(user_info[0],
+//                            user_info[1], user_info[2], user_info[3]));
+//                }
+//            }
+//
+//        }
+//        catch (Exception e){
+//            System.out.println("There is error reading user data. Please contact us.");
+//        }
+//    }
 
     public void updateUser(User user){
         try {
