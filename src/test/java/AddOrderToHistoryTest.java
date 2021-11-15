@@ -21,8 +21,8 @@ public class AddOrderToHistoryTest {
         ten_wings = new Product("10 Wings", "1", 16.49, 2);
         customer_1 = new Customer("Jenny", "St George", "2508862345", "asdfa132", "c");
         customer_2 = new Customer("Tom", "St George", "1232332450", "asdfa132", "c");
-        deliveryman_1 = new DeliveryPerson("James", "6437825641", "fwigyeg1", "d");
-        deliveryman_2 = new DeliveryPerson("Tony", "111111111", "fwigyeg1", "d");
+        deliveryman_1 = new DeliveryPerson("James", "6437825641", "fwigyeg1", "d", "w");
+        deliveryman_2 = new DeliveryPerson("Tony", "111111111", "fwigyeg1", "d","b");
         order_1 = new Order("1");
     }
 

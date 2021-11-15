@@ -1,9 +1,8 @@
 package Entity;
 
-import java.util.ArrayList;
-
 public class Customer extends User {
     private final String address;
+    private final String customer_type;
 
     /**
      * Customer is a child class of User. User type 'c' is assigned to Customer class.
@@ -14,15 +13,24 @@ public class Customer extends User {
      * @param password    The password of Customer
      * @param type_       The type of User
      * @param address     The delivery address of Customer
+     * @param customer_type The type of Customer
      */
+    public Customer(String name, String address, String phone_num, String password, String type_, String customer_type){
+        super(name, phone_num, password, type_);
+        this.address = address;
+        this.customer_type = customer_type;
+    }
+
     public Customer(String name, String address, String phone_num, String password, String type_){
         super(name, phone_num, password, type_);
         this.address = address;
+        this.customer_type = "n";
     }
 
     public Customer(String name, String address, String phone_num, String password){
         super(name, phone_num, password, "c");
         this.address = address;
+        this.customer_type = "n";
     }
 
     /**
@@ -32,5 +40,5 @@ public class Customer extends User {
      */
     public String getCustomerAddress() { return this.address; }
 
-    public void matchDeliveryMan() {}
+    public String getCustomerType() { return this.customer_type; }
 }

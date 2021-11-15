@@ -46,7 +46,7 @@ public class UserManager {
             if (user_info[3].equals("r")){this.createUser(user_info[1], this.createRestaurant(user_info[0], user_info[1],
                     user_info[2], user_info[3], user_info[4]));}
             if (user_info[3].equals("d")){this.createUser(user_info[1], this.createDeliveryPerson(user_info[0],
-                    user_info[1], user_info[2], user_info[3]));}
+                    user_info[1], user_info[2], user_info[3], user_info[4]));}
         }
     }
 
@@ -60,8 +60,8 @@ public class UserManager {
         return new Restaurant(name, address, phone_num, password, type_);
     }
 
-    public DeliveryPerson createDeliveryPerson(String name, String phone_num, String password, String type_){
-        return new DeliveryPerson(name, phone_num, password, type_);
+    public DeliveryPerson createDeliveryPerson(String name, String phone_num, String password, String type_, String transport){
+        return new DeliveryPerson(name, phone_num, password, type_, transport);
     }
 }
 

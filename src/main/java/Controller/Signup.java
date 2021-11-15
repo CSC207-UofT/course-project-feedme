@@ -43,7 +43,7 @@ public class Signup {
         if (in_type.equals("d")){
             System.out.println("Thank you for delivery for us! We have created your account, please sign in now!");
             userManager.createUser(in_phone_num, userManager.createDeliveryPerson(in_name, in_phone_num,
-                    in_password, "d"));
+                    in_password, "d", "w"));
         }
     }
 }
