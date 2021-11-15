@@ -7,7 +7,6 @@ import static org.junit.Assert.*;
 
 public class OrderTest {
     Order order_1;
-    // TODO: OrderManager?
 
     @Before
     public void setUp() {
