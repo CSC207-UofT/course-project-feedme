@@ -44,6 +44,7 @@ public class OrderManager {
             Random rand = new Random();
             DeliveryPerson deliveryPerson = list.get(rand.nextInt(list.size()));
             order.addDeliveryPersonInfo(deliveryPerson);
+            return true;
         }
         Random rand = new Random();
         DeliveryPerson deliveryPerson = deliveryPersonList.get(rand.nextInt(deliveryPersonList.size()));
