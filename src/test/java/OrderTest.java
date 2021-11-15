@@ -43,7 +43,7 @@ public class OrderTest {
         order_1.addCustomerInfo(customer);
         order_1.addDeliveryPersonInfo(deliveryman);
         System.out.println(order_1.getRestaurantInfo());
-        assertEquals(1, order_1.getCustomerInfo().size());
+        assertEquals(2, order_1.getCustomerInfo().size());
     }
 
 }
