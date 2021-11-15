@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant extends User implements Serializable {
+
+    private static final long serialVersionUID = -2191481848339591142L;
+
     private final String address;
     private List<Product> menu;  //Since restaurant can add and remove products from productList, the field may
                                         //not be final.

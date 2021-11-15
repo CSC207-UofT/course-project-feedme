@@ -3,6 +3,8 @@ package Entity;
 import java.io.Serializable;
 
 public abstract class User implements Serializable {
+    private static final long serialVersionUID = -8540439868375423480L;
+
     private final String name;
     private final String phone_num;
     private final String password;

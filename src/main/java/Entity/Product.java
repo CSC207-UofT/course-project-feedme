@@ -4,6 +4,9 @@ package Entity;
 import java.io.Serializable;
 
 public class Product implements Serializable {
+    private static final long serialVersionUID = 3151319034129838294L;
+
+
     private final String name;
     private final String id;
     private final double price;
