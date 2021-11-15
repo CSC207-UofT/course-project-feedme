@@ -16,7 +16,7 @@ public class UserTest {
     public void setUp() {
         customer = new Customer("Alex", "25 St. George St" ,"4168237263", "asdf1234","c");
         restaurant = new Restaurant("Ramen", "7 St Mary St", "4161234554", "sdfa89789", "r");
-        deliveryperson = new DeliveryPerson("Jack", "4167892537", "1234567", "d");
+        deliveryperson = new DeliveryPerson("Jack", "4167892537", "1234567", "d", "w");
     }
 
     @Test (timeout = 50)

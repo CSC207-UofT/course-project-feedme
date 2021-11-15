@@ -2,6 +2,7 @@ package Entity;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -11,12 +12,19 @@ public class Order {
     private final String id;
     private final HashMap<Product, Integer> listProducts; // key is a Product, value is product number.
     private String status;
+    private final ArrayList<String> restaurantInfo;
+    private final ArrayList<String> customerInfo;
+    private final ArrayList<String> deliveryPersonInfo;
+
 
     //Initialize an order
     public Order(String id) {
         this.id = id;
         this.listProducts = new HashMap<>();
         this.status = "Order placed";
+        this.restaurantInfo = new ArrayList<>();
+        this.customerInfo = new ArrayList<>();
+        this.deliveryPersonInfo = new ArrayList<>();
     }
 
     public String getOrderId() {
@@ -25,6 +33,32 @@ public class Order {
 
     public HashMap<Product, Integer> getOrderProducts() {
         return this.listProducts;
+    }
+
+    public void addRestaurantInfo(Restaurant restaurant) {
+        this.restaurantInfo.add(restaurant.getUserName());
+        this.restaurantInfo.add(restaurant.getUserPhone_num());
+    }
+
+    public void addCustomerInfo(Customer customer) {
+        this.customerInfo.add(customer.getCustomerType());
+        this.customerInfo.add(customer.getUserPhone_num());
+    }
+
+    public void addDeliveryPersonInfo(DeliveryPerson deliveryPerson) {
+        this.deliveryPersonInfo.add(deliveryPerson.getUserPhone_num());
+    }
+
+    public ArrayList<String> getRestaurantInfo() {
+        return this.restaurantInfo;
+    }
+
+    public ArrayList<String> getCustomerInfo() {
+        return this.customerInfo;
+    }
+
+    public ArrayList<String> getDeliveryPersonInfo() {
+        return this.deliveryPersonInfo;
     }
 
     public String getOrderStatus() {

@@ -35,7 +35,7 @@ public class Product {
     public void updateStock(int n) { this.stock += n; }
 
     public String toString() {
-        String content = new String("Product name: " + getProductName() + ", ");
+        String content = "Product name: " + getProductName() + ", ";
         content += "id: " + getProductId() + ", " + "price: " + getProductPrice();
         return content;
     }

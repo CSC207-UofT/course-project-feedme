@@ -24,6 +24,12 @@ public class Restaurant extends User {
         this.menu = new ArrayList<>();
     }
 
+    public Restaurant(String name, String address, String phone_num, String password){
+        super(name, phone_num, password, "r");
+        this.address = address;
+        this.menu = new ArrayList<>();
+    }
+
     /**
      * Get Restaurant's address.
      *
