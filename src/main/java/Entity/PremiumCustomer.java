@@ -2,8 +2,6 @@ package Entity;
 
 public class PremiumCustomer extends Customer{
 
-    private final String customer_type;
-
     /**
      * Customer is a child class of User. User type 'c' is assigned to Customer class.
      * Construct a Customer, giving the name, phone_num, password, type and address.
@@ -16,19 +14,10 @@ public class PremiumCustomer extends Customer{
      * @param customer_type The type of Customer
      */
     public PremiumCustomer(String name, String address, String phone_num, String password, String type_, String customer_type) {
-        super(name, address, phone_num, password, type_);
-        this.customer_type = customer_type;
+        super(name, address, phone_num, password, type_, customer_type);
     }
 
     public PremiumCustomer(String name, String address, String phone_num, String password) {
-        super(name, address, phone_num, password);
-        this.customer_type = "p";
-    }
-
-    public String getCustomerType() { return this.customer_type; }
-
-    @Override
-    public void matchDeliveryMan() {
-        super.matchDeliveryMan();
+        super(name, address, phone_num, password, "c","p");
     }
 }
