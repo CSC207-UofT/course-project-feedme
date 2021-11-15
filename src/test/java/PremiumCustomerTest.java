@@ -1,5 +1,4 @@
-import Entity.Customer;
-import Entity.PremiumCustomer;
+import Entity.*;
 import org.junit.Before;
 import org.junit.Test;
 
