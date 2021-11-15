@@ -1,5 +1,4 @@
-import Entity.Order;
-import Entity.Product;
+import Entity.*;
 import UseCases.OrderManager;
 import org.junit.Before;
 import org.junit.Test;
@@ -33,6 +32,18 @@ public class OrderTest {
         order_1.addProductToOrder(tender_combo, 1);
         System.out.println(order_1);
         assertEquals(28.28, order_1.getOrderPrice(), 0.01);
+    }
+
+    @Test
+    public void testAddInfo(){
+        Restaurant popeyes = new Restaurant("Popeyes", "645 Yonge St", "0123456789", "abcd123", "r");
+        Customer customer = new Customer("Jenny", "St George","2508862345","asdfa132");
+        DeliveryPerson deliveryman = new DeliveryPerson("James", "6437825641", "fwigyeg1", "d", "w");
+        order_1.addRestaurantInfo(popeyes);
+        order_1.addCustomerInfo(customer);
+        order_1.addDeliveryPersonInfo(deliveryman);
+        System.out.println(order_1.getRestaurantInfo());
+        assertEquals(1, order_1.getCustomerInfo().size());
     }
 
 }
