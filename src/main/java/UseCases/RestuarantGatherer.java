@@ -1,17 +1,22 @@
 package UseCases;
 
-import Entity.Product;
+import Entity.Restaurant;
 
-import java.util.HashMap;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 public class RestuarantGatherer {
     /**
      * return a hashmap where key is restaurant name and item is list of products.
-     * @return
      */
-    public HashMap<String, Product[]> getRestaurant(){
-        HashMap<String, Product[]> map = new HashMap<String, Product[]>();
-        return map;
+    public Restaurant[] getRestaurants() {
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("restaurants.txt"));
+            return (Restaurant[]) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
-
 }
