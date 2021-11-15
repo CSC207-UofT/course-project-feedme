@@ -2,26 +2,24 @@ import Entity.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-
 import static org.junit.Assert.assertEquals;
 
 public class CustomerTest {
-    private Customer customer;
+    private Customer customer_1;
 
     @Before
     public void setUp() {
-        customer = new Customer("Jenny", "St George","2508862345","asdfa132");
+        customer_1 = new Customer("Jenny", "St George","2508862345","asdfa132");
     }
 
 
     @Test
     public void testGetCustomerAddress() {
-        assertEquals("St George", customer.getCustomerAddress());
+        assertEquals("St George", customer_1.getCustomerAddress());
     }
 
     @Test
     public void testGetCustomerType() {
-        assertEquals("c", customer.getUserType());
+        assertEquals("c", customer_1.getUserType());
     }
 }
