@@ -1,14 +1,17 @@
 package InOut;
 
 import Controller.BrowsingController;
+import Controller.LoginController;
 import Controller.OrderController;
+import Controller.SignupController;
 
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 
-public class SystemInOut implements BrowsingController.InOut, OrderController.InOut {
+public class SystemInOut implements BrowsingController.InOut, OrderController.InOut
+                                    , LoginController.InOut, SignupController.InOut {
 
     /**
      * Read system input

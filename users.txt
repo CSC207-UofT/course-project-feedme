@@ -1,4 +1,2 @@
 pauline,416,abc,c,11 abc st.
-pauline,416,abc,c,11 abc st.
-
 ian,437,ddddd,d
