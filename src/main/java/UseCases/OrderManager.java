@@ -1,35 +1,86 @@
 package UseCases;
 import Entity.*;
-import java.util.HashMap;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+import java.util.Random;
 
 public class OrderManager {
+    private final List<Order> orderList;
+    private final List<DeliveryPerson> deliveryPersonList;
 
-    private HashMap<Product, Integer> orderHashMap;
+    public OrderManager() {
+        this.orderList = new ArrayList<>();
+        this.deliveryPersonList = new ArrayList<>();
+    }
 
-    public OrderManager(){ this.orderHashMap = new HashMap<Product, Integer>(); }
+    public void addOrder(Order order) {
+        orderList.add(order);
+    }
 
-    public boolean verifyProductName(Restaurant restaurant, String productName) {
-        for (Product product: restaurant.getRestaurantMenu()) {
-            if (product.getProductName().equals(productName)) {
-                return true;
+    public void addDeliveryPerson(DeliveryPerson deliveryPerson) {
+        deliveryPersonList.add(deliveryPerson);
+    }
+
+    public boolean matchDeliveryPerson(Order order) {
+        if (deliveryPersonList.size() == 0) {
+            return false;
+        }
+        if (Objects.equals(order.getCustomerInfo().get(0), "r")) {
+            // list.get(rand.nextInt(list.size()));
+            Random rand = new Random();
+            DeliveryPerson deliveryPerson = deliveryPersonList.get(rand.nextInt(deliveryPersonList.size()));
+            order.addDeliveryPersonInfo(deliveryPerson);
+            return true;
+        }
+        ArrayList<DeliveryPerson> list = new ArrayList<>();
+        for ( DeliveryPerson deliveryPerson: deliveryPersonList) {
+            if (!Objects.equals(deliveryPerson.getTransport(), "w")) {
+                list.add(deliveryPerson);
             }
         }
-        return false;
-    }
-
-    public Product productNameToProduct(Restaurant restaurant, String productName) {
-        for (Product product: restaurant.getRestaurantMenu()) {
-            if (product.getProductName().equals(productName)) {
-                return product;
-            }
+        if (list.size()!=0) {
+            Random rand = new Random();
+            DeliveryPerson deliveryPerson = list.get(rand.nextInt(list.size()));
+            order.addDeliveryPersonInfo(deliveryPerson);
         }
-        return null;
+        Random rand = new Random();
+        DeliveryPerson deliveryPerson = deliveryPersonList.get(rand.nextInt(deliveryPersonList.size()));
+        order.addDeliveryPersonInfo(deliveryPerson);
+        return true;
     }
-
-    public boolean checkStockAvailability(Product product, Integer quantity) {
-        return quantity >= product.getProductStock();
-    }
+}
+//
+//    private HashMap<Product, Integer> orderHashMap;
+//
+//    public OrderManager(){ this.orderHashMap = new HashMap<Product, Integer>(); }
+//
+//    public boolean verifyProductName(Restaurant restaurant, String productName) {
+//        for (Product product: restaurant.getRestaurantMenu()) {
+//            if (product.getProductName().equals(productName)) {
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+//
+//    public Product productNameToProduct(Restaurant restaurant, String productName) {
+//        for (Product product: restaurant.getRestaurantMenu()) {
+//            if (product.getProductName().equals(productName)) {
+//                return product;
+//            }
+//        }
+//        return null;
+//    }
+//
+//    public boolean checkStockAvailability(Product product, Integer quantity) {
+//        return quantity >= product.getProductStock();
+//    }
+//
+//    public void matchDeliveryMan() {
+//
+//    }
 
 
     // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
@@ -72,4 +123,3 @@ public class OrderManager {
 //        }
 //    }
 //
-}
