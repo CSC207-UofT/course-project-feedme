@@ -1,6 +1,5 @@
 package Controller;
 
-import Entity.User;
 import UseCases.UserManager;
 
 import java.util.Scanner;
@@ -12,7 +11,7 @@ public class Login {
     public void output(){
         UserManager userManager = new UserManager();
         Scanner sc = new Scanner(System.in);
-
+        userManager.initUserMap();
         boolean verifier = false;
         while (!verifier) {
             System.out.println("Please enter your registered phone number:");
