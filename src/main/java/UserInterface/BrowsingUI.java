@@ -1,6 +1,7 @@
 package UserInterface;
 
 import Controller.BrowsingController;
+import Entity.Restaurant;
 import InOut.SystemInOut;
 
 /**
@@ -9,9 +10,11 @@ import InOut.SystemInOut;
 
 public class BrowsingUI {
 
-    public boolean browsing() {
+    public Restaurant browsing() {
+
         BrowsingController controller = new BrowsingController();
         SystemInOut inOut = new SystemInOut();
+
         return controller.selectRestaurant(inOut);
     }
 

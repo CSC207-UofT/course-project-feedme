@@ -40,4 +40,9 @@ public class Product implements Serializable {
 
     public void updateStock(int n) { this.stock += n; }
 
+    @Override
+    public String toString(){
+        return this.getProductName() + "\t" + "$" + this.getProductPrice();
+    }
+
 }

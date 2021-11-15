@@ -1,12 +1,14 @@
 package InOut;
 
 import Controller.BrowsingController;
+import Controller.OrderController;
+
 import java.io.IOException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 
-public class SystemInOut implements BrowsingController.InOut {
+public class SystemInOut implements BrowsingController.InOut, OrderController.InOut {
 
     /**
      * Read system input

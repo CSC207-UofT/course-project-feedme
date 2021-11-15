@@ -6,48 +6,26 @@ import java.util.HashMap;
  * This is a controller to our ordering process.
  */
 public class Cart {
-    private final HashMap<Product, Integer> listProducts; // key is a Product, value is product number
+    private final HashMap<Product, Integer> cart; // key is a Product, value is product number
 
     //Initialize an chart
     public Cart(){
-        this.listProducts = new HashMap<>();
+        this.cart = new HashMap<Product, Integer>();
     }
 
-    public HashMap<Product, Integer> getCart() { return this.listProducts; }
+    public HashMap<Product, Integer> getCart() { return this.cart; }
 
-    // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
-    // stock and listProducts, and return true. If stock is not enough, return false.
-    public boolean addProductToCart(Product product, Integer quantity) {
-        if (listProducts.containsKey(product)) {
-            if (product.getProductStock() >= quantity) {// Check if there is enough stock
-                listProducts.put(product, listProducts.get(product) + quantity);
-                product.updateStock(quantity);
-                return true;
-            } else {
 
-                return false;
-            }
-        }
-        else {
-            if (product.getProductStock() >= quantity) {// Check if there is enough stock
-                listProducts.put(product, quantity);
-                product.updateStock(quantity);
-                return true;
-            } else {
-                return false;
-            }
-        }
-    }
 
     public boolean removeProductFromCart(Product product, Integer quantity) {
-        if (listProducts.containsKey(product)) {
-            if (quantity.equals(listProducts.get(product))) {
-                listProducts.remove(product);
+        if (cart.containsKey(product)) {
+            if (quantity.equals(cart.get(product))) {
+                cart.remove(product);
                 product.updateStock(quantity);
                 return true;
             }
-            else if (quantity < listProducts.get(product)) {
-                listProducts.put(product, listProducts.get(product) - quantity);
+            else if (quantity < cart.get(product)) {
+                cart.put(product, cart.get(product) - quantity);
                 product.updateStock(quantity);
                 return true;
             }
@@ -62,10 +40,21 @@ public class Cart {
     public double getOrderPrice(){
         double order_price = 0.00;
         Integer quantity;
-        for(Product product: listProducts.keySet()){
-            quantity = listProducts.get(product);
+        for(Product product: cart.keySet()){
+            quantity = cart.get(product);
             order_price += product.getProductPrice() * quantity ;
         }
         return order_price;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder items = new StringBuilder("Here are the items in your cart:\n");
+        for (Product product: this.cart.keySet()) {
+            items.append(this.cart.get(product) + "\t" + product);
+        }
+        items.append("\nTotal price: $" + getOrderPrice());
+        return items.toString();
+    }
+
 }

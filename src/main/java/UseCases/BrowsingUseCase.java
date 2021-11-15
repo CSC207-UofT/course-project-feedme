@@ -24,6 +24,10 @@ public class BrowsingUseCase {
         return restaurants.toString();
     }
 
+    public Restaurant getRestaurant(String num) {
+        return this.list.get(num);
+    }
+
     public boolean verifyRestautantSeleciton(String num) {
         return this.list.containsKey(num);
     }
@@ -35,8 +39,9 @@ public class BrowsingUseCase {
     public String showMenu(String num) {
         List<Product> list = this.list.get(num).getRestaurantMenu();
         StringBuilder menu = new StringBuilder();
+        int count = 1;
         for (Product product: list) {
-            menu.append(product);
+            menu.append(count + ": " + product  );
         }
         return menu.toString();
     }

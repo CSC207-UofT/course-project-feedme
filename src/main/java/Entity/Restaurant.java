@@ -8,7 +8,7 @@ public class Restaurant extends User implements Serializable {
     private static final long serialVersionUID = -2191481848339591142L;
 
     private final String address;
-    private List<Product> menu;  //Since restaurant can add and remove products from productList, the field may
+    private final List<Product> menu;  //Since restaurant can add and remove products from productList, the field may
                                         //not be final.
 
 
@@ -48,7 +48,7 @@ public class Restaurant extends User implements Serializable {
      *
      * @return a list of Product.
      */
-    public List<Product> getRestaurantProducts() { return this.menu; }
+    public List<Product> getRestaurantMenu() { return this.menu; }
 
 
     /**
@@ -78,5 +78,10 @@ public class Restaurant extends User implements Serializable {
         }
         this.menu.remove(product);
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.getUserName();
     }
 }
