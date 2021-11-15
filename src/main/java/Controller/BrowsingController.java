@@ -46,7 +46,7 @@ public class BrowsingController {
             }
 
             inOut.sendOutput("\nPlease type '1' if you would like to order from this restaurant. If you want to go " +
-                    "back to the list of restaurant, please type '2'. If you would like to exit, please type '3'.");
+                    "back to the list of restaurants, please type '2'. If you would like to exit, please type '3'.");
             try {
                 String input = inOut.getInput();
                 if (input.equals("1")){

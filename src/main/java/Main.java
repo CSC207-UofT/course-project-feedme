@@ -17,7 +17,7 @@ public class Main {
             OrderUI Oui = new OrderUI(restaurant);
             Cart cart = Oui.ordering();
             if (cart != null) {
-                System.out.println("enter order distribution");
+                System.out.println("Enter order distribution");
             }
         }
 

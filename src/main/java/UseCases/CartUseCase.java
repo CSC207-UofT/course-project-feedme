@@ -58,8 +58,6 @@ public class CartUseCase {
         return quantity <= product.getProductStock();
     }
 
-
-
     @Override
     public String toString() {
         return this.cart.toString();
