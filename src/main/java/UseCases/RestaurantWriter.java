@@ -6,7 +6,6 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class RestaurantWriter implements Serializable{
-
     public void addRestaurant(Restaurant restaurant) {
         try {
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("restaurants.txt"));
@@ -20,13 +19,12 @@ public class RestaurantWriter implements Serializable{
         } catch (ClassNotFoundException | IOException e) {e.printStackTrace();}
 
     }
-
+    //TODO: finish this class to update restaurant into restaurant.txt (restaurant client added product to its menu)
     public void updateRestaurant(Restaurant restaurant){
         try{
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream("restaurants.txt"));
             ArrayList<Restaurant> rArr = (ArrayList<Restaurant>) ois.readObject();
             ois.close();
-
 
         }
         catch (IOException | ClassNotFoundException e){

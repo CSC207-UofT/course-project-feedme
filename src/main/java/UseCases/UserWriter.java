@@ -24,8 +24,9 @@ public class UserWriter {
             String userdata;
             userdata = user.getUserName() + ',' + user.getUserPhone_num() + ',' + user.getUserPassword() + ',' +
                     user.getUserType();
-            if (user instanceof Customer){userdata += ',' + ((Customer) user).getCustomerAddress();}
-            if (user instanceof Restaurant){userdata += ',' + ((Restaurant) user).getRestaurantAddress();}
+            if (user instanceof Customer){userdata += ',' + ((Customer) user).getCustomerAddress() + "\n";}
+            if (user instanceof Restaurant){userdata += ',' + ((Restaurant) user).getRestaurantAddress() + "\n";}
+            else {userdata += "\n";}
             file.write(userdata);
         }
         catch (IOException e){
