@@ -8,11 +8,11 @@ import java.util.Random;
 
 public class OrderManager {
     private final List<Order> orderList;
-    private final List<DeliveryPerson> deliveryPersonList;
+    private final List<DeliveryPerson> availableDeliveryPersonList;
 
     public OrderManager() {
         this.orderList = new ArrayList<>();
-        this.deliveryPersonList = new ArrayList<>();
+        this.availableDeliveryPersonList = new ArrayList<>();
     }
 
     public void addOrder(Order order) {
@@ -20,22 +20,23 @@ public class OrderManager {
     }
 
     public void addDeliveryPerson(DeliveryPerson deliveryPerson) {
-        deliveryPersonList.add(deliveryPerson);
+        availableDeliveryPersonList.add(deliveryPerson);
     }
 
     public boolean matchDeliveryPerson(Order order) {
-        if (deliveryPersonList.size() == 0) {
+        if (availableDeliveryPersonList.size() == 0) {
             return false;
         }
         if (Objects.equals(order.getCustomerInfo().get(0), "r")) {
             // list.get(rand.nextInt(list.size()));
             Random rand = new Random();
-            DeliveryPerson deliveryPerson = deliveryPersonList.get(rand.nextInt(deliveryPersonList.size()));
+            DeliveryPerson deliveryPerson = availableDeliveryPersonList.get(rand.nextInt(availableDeliveryPersonList.size()));
             order.addDeliveryPersonInfo(deliveryPerson);
+            availableDeliveryPersonList.remove(deliveryPerson);
             return true;
         }
         ArrayList<DeliveryPerson> list = new ArrayList<>();
-        for ( DeliveryPerson deliveryPerson: deliveryPersonList) {
+        for ( DeliveryPerson deliveryPerson: availableDeliveryPersonList) {
             if (!Objects.equals(deliveryPerson.getTransport(), "w")) {
                 list.add(deliveryPerson);
             }
@@ -44,11 +45,13 @@ public class OrderManager {
             Random rand = new Random();
             DeliveryPerson deliveryPerson = list.get(rand.nextInt(list.size()));
             order.addDeliveryPersonInfo(deliveryPerson);
+            availableDeliveryPersonList.remove(deliveryPerson);
             return true;
         }
         Random rand = new Random();
-        DeliveryPerson deliveryPerson = deliveryPersonList.get(rand.nextInt(deliveryPersonList.size()));
+        DeliveryPerson deliveryPerson = availableDeliveryPersonList.get(rand.nextInt(availableDeliveryPersonList.size()));
         order.addDeliveryPersonInfo(deliveryPerson);
+        availableDeliveryPersonList.remove(deliveryPerson);
         return true;
     }
 }
