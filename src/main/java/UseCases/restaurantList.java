@@ -20,13 +20,13 @@ public class restaurantList {
     @Override
     public String toString() {
         int count = 1;
-        StringBuilder list = new StringBuilder("Here is the list of restaurants:\n");
+        StringBuilder list = new StringBuilder("\nHere is the list of restaurants:\n");
         for (Restaurant restaurant: restaurants) {
             String line = count + ": " + restaurant + "\n";
             list.append(line);
             count++;
         }
-        list.append("Please enter restaurant's number to view its menu:");
+        list.append("\nPlease enter restaurant's number to view its menu:");
         return list.toString();
     }
 }

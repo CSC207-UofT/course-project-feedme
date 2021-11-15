@@ -1,5 +1,6 @@
 package UseCases;
 
+import Entity.Product;
 import Entity.Restaurant;
 
 import java.util.*;
@@ -8,7 +9,7 @@ import java.util.*;
 public class BrowsingUseCase {
 
     private final restaurantList restaurants;
-    private final HashMap<String, Restaurant> list = new HashMap<String, Restaurant>();
+    private final HashMap<String, Restaurant> list = new HashMap<>();
 
     public BrowsingUseCase() {
         this.restaurants = new restaurantList();
@@ -25,6 +26,19 @@ public class BrowsingUseCase {
 
     public boolean verifyRestautantSeleciton(String num) {
         return this.list.containsKey(num);
+    }
+
+    public String showRestaurantName(String num) {
+        return this.list.get(num).toString();
+    }
+
+    public String showMenu(String num) {
+        List<Product> list = this.list.get(num).getRestaurantMenu();
+        StringBuilder menu = new StringBuilder();
+        for (Product product: list) {
+            menu.append(product);
+        }
+        return menu.toString();
     }
 
 
