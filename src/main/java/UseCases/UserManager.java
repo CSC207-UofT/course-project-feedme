@@ -4,14 +4,12 @@ import Entity.DeliveryPerson;
 import Entity.Restaurant;
 import Entity.User;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.util.HashMap;
 
 public class UserManager {
     private HashMap<String, User> userHashMap;  //Since a UserManager could add and remove users, the field may not
                                                  // noy be final
-    private final String file_path= "C:\\Users\\Edward\\IdeaProjects\\course-project-feedme\\data\\user_data.txt";
+//    private final String file_path= "C:\\Users\\Edward\\IdeaProjects\\course-project-feedme\\data\\user_data.txt";
 
     public UserManager(){
         UserGatherer userGatherer = new UserGatherer();
@@ -46,20 +44,8 @@ public class UserManager {
 //    }
 
     public void updateUser(User user){
-        try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter(this.file_path));
-            String userdata = null;
-            userdata = user.getUserName() + ',' + user.getUserPhone_num() + ',' + user.getUserPassword() + ',' +
-                    user.getUserType();
-            if (user instanceof Customer){userdata += ',' + ((Customer) user).getCustomerAddress();}
-            if (user instanceof Restaurant){userdata += ',' + ((Restaurant) user).getRestaurantAddress();}
-            if (userdata != null){
-                writer.write(userdata);}
-            writer.close();
-        }
-        catch (Exception e){
-            System.out.println("There is a problem updating user. Please contact us.");
-        }
+        UserWriter writer = new UserWriter();
+        writer.addUser(user);
     }
     public boolean addUser(String phone_num, User user){
         if(!this.userHashMap.containsKey(phone_num)){

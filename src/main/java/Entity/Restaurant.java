@@ -1,8 +1,9 @@
 package Entity;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant extends User {
+public class Restaurant extends User implements Serializable {
     private final String address;
     private List<Product> menu;  //Since restaurant can add and remove products from productList, the field may
                                         //not be final.
@@ -24,6 +25,13 @@ public class Restaurant extends User {
         this.menu = new ArrayList<>();
     }
 
+    public Restaurant(String name, String phone_num, String password, String type_, String address, List<Product> menu){
+        super(name, phone_num, password, type_);
+        this.address = address;
+        this.menu = menu;
+    }
+
+
     /**
      * Get Restaurant's address.
      *
@@ -37,7 +45,7 @@ public class Restaurant extends User {
      *
      * @return a list of Product.
      */
-    public List<Product> getRestaurantMenu() { return this.menu; }
+    public List<Product> getRestaurantProducts() { return this.menu; }
 
 
     /**
