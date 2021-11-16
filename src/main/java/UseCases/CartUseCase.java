@@ -10,7 +10,7 @@ import java.util.Map;
  * CartUseCase is for OrderController that allows customer to add products into a cart and ready for generating an
  * order.
  */
-public class CartUseCase extends DeliveryPerson {
+public class CartUseCase {
 
     private final Cart cart;
     private final Map<String, Product> menu = new HashMap<>();
