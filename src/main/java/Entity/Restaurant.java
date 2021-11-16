@@ -8,9 +8,7 @@ public class Restaurant extends User implements Serializable {
     private static final long serialVersionUID = -2191481848339591142L;
 
     private final String address;
-    private final List<Product> menu;  //Since restaurant can add and remove products from productList, the field may
-    //not be final.
-
+    private final List<Product> menu;
 
     /**
      * Restaurant is a child class of User. User type 'r' is assigned to Restaurant class.
