@@ -66,7 +66,7 @@ person.
 
 
 
-##Open Questions
+## Open Questions
 - How to set the file path that directly access to the file under the same project, instead of writing out the whole 
 path. For example: “C://user//...”
 - Serialization would face a issue that says invalid stream header: efbfbdef (urgent problem.)
