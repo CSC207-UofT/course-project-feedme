@@ -60,7 +60,7 @@ For the entity layer, I implement two new entity classes, `RegularCustomer` and 
 For the design pattern, I build a factory pattern. When a new customer signs up, the system will let the customer choose which type of customer is, and instantiate the class, e.g. `RegularCustomer` or `PremiumCustomer`.
 
 ### TODO
-- Combine factory pattern with log in system
+- Combine factory pattern with Login system
 - Design the UI for Login and Signup
 - Think about how to implement Command Design Pattern in 'Order'
 
