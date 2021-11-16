@@ -42,6 +42,4 @@ public class RestaurantSystemController {
         this.readyToDistribute.removeAll(readyToDistribute);
         return readyToDistribute;
     }
-
-
 }

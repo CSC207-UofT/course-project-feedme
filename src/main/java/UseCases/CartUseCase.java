@@ -68,8 +68,4 @@ public class CartUseCase {
     public String toString() {
         return this.cart.toString();
     }
-
-
-
-
 }
