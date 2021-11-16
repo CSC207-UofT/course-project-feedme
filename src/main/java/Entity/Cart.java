@@ -3,7 +3,7 @@ package Entity;
 import java.util.HashMap;
 
 /**
- * This is a controller to our ordering process.
+ * Before an order is generated, item are added to the cart which is then used to generate an Order.
  */
 public class Cart {
     private final HashMap<Product, Integer> cart; // key is a Product, value is product number
