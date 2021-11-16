@@ -15,19 +15,19 @@ public class Customer extends User {
      * @param address     The delivery address of Customer
      * @param customer_type The type of Customer
      */
-    public Customer(String name, String address, String phone_num, String password, String type_, String customer_type){
+    public Customer(String name, String phone_num, String password, String type_, String address, String customer_type){
         super(name, phone_num, password, type_);
         this.address = address;
         this.customer_type = customer_type;
     }
 
-    public Customer(String name, String address, String phone_num, String password, String type_){
+    public Customer(String name, String phone_num, String password, String type_, String address){
         super(name, phone_num, password, type_);
         this.address = address;
         this.customer_type = "n";
     }
 
-    public Customer(String name, String address, String phone_num, String password){
+    public Customer(String name, String phone_num, String password, String address){
         super(name, phone_num, password, "c");
         this.address = address;
         this.customer_type = "n";

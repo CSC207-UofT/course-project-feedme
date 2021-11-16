@@ -17,8 +17,7 @@ public class Restaurant extends User {
      * @param password    The password of Restaurant
      * @param type_       The type of User
      * @param address     The delivery address of Restaurant
-     */
-    public Restaurant(String name, String address, String phone_num, String password, String type_){
+     */public Restaurant(String name, String phone_num, String password, String type_, String address){
         super(name, phone_num, password, type_);
         this.address = address;
         this.menu = new ArrayList<>();
