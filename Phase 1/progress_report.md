@@ -26,7 +26,7 @@ UseCase class to access entity classes instead of directly accessing entity clas
 following the clean architecture.
 
 ### TODO
-In Phase 2, I will finish the order system and write testcases. If there are extra, I will implement GUI features.
+In Phase 2, I will finish the order system and write testcases. If there is extra time, I will implement GUI features.
 
 ## Lulu Cheng
 I worked with Francis to complete the interaction between our software and the restaurant owner. To meet the clean 
@@ -66,7 +66,7 @@ person.
 
 
 
-##Open Questions
+## Open Questions
 - How to set the file path that directly access to the file under the same project, instead of writing out the whole 
 path. For example: “C://user//...”
 - Serialization would face a issue that says invalid stream header: efbfbdef (urgent problem.)

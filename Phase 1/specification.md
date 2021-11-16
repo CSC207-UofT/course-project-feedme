@@ -1,4 +1,4 @@
-#Specification
+# Specification
 This software is a food delivery system that allows users to browse and order food in the local restaurants. While 
 using this system, users can choose whether they are a customer, restaurant owner, or a delivery person. Then, each 
 user will be assigned to a specific type based on their selection (i.e. 'c' for customer, 'r' for restaurant, and 
