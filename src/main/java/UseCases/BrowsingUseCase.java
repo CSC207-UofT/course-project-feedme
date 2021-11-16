@@ -41,7 +41,7 @@ public class BrowsingUseCase {
         StringBuilder menu = new StringBuilder();
         int count = 1;
         for (Product product: list) {
-            menu.append(count + ": " + product  );
+            menu.append(count).append(": ").append(product);
         }
         return menu.toString();
     }

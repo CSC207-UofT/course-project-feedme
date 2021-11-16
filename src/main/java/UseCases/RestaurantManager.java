@@ -14,7 +14,7 @@ public class RestaurantManager {
     ArrayList<Order> orderHistory;
     public RestaurantManager(Restaurant restaurant){
         this.restaurant = restaurant;
-        this.orderHistory = new ArrayList<Order>();
+        this.orderHistory = new ArrayList<>();
     }
 
     //Add product to restaurant menu if boolean is true, vice versa.
