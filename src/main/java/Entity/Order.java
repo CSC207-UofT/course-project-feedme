@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * This is a controller to our ordering process.
+ * This is a controller to the ordering process.
  */
 public class Order {
     private final String id;
