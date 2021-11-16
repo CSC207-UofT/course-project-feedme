@@ -1,39 +1,60 @@
 package Entity;
 
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.HashMap;
 
 /**
  * This is a controller to our ordering process.
  */
 public class Cart {
-    private final HashMap<Product, Integer> listProducts; // key is a Product, value is product number
+    private final HashMap<Product, Integer> cart; // key is a Product, value is product number
 
     //Initialize an chart
     public Cart(){
-        this.listProducts = new HashMap<>();
+        this.cart = new HashMap<Product, Integer>();
     }
 
-    public HashMap<Product, Integer> getCart() { return this.listProducts; }
+    public HashMap<Product, Integer> getCart() { return this.cart; }
 
-    public double getCartPrice() {
-        double order_price = 0.00;
-        int quantity;
-        for (Product product : listProducts.keySet()) {
-            quantity = listProducts.get(product);
-            order_price += product.getProductPrice() * quantity;
+
+
+    public boolean removeProductFromCart(Product product, Integer quantity) {
+        if (cart.containsKey(product)) {
+            if (quantity.equals(cart.get(product))) {
+                cart.remove(product);
+                product.updateStock(quantity);
+                return true;
+            }
+            else if (quantity < cart.get(product)) {
+                cart.put(product, cart.get(product) - quantity);
+                product.updateStock(quantity);
+                return true;
+            }
+            else {
+                return false; // Number of product to remove > Product number in listProducts.
+            }
+        } else {
+            return false; // listProduct does not contain Product product.
         }
-        BigDecimal b = new BigDecimal(order_price);
-        return b.setScale(2, RoundingMode.HALF_UP).doubleValue();
+    }
+
+    public double getOrderPrice(){
+        double order_price = 0.00;
+        Integer quantity;
+        for(Product product: cart.keySet()){
+            quantity = cart.get(product);
+            order_price += product.getProductPrice() * quantity ;
+        }
+        return order_price;
     }
 
     @Override
     public String toString() {
-        StringBuilder content = new StringBuilder("Cart + \n" + "total price: " + getCartPrice() + "\n");
-        for (Product product : listProducts.keySet()) {
-            content.append(product.toString()).append("\n");
+        StringBuilder items = new StringBuilder("Here are the items in your cart:\n");
+        for (Product product: this.cart.keySet()) {
+            items.append(this.cart.get(product) + "\t" + product);
         }
-        return content.substring(0, content.length() - 1);
+        items.append("\nTotal price: $" + getOrderPrice());
+        return items.toString();
     }
+
 }
