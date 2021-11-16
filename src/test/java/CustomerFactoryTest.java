@@ -14,8 +14,8 @@ public class CustomerFactoryTest {
 
     @Before
     public void setUp() {
-        customer_1 = new Customer("Jenny", "St George","2508862345","asdfa132");
-        customer_2 = new Customer("Tom", "761 Bay St","2346785835","asdfa132");
+        customer_1 = new Customer("Jenny", "2347234324","fsa687","St George");
+        customer_2 = new Customer("Tom", "4523967423","dsf789","761 Bay St");
     }
 
 

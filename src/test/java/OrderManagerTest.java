@@ -18,8 +18,8 @@ public class OrderManagerTest {
         om = new OrderManager();
         order_1 = new Order("1");
         ten_wings = new Product("10 Wings", "1", 16.49, 5);
-        popeyes = new Restaurant("Popeyes", "645 Yonge St", "0123456789", "abcd123", "r");
-        customer = new Customer("Jenny", "St George", "2508862345", "asdfa132");
+        popeyes = new Restaurant("Popeyes", "5384975983", "abcd123", "r", "645 Yonge St");
+        customer = new Customer("Jenny", "34579345534", "iojju564", "St George");
         deliveryPerson = new DeliveryPerson("James", "6437825641", "fwigyeg1", "d", "w");
     }
 
