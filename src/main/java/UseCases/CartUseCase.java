@@ -6,13 +6,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
-public class CartUseCase {
+/**
+ * CartUseCase is for OrderController that allows customer to add products into a cart and ready for generating an
+ * order.
+ */
+public class CartUseCase extends DeliveryPerson {
 
     private final Cart cart;
     private final Map<String, Product> menu = new HashMap<>();
 
-
+    /**
+     * Generate a empty cart, and get information for the restaurant that is selected in the browsing stage.
+     * @param restaurant the restaurant that is selected in browsing stage.
+     */
     public CartUseCase(Restaurant restaurant) {
         this.cart = new Cart();
         int count = 1;
