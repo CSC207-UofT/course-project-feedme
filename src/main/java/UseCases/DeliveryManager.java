@@ -44,10 +44,10 @@ public class DeliveryManager {
             }
         }
 
-        Order currentOrder = order_manager.getOrderById(currentOrderId);
+        //Order currentOrder = order_manager.getOrderById(currentOrderId);
 
-        deliveryPerson.setCurrentOrder(currentOrder);
-        deliveryPerson.getOrderHistory().add(currentOrder);
+        //deliveryPerson.setCurrentOrder(currentOrder);
+        //deliveryPerson.getOrderHistory().add(currentOrder);
     }
 }
 

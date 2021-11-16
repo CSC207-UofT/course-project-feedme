@@ -60,6 +60,22 @@ Work on use case restaurantManager. It is able to edit menu and has some uncalle
 Achieve the function for the restaurant user to receive orders from the customers and distribute orders to delivery 
 person.
 
+### Huiru Tan
+### Progress
+- Write the DeliveryManager part
+- Write the DeliverySystemController part
+- Write the database for DeliveryPerson
+
+### TO DO
+-	Connect DeliveryController to DeliveryManager
+-	Create UserInterface “UI” for DeliveryPerson
+
+For the Usecase DeliveryManager, it is used to check if the information of the delivery man is valid, then add the valid
+deliver men to an ArrayList. Then, a list of DeliveryPeople will be returned. And then, OrderManager will be accessed by
+getOrderId method and get current order. The public void DeliverOrder method is used to set order status to be 
+“delivered” and store the order in order history. For the DeliverySystemController, it is used to call the methods in 
+DeliveryManager and realize “deliver” function by connecting the UserInterface.
+
 
 ## Well done:
 - As we working on our project, we always try to follow the clean architecture.
