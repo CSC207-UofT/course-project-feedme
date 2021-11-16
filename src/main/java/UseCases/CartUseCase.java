@@ -6,13 +6,19 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
+/**
+ * CartUseCase is for OrderController that allows customer to add products into a cart and ready for generating an
+ * order.
+ */
 public class CartUseCase {
 
     private final Cart cart;
-    private Map<String, Product> menu = new HashMap<>();
+    private final Map<String, Product> menu = new HashMap<>();
 
-
+    /**
+     * Generate a empty cart, and get information for the restaurant that is selected in the browsing stage.
+     * @param restaurant the restaurant that is selected in browsing stage.
+     */
     public CartUseCase(Restaurant restaurant) {
         this.cart = new Cart();
         int count = 1;
@@ -31,7 +37,7 @@ public class CartUseCase {
         StringBuilder menu = new StringBuilder("Menu:\n");
         int count = 1;
         for (Product product: list) {
-            menu.append(count + ": " + product  );
+            menu.append(count).append(": ").append(product);
             count++;
         }
         return menu.toString();

@@ -9,7 +9,7 @@ public class CustomerTest {
 
     @Before
     public void setUp() {
-        customer = new Customer("jenny", "St George","2508862345","asdfa132", "c");
+        customer = new Customer("jenny", "123" ,"asdf","c", "St George");
     }
 
     @Test

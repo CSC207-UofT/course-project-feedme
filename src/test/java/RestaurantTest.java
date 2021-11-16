@@ -27,7 +27,7 @@ public class RestaurantTest {
         assertTrue(popeyes.addProductToMenu(ten_wings));
         assertFalse(popeyes.addProductToMenu(ten_wings));
         assertTrue(popeyes.addProductToMenu(tender_combo));
-        assertEquals(2, popeyes.getRestaurantProducts().size());
+        assertEquals(2, popeyes.getRestaurantMenu().size());
     }
 
     @Test
@@ -37,6 +37,6 @@ public class RestaurantTest {
         assertTrue(popeyes.addProductToMenu(ten_wings));
         assertTrue(popeyes.addProductToMenu(tender_combo));
         assertTrue(popeyes.removeProductFromMenu(ten_wings));
-        assertEquals(1, popeyes.getRestaurantProducts().size());
+        assertEquals(1, popeyes.getRestaurantMenu().size());
     }
 }

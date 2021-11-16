@@ -12,7 +12,7 @@ import java.io.IOException;
 public class BrowsingController {
 
     /**
-     * The input and output boundary fo the browsing use case.
+     * The input and output boundary for the browsing Controller.
      */
 
     public interface InOut {
@@ -21,23 +21,37 @@ public class BrowsingController {
         void sendOutput(String output);
     }
 
+    /**
+     * Initiate a new BrowsingUseCase which will read restaurant serialization file.
+     */
+
     private final BrowsingUseCase browsingUsecase = new BrowsingUseCase();
+
+    /**
+     * Method that allows customer to view and select restaurants.
+     * @param inOut input output boundary
+     * @return Restaurant selected restaurant
+     */
 
     public Restaurant selectRestaurant(InOut inOut) {
 
         boolean confirmSelection = false;
         Restaurant restaurant = null;
-
+        // While-loop for viewing restaurants' menu
         while (!confirmSelection) {
+            // Show a list of restaurants
             inOut.sendOutput(browsingUsecase.showRestaurants());
             try {
                 String input = inOut.getInput();
+                // While loop for checking valid input
                 while (!browsingUsecase.verifyRestautantSeleciton(input)) {
                     inOut.sendOutput("\nThe number you entered is not valid. Please check and re-enter the number.");
                     inOut.sendOutput(browsingUsecase.showRestaurants());
                     input = inOut.getInput();
                 }
+                // Save selected restaurant
                 restaurant = browsingUsecase.getRestaurant(input);
+                // Show menu
                 inOut.sendOutput("\nHere is the menu for " + browsingUsecase.showRestaurantName(input) + ":");
                 inOut.sendOutput(browsingUsecase.showMenu(input));
 
@@ -45,6 +59,7 @@ public class BrowsingController {
                 inOut.sendOutput("Something went wrong");
             }
 
+            // Ask customer to comfirm selection or exit.
             inOut.sendOutput("\nPlease type '1' if you would like to order from this restaurant. If you want to go " +
                     "back to the list of restaurants, please type '2'. If you would like to exit, please type '3'.");
             try {
@@ -61,7 +76,7 @@ public class BrowsingController {
                 inOut.sendOutput("Something went wrong");
             }
         }
-
+    // Return the selected restaurant
     return restaurant;
 
     }
