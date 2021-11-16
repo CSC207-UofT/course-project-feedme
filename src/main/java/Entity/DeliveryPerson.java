@@ -20,9 +20,14 @@ public class DeliveryPerson extends User {
         this.transport = transport;
     }
 
-    public DeliveryPerson(String name, String phone_num, String password, String transport) {
+    public DeliveryPerson(String name, String phone_num, String password, String type_) {
+        super(name, phone_num, password, type_);
+        this.transport = "w";
+    }
+
+    public DeliveryPerson(String name, String phone_num, String password) {
         super(name, phone_num, password, "d");
-        this.transport = transport;
+        this.transport = "w";
     }
 
     public String getTransport() { return transport;}

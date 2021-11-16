@@ -10,12 +10,10 @@ public class Cart {
 
     //Initialize an chart
     public Cart(){
-        this.cart = new HashMap<Product, Integer>();
+        this.cart = new HashMap<>();
     }
 
     public HashMap<Product, Integer> getCart() { return this.cart; }
-
-
 
     public boolean removeProductFromCart(Product product, Integer quantity) {
         if (cart.containsKey(product)) {
@@ -51,9 +49,9 @@ public class Cart {
     public String toString() {
         StringBuilder items = new StringBuilder("Here are the items in your cart:\n");
         for (Product product: this.cart.keySet()) {
-            items.append(this.cart.get(product) + "\t" + product);
+            items.append(this.cart.get(product)).append("\t").append(product);
         }
-        items.append("\nTotal price: $" + getOrderPrice());
+        items.append("\nTotal price: $").append(getOrderPrice());
         return items.toString();
     }
 

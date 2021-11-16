@@ -1,5 +1,8 @@
 package Entity;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
@@ -7,42 +10,80 @@ import java.util.HashMap;
  */
 public class Order {
     private final String id;
-    private HashMap<Product, Integer> productList; // key is a Product, value is product number. Since we are adding
-    // Products to listProducs, we wil not make listProducts final.
+    private final HashMap<Product, Integer> listProducts; // key is a Product, value is product number.
     private String status;
+    private final ArrayList<String> restaurantInfo;
+    private final ArrayList<String> customerInfo;
+    private final ArrayList<String> deliveryPersonInfo;
+
 
     //Initialize an order
-    public Order(String id){
+    public Order(String id) {
         this.id = id;
-        this.productList = new HashMap<>();
+        this.listProducts = new HashMap<>();
         this.status = "Order placed";
+        this.restaurantInfo = new ArrayList<>();
+        this.customerInfo = new ArrayList<>();
+        this.deliveryPersonInfo = new ArrayList<>();
     }
 
-    public String getOrderId() { return this.id; }
+    public String getOrderId() {
+        return this.id;
+    }
 
-    public HashMap<Product, Integer> getOrderProducts() { return this.productList; }
+    public HashMap<Product, Integer> getOrderProducts() {
+        return this.listProducts;
+    }
 
-    public String getOrderStatus() { return this.status; }
+    public void addRestaurantInfo(Restaurant restaurant) {
+        this.restaurantInfo.add(restaurant.getUserName());
+        this.restaurantInfo.add(restaurant.getUserPhone_num());
+    }
 
-    public void setOrderStatus(String status) { this.status = status; }
+    public void addCustomerInfo(Customer customer) {
+        this.customerInfo.add(customer.getCustomerType());
+        this.customerInfo.add(customer.getUserPhone_num());
+    }
+
+    public void addDeliveryPersonInfo(DeliveryPerson deliveryPerson) {
+        this.deliveryPersonInfo.add(deliveryPerson.getUserPhone_num());
+    }
+
+    public ArrayList<String> getRestaurantInfo() {
+        return this.restaurantInfo;
+    }
+
+    public ArrayList<String> getCustomerInfo() {
+        return this.customerInfo;
+    }
+
+    public ArrayList<String> getDeliveryPersonInfo() {
+        return this.deliveryPersonInfo;
+    }
+
+    public String getOrderStatus() {
+        return this.status;
+    }
+
+    public void setOrderStatus(String status) {
+        this.status = status;
+    }
 
     // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
     // stock and listProducts, and return true. If stock is not enough, return false.
     public boolean addProductToOrder(Product product, Integer quantity) {
-        if (productList.containsKey(product)) {
+        if (listProducts.containsKey(product)) {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock
-                productList.put(product, productList.get(product) + quantity);
+                listProducts.put(product, listProducts.get(product) + quantity);
                 product.updateStock(-quantity);
                 return true;
             } else {
-
                 return false;
             }
-        }
-        else {
+        } else {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock
-                productList.put(product, quantity);
-                product.updateStock(-quantity);
+                listProducts.put(product, quantity);
+                product.updateStock(quantity);
                 return true;
             } else {
                 return false;
@@ -51,18 +92,16 @@ public class Order {
     }
 
     public boolean removeProductFromOrder(Product product, Integer quantity) {
-        if (productList.containsKey(product)) {
-            if (quantity.equals(productList.get(product))) {
-                productList.remove(product);
+        if (listProducts.containsKey(product)) {
+            if (quantity.equals(listProducts.get(product))) {
+                listProducts.remove(product);
                 product.updateStock(quantity);
                 return true;
-            }
-            else if (quantity < productList.get(product)) {
-                productList.put(product, productList.get(product) - quantity);
+            } else if (quantity < listProducts.get(product)) {
+                listProducts.put(product, listProducts.get(product) - quantity);
                 product.updateStock(quantity);
                 return true;
-            }
-            else {
+            } else {
                 return false; // Number of product to remove > Product number in listProducts.
             }
         } else {
@@ -70,13 +109,23 @@ public class Order {
         }
     }
 
-    public double getOrderPrice(){
+    public double getOrderPrice() {
         double order_price = 0.00;
-        Integer quantity;
-        for(Product product: productList.keySet()){
-            quantity = productList.get(product);
-            order_price += product.getProductPrice() * quantity ;
+        int quantity;
+        for (Product product : listProducts.keySet()) {
+            quantity = listProducts.get(product);
+            order_price += product.getProductPrice() * quantity;
         }
-        return order_price;
+        BigDecimal b = new BigDecimal(order_price);
+        return b.setScale(2, RoundingMode.HALF_UP).doubleValue();
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder content = new StringBuilder("Order id: " + getOrderId() + ", " + "total price: " + getOrderPrice() + "\n");
+        for (Product product : listProducts.keySet()) {
+            content.append(product.toString()).append("\n");
+        }
+        return content.substring(0, content.length() - 1);
     }
 }
