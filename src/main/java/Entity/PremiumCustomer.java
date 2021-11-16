@@ -13,11 +13,15 @@ public class PremiumCustomer extends Customer{
      * @param type_         The type of User
      * @param customer_type The type of Customer
      */
-    public PremiumCustomer(String name, String address, String phone_num, String password, String type_, String customer_type) {
-        super(name, address, phone_num, password, type_, customer_type);
+    public PremiumCustomer(String name, String phone_num, String password, String type_, String address, String customer_type) {
+        super(name, phone_num, password, type_, address, customer_type);
     }
 
-    public PremiumCustomer(String name, String address, String phone_num, String password) {
-        super(name, address, phone_num, password, "c","p");
+    public PremiumCustomer(String name, String phone_num, String password, String type_, String address) {
+        super(name, phone_num, password, type_, address, "p");
+    }
+
+    public PremiumCustomer(String name, String phone_num, String password, String address) {
+        super(name, phone_num, password,"c", address, "p");
     }
 }
