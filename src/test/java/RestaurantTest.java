@@ -11,7 +11,7 @@ public class RestaurantTest {
 
     @Before
     public void setUp() {
-        popeyes = new Restaurant("Popeyes", "645 Yonge St", "0123456789", "abcd123", 'r');
+        popeyes = new Restaurant("Popeyes", "645 Yonge St", "0123456789", "abcd123", "r");
         assertEquals('r', popeyes.getUserType());
     }
 
@@ -24,9 +24,9 @@ public class RestaurantTest {
     public void testAddProduct() {
         Product ten_wings = new Product("10 Wings", "1", 16.49, 2);
         Product tender_combo = new Product("Tender Combo", "2", 11.79, 2);
-        assertTrue(popeyes.addRestaurantProduct(ten_wings));
-        assertFalse(popeyes.addRestaurantProduct(ten_wings));
-        assertTrue(popeyes.addRestaurantProduct(tender_combo));
+        assertTrue(popeyes.addProductToMenu(ten_wings));
+        assertFalse(popeyes.addProductToMenu(ten_wings));
+        assertTrue(popeyes.addProductToMenu(tender_combo));
         assertEquals(2, popeyes.getRestaurantProducts().size());
     }
 
@@ -34,9 +34,9 @@ public class RestaurantTest {
     public void testRemoveProduct() {
         Product ten_wings = new Product("10 Wings", "1", 16.49, 2);
         Product tender_combo = new Product("Tender Combo", "2", 11.79, 2);
-        assertTrue(popeyes.addRestaurantProduct(ten_wings));
-        assertTrue(popeyes.addRestaurantProduct(tender_combo));
-        assertTrue(popeyes.removeRestaurantProduct(ten_wings));
+        assertTrue(popeyes.addProductToMenu(ten_wings));
+        assertTrue(popeyes.addProductToMenu(tender_combo));
+        assertTrue(popeyes.removeProductFromMenu(ten_wings));
         assertEquals(1, popeyes.getRestaurantProducts().size());
     }
 }

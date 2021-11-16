@@ -1,7 +1,12 @@
 package Entity;
 
 
-public class Product {
+import java.io.Serializable;
+
+public class Product implements Serializable {
+    private static final long serialVersionUID = 3151319034129838294L;
+
+
     private final String name;
     private final String id;
     private final double price;
@@ -33,8 +38,11 @@ public class Product {
 
     public int getProductStock() { return this.stock; }
 
-    public void addProductStock(int n) { this.stock += n; }
+    public void updateStock(int n) { this.stock += n; }
 
-    public void reduceProductStock(int n) { this.stock -= n; }
+    @Override
+    public String toString(){
+        return this.getProductName() + "\t" + "$" + this.getProductPrice();
+    }
 
 }

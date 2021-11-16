@@ -1,6 +1,8 @@
 package Entity;
 
+
 public class DeliveryPerson extends User {
+    private final String transport;
 
 
     /**
@@ -11,8 +13,17 @@ public class DeliveryPerson extends User {
      * @param phone_num   The phone number of DeliveryPerson
      * @param password    The password of DeliveryPerson
      * @param type_       The type of User
+     * @param transport   The transport that DeliveryPerson takes("w" for walk, "b" for bicycle, "v" for vehicle)
      */
-    public DeliveryPerson(String name, String phone_num, String password, char type_) {
+    public DeliveryPerson(String name, String phone_num, String password, String type_, String transport) {
         super(name, phone_num, password, type_);
+        this.transport = transport;
     }
+
+    public DeliveryPerson(String name, String phone_num, String password, String transport) {
+        super(name, phone_num, password, "d");
+        this.transport = transport;
+    }
+
+    public String getTransport() { return transport;}
 }

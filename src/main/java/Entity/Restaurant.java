@@ -1,10 +1,14 @@
 package Entity;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Restaurant extends User {
+public class Restaurant extends User implements Serializable {
+
+    private static final long serialVersionUID = -2191481848339591142L;
+
     private final String address;
-    private List<Product> productList;  //Since restaurant can add and remove products from productList, the field may
+    private final List<Product> menu;  //Since restaurant can add and remove products from productList, the field may
                                         //not be final.
 
 
@@ -18,10 +22,16 @@ public class Restaurant extends User {
      * @param type_       The type of User
      * @param address     The delivery address of Restaurant
      */
-    public Restaurant(String name, String address, String phone_num, String password, char type_){
+    public Restaurant(String name, String phone_num, String password, String type_, String address){
         super(name, phone_num, password, type_);
         this.address = address;
-        this.productList = new ArrayList<>();
+        this.menu = new ArrayList<>();
+    }
+
+    public Restaurant(String name, String phone_num, String password, String type_, String address, List<Product> menu){
+        super(name, phone_num, password, type_);
+        this.address = address;
+        this.menu = menu;
     }
 
 
@@ -38,7 +48,7 @@ public class Restaurant extends User {
      *
      * @return a list of Product.
      */
-    public List<Product> getRestaurantProducts() { return this.productList; }
+    public List<Product> getRestaurantMenu() { return this.menu; }
 
 
     /**
@@ -47,11 +57,11 @@ public class Restaurant extends User {
      *
      * @return True if Product is added in the productList successfully.
      */
-    public boolean addRestaurantProduct(Product product) {
-        if (this.productList.contains(product)) {
+    public boolean addProductToMenu(Product product) {
+        if (this.menu.contains(product)) {
             return false;
         }
-        this.productList.add(product);
+        this.menu.add(product);
         return true;
     }
 
@@ -62,11 +72,16 @@ public class Restaurant extends User {
      *
      * @return True if Product removes from the productList successfully.
      */
-    public boolean removeRestaurantProduct(Product product) {
-        if (!this.productList.contains(product)) {
+    public boolean removeProductFromMenu(Product product) {
+        if (!this.menu.contains(product)) {
             return false;
         }
-        this.productList.remove(product);
+        this.menu.remove(product);
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return this.getUserName();
     }
 }
