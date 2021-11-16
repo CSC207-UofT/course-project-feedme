@@ -62,7 +62,7 @@ For the design pattern, I build a factory pattern. When a new customer signs up,
 ### TODO
 - Combine factory pattern with Login system
 - Design the UI for Login and Signup
-- Think about how to implement Command Design Pattern in 'Order'
+- Think about how to implement Command Design Pattern in `Order`
 
 
 ## Edward Wang
