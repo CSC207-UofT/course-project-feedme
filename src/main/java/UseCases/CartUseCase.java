@@ -10,7 +10,7 @@ import java.util.Map;
 public class CartUseCase {
 
     private final Cart cart;
-    private Map<String, Product> menu = new HashMap<>();
+    private final Map<String, Product> menu = new HashMap<>();
 
 
     public CartUseCase(Restaurant restaurant) {
@@ -31,7 +31,7 @@ public class CartUseCase {
         StringBuilder menu = new StringBuilder("Menu:\n");
         int count = 1;
         for (Product product: list) {
-            menu.append(count + ": " + product  );
+            menu.append(count).append(": ").append(product);
             count++;
         }
         return menu.toString();

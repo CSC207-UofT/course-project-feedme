@@ -7,7 +7,7 @@ import Entity.User;
 import java.util.HashMap;
 
 public class UserManager {
-    private HashMap<String, User> userHashMap;  //Since a UserManager could add and remove users, the field may not
+    private final HashMap<String, User> userHashMap;  //Since a UserManager could add and remove users, the field may not
                                                  // noy be final
 //    private final String file_path= "C:\\Users\\Edward\\IdeaProjects\\course-project-feedme\\data\\user_data.txt";
 
@@ -17,6 +17,16 @@ public class UserManager {
 
     }
 
+    public boolean createUser(String phone_num, User user){
+        if(!this.userHashMap.containsKey(phone_num)){
+            this.userHashMap.put(phone_num, user);
+            return true;
+        }
+        return false;
+    }
+
+
+    //May be used in the future
 //    public void initUserMap()  {
 //        try {
 //            File file = new File(this.file_path);
