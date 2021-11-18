@@ -1,10 +1,28 @@
 package Entity;
 
+import java.util.Set;
 
 public class DeliveryPerson extends User {
-    private final String transport;
 
 
+    private Order currentOrder;
+    private Set orderHistory;
+
+    public Order getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public void setCurrentOrder(Order currentOrder) {
+        this.currentOrder = currentOrder;
+    }
+
+    public Set getOrderHistory() {
+        return orderHistory;
+    }
+
+    public void setOrderHistory(Set orderHistory) {
+        this.orderHistory = orderHistory;
+    }
     /**
      * DeliveryPerson is a child class of User. User type 'd' is assigned to DeliveryPerson class.
      * Construct a DeliveryPerson, giving the name, phone_num, password, and type.
@@ -13,22 +31,8 @@ public class DeliveryPerson extends User {
      * @param phone_num   The phone number of DeliveryPerson
      * @param password    The password of DeliveryPerson
      * @param type_       The type of User
-     * @param transport   The transport that DeliveryPerson takes("w" for walk, "b" for bicycle, "v" for vehicle)
      */
-    public DeliveryPerson(String name, String phone_num, String password, String type_, String transport) {
+    public DeliveryPerson(String name, String phone_num, String password, char type_) {
         super(name, phone_num, password, type_);
-        this.transport = transport;
     }
-
-    public DeliveryPerson(String name, String phone_num, String password, String type_) {
-        super(name, phone_num, password, type_);
-        this.transport = "w";
-    }
-
-    public DeliveryPerson(String name, String phone_num, String password) {
-        super(name, phone_num, password, "d");
-        this.transport = "w";
-    }
-
-    public String getTransport() { return transport;}
 }

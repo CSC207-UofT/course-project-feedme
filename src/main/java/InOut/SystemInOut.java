@@ -14,17 +14,19 @@ public class SystemInOut implements BrowsingController.InOut, OrderController.In
                                     , LoginController.InOut, SignupController.InOut {
 
     /**
-     * Read system input
+     * Input and output boundary that implements InOut in each controller. SystemInOut collect client's input from UI
+     * and sent input to controller. It also returns desired output from controller to UI.
      */
     BufferedReader reader;
 
     public SystemInOut() { reader = new BufferedReader(new InputStreamReader(System.in));}
 
+    // Get client's input form UI and sent to controller.
     @Override
     public String getInput() throws IOException {
         return reader.readLine();
     }
-
+    // Return desired output from controller to UI.
     @Override
     public void sendOutput(String output) {
         System.out.println(output);
