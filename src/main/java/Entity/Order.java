@@ -4,6 +4,8 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * This is a controller to our ordering process.
@@ -14,7 +16,7 @@ public class Order {
     private String status;
     private final ArrayList<String> restaurantInfo;
     private final ArrayList<String> customerInfo;
-    private final ArrayList<String> deliveryPersonInfo;
+    private final Set deliveryPersonInfo;
 
 
     //Initialize an order
@@ -24,7 +26,7 @@ public class Order {
         this.status = "Order placed";
         this.restaurantInfo = new ArrayList<>();
         this.customerInfo = new ArrayList<>();
-        this.deliveryPersonInfo = new ArrayList<>();
+        this.deliveryPersonInfo = new HashSet();
     }
 
     public String getOrderId() {
@@ -45,7 +47,7 @@ public class Order {
         this.customerInfo.add(customer.getUserPhone_num());
     }
 
-    public void addDeliveryPersonInfo(DeliveryPerson deliveryPerson) {
+    public void addDeliveryPersonInfo(User deliveryPerson) {
         this.deliveryPersonInfo.add(deliveryPerson.getUserPhone_num());
     }
 
@@ -57,7 +59,7 @@ public class Order {
         return this.customerInfo;
     }
 
-    public ArrayList<String> getDeliveryPersonInfo() {
+    public Set getDeliveryPersonInfo() {
         return this.deliveryPersonInfo;
     }
 

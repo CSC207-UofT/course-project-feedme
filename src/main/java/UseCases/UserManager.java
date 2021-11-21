@@ -14,7 +14,6 @@ public class UserManager {
     public UserManager(){
         UserGatherer userGatherer = new UserGatherer();
         this.userHashMap = userGatherer.loadUser();
-
     }
 
     public boolean createUser(String phone_num, User user){
@@ -67,6 +66,8 @@ public class UserManager {
     }
 
     public boolean userLookup(String phone_num) { return this.userHashMap.containsKey(phone_num); }
+
+    public User getUserByPhoneNumber(String phone_num) { return this.userHashMap.get(phone_num); }
 
     public boolean verifyUser(String phone_num, String enter_password) {
         if (this.userHashMap.containsKey(phone_num)) {

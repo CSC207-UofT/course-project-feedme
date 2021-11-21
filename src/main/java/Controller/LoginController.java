@@ -1,5 +1,6 @@
 package Controller;
 
+import Entity.User;
 import UseCases.UserManager;
 import UserInterface.SignupUI;
 
@@ -18,7 +19,7 @@ public class LoginController {
     private UserManager userManager = new UserManager();
 
 
-    public void start(InOut inout){
+    public User start(InOut inout){
         boolean verifier = false;
         inout.sendOutput("Welcome to feed me! Enter \"S\" if you do not have a account with us:");
         try {
@@ -35,12 +36,16 @@ public class LoginController {
                 String password_input = inout.getInput();
                 if (userManager.verifyUser(phone_input, password_input)) {
                     verifier = true;
+                    inout.sendOutput("You have successfully login.");
+
+                    return userManager.getUserByPhoneNumber(phone_input);
                 }
             }
 
         } catch (IOException e) {
             System.out.println("Something went wrong.");
         }
-        inout.sendOutput("You have successfully login.");
+        //inout.sendOutput("You have successfully login.");
+        return null;
     }
 }

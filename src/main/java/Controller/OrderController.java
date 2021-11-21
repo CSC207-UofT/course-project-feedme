@@ -1,9 +1,9 @@
 package Controller;
 
-import Entity.Cart;
-import Entity.Product;
-import Entity.Restaurant;
+import Entity.*;
 import UseCases.CartUseCase;
+import UseCases.OrderManager;
+
 import java.io.IOException;
 
 /**
@@ -98,5 +98,4 @@ public class OrderController {
         // Return a Cart
         return cartUseCase.getCart();
     }
-
 }
