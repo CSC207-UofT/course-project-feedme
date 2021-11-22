@@ -40,6 +40,32 @@ dispatch orders respectively. Actually, our restaurant interface is not so compl
 be extended in phase2. In the future, we are planning to add more details, such as personalize our menu by adding 
 more characteristics to different items, make the restaurant owner have more choices for order and product editing, etc.
 
+## Bingchen Liu
+### Progress
+Build following new files:
+- `RegularCustomer`
+- `PremiumCustomer`
+- `CustomerFactory`
+- `AddOrderToHistoryTest`
+- `CustomerFactoryTest`
+- `PremiumCustomerTest`
+
+Upadte following files:
+- `User`
+- `DeliveryPerson`
+- `Order`
+
+For the entity layer, I implement two new entity classes, `RegularCustomer` and `PremiumCustomer`, which both inherit from class `Customer`. Moreover, I also add more features for the entity class `Order`. More specifically, now an order contains some information about the restaurant, the customer and delivery person, and also implements corresponding getter methods. In the use case, I add a new method called `matchDeliveryPerson` in `OrderManager`. Basically, this method is used for matching orders with delivery people based on the different types of customers. For orders from a regular customer, the system will match the delivery person randomly. For orders from premium customers, the system will match delivery people who drive cars or ride bikes first. For entity class `User`, I add a new attribute called `orderHistory`, whcih shows the history order for all users(`Restaurant`, `Customer` and `DeliveryPerson` inherit attribute `orderhistory`).
+For entity `DeliveryPerson`, I add new attribute called `transport` and corresponding getter method.
+
+For the design pattern, I build a factory pattern. When a new customer signs up, the system will let the customer choose which type of customer is, and instantiate the class, e.g. `RegularCustomer` or `PremiumCustomer`.
+
+### TODO
+- Combine factory pattern with Login system
+- Design the UI for Login and Signup
+- Implement Command Design Pattern in `Order`
+
+
 ## Edward Wang
 ### Progress
 - Data access
