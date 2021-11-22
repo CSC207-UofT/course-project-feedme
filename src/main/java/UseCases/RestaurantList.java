@@ -4,7 +4,7 @@ import Entity.Restaurant;
 import java.util.ArrayList;
 
 
-public class restaurantList {
+public class RestaurantList {
 
 
     RestaurantGatherer restaurantGatherer = new RestaurantGatherer();

@@ -87,8 +87,8 @@ public class OrderManager {
 //    }
 
 
-    // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
-    // stock and listProducts, and return true. If stock is not enough, return false.
+// Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
+// stock and listProducts, and return true. If stock is not enough, return false.
 //    public boolean addProductToOrder(Product product, Integer quantity) {
 //        if (orderHashMap.containsKey(product)) {
 //            if (product.getProductStock() >= quantity) {// Check if there is enough stock
