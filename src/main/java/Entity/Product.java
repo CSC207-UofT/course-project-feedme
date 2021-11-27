@@ -1,17 +1,14 @@
 package Entity;
 
-
 import java.io.Serializable;
 
 public class Product implements Serializable {
     private static final long serialVersionUID = 3151319034129838294L;
 
-
     private final String name;
     private final String id;
     private final double price;
     private int stock;
-
 
     /**
      * Construct a Product, giving the name, id, price and stock.
@@ -28,18 +25,48 @@ public class Product implements Serializable {
         this.stock = stock;
     }
 
+
+    /**
+     * The product's name.
+     *
+     * @return the product's name.
+     */
+    public String getProductName(){ return this.name;}
+
+    /**
+     * The product's id.
+     *
+     * @return the product's id.
+     */
+    public String getProductId() { return this.id; }
+
+    /**
+     * The product's price.
+     *
+     * @return the product's price.
+     */
     public double getProductPrice(){
         return this.price;
     }
 
-    public String getProductName(){ return this.name;}
-
-    public String getProductId() { return this.id; }
-
+    /**
+     * The product's stock.
+     *
+     * @return the number of product's stock.
+     */
     public int getProductStock() { return this.stock; }
 
+    /**
+     * Update the product's stock by n.
+     * @param n the number of stock that needs to be changed.
+     */
     public void updateStock(int n) { this.stock += n; }
 
+    /**
+     * Return the String representation of the product.
+     *
+     * @return the name of the product and its price.
+     */
     @Override
     public String toString(){
         return this.getProductName() + "\t" + "$" + this.getProductPrice();

@@ -57,6 +57,7 @@ public class UserManager {
         UserWriter writer = new UserWriter();
         writer.addUser(user);
     }
+
     public boolean addUser(String phone_num, User user){
         if(!this.userHashMap.containsKey(phone_num)){
             this.userHashMap.put(phone_num, user);

@@ -44,7 +44,7 @@ public class BrowsingController {
             try {
                 String input = inOut.getInput();
                 // While loop for checking valid input
-                while (!browsingUsecase.verifyRestautantSeleciton(input)) {
+                while (!browsingUsecase.verifyRestaurantSelection(input)) {
                     inOut.sendOutput("\nThe number you entered is not valid. Please check and re-enter the number.");
                     inOut.sendOutput(browsingUsecase.showRestaurants());
                     input = inOut.getInput();

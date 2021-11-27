@@ -16,7 +16,7 @@ public class SignupController {
         try {
             UserManager userManager = new UserManager();
             UserWriter userWriter = new UserWriter();
-            inout.sendOutput("Thank you to join Feed Me! May I get your name please?");
+            inout.sendOutput("Thank you to join FeedMe! May I get your name please?");
             String in_name = inout.getInput();
             inout.sendOutput("Now, I need your phone number, you would need to use phone number to login.");
             String in_phone_num = inout.getInput();
@@ -51,7 +51,7 @@ public class SignupController {
             }
 
             if (in_type.equals("d")) {
-                inout.sendOutput("Thank you for delivery for us! We have created your account, please sign in now!");
+                inout.sendOutput("Thank you for delivering for us! We have created your account, please sign in now!");
                 userManager.addUser(in_phone_num, userManager.createDeliveryPerson(in_name, in_phone_num,
                         in_password, "d"));
 //                userWriter.addUser(userManager.createDeliveryPerson(in_name, in_phone_num,

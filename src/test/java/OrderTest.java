@@ -41,7 +41,9 @@ public class OrderTest {
         order_1.addCustomerInfo(customer);
         order_1.addDeliveryPersonInfo(deliveryman);
         System.out.println(order_1.getRestaurantInfo());
+        assertEquals("Popeyes", order_1.getRestaurantInfo().get(0));
         assertEquals(2, order_1.getCustomerInfo().size());
+        assertEquals(1, order_1.getDeliveryPersonInfo().size());
     }
 
 }

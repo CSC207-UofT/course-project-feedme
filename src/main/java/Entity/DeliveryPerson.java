@@ -1,9 +1,7 @@
 package Entity;
 
-
 public class DeliveryPerson extends User {
     private final String transport;
-
 
     /**
      * DeliveryPerson is a child class of User. User type 'd' is assigned to DeliveryPerson class.

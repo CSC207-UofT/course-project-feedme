@@ -33,7 +33,7 @@ public class BrowsingUseCase {
         return this.list.get(num);
     }
 
-    public boolean verifyRestautantSeleciton(String num) {
+    public boolean verifyRestaurantSelection(String num) {
         return this.list.containsKey(num);
     }
 

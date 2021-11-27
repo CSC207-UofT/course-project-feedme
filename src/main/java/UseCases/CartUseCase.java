@@ -16,7 +16,7 @@ public class CartUseCase {
     private final Map<String, Product> menu = new HashMap<>();
 
     /**
-     * Generate a empty cart, and get information for the restaurant that is selected in the browsing stage.
+     * Generate an empty cart, and get information for the restaurant that is selected in the browsing stage.
      * @param restaurant the restaurant that is selected in browsing stage.
      */
     public CartUseCase(Restaurant restaurant) {

@@ -40,5 +40,10 @@ public class Customer extends User {
      */
     public String getCustomerAddress() { return this.address; }
 
+    /**
+     * Get Customer's type.
+     *
+     * @return a string of the type.
+     */
     public String getCustomerType() { return this.customer_type; }
 }
