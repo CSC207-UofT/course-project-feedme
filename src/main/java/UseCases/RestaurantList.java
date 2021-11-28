@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.io.*;
 
-public class restaurantList {
+public class RestaurantList {
 
 
     RestaurantGatherer restaurantGatherer = new RestaurantGatherer();
