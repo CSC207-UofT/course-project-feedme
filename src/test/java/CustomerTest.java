@@ -22,4 +22,5 @@ public class CustomerTest {
     public void testGetCustomerType() {
         assertEquals("c", customer_1.getUserType());
     }
+
 }

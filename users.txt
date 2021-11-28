@@ -1,5 +1,4 @@
 Bob,4165348671,abc123,c,761 Bay St
 James,2373423234,def234,d,w
-Allen,4378187123,efg111,c,18 Yonge St
-leo,123,123,c,123
-
+Allen,4378187123,efg111,c,18 Yonge St E
+Alex,1261652712,avg343,c,11 Wellesley St E

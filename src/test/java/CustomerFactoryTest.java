@@ -25,4 +25,5 @@ public class CustomerFactoryTest {
         assertTrue(customerFactory.makeCustomer("regular", customer_1) instanceof RegularCustomer);
         assertTrue(customerFactory.makeCustomer("premium", customer_2) instanceof PremiumCustomer);
     }
+
 }

@@ -8,17 +8,17 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class UserWriter {
-    public void addUser(String name, String phone_num, String password, String type_, String address){
-        try (FileWriter file = new FileWriter("users.txt", true)){
-            String user = name + "," + phone_num +"," + password + "," + type_;
-            if (type_.equals("c") || type_.equals("r")){user += ","+ address + "\n";}
-            else{user += "\n";}
-            file.write(user);
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-    }
+//    public void addUser(String name, String phone_num, String password, String type_, String address){
+//        try (FileWriter file = new FileWriter("users.txt", true)){
+//            String user = name + "," + phone_num +"," + password + "," + type_;
+//            if (type_.equals("c") || type_.equals("r")){user += ","+ address + "\n";}
+//            else{user += "\n";}
+//            file.write(user);
+//        }
+//        catch (IOException e){
+//            e.printStackTrace();
+//        }
+//    }
     public void addUser(User user){
         try (FileWriter file = new FileWriter("users.txt", true)){
             String userdata;
