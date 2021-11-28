@@ -19,7 +19,7 @@ public class UserWriter {
 //            e.printStackTrace();
 //        }
 //    }
-    public void addUser(User user){
+    public void saveToFile(User user){
         try (FileWriter file = new FileWriter("users.txt", true)){
             String userdata;
             userdata = user.getUserName() + ',' + user.getUserPhone_num() + ',' + user.getUserPassword() + ',' +
