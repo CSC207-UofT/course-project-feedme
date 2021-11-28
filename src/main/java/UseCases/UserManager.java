@@ -55,7 +55,7 @@ public class UserManager {
 
     public void updateUser(User user) {
         UserWriter writer = new UserWriter();
-        writer.addUser(user);
+        writer.saveToFile(user);
     }
 
     public boolean addUser(String phone_num, User user) {

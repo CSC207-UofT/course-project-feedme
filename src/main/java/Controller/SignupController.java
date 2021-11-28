@@ -27,23 +27,21 @@ public class SignupController {
             String in_type = inout.getInput();
 
             if (in_type.equals("c")) {
-                inout.sendOutput("Thanks for becoming our honorable customer, the last steps for us is for you to " +
-                        "provide your address.");
+                inout.sendOutput("Thanks for becoming our honorable customer, the last step is to provide your delivery address.");
                 String in_address = inout.getInput();
                 userManager.createCustomer(in_name, in_phone_num, in_password, "c", in_address);
 //                userWriter.addUser(userManager.createCustomer(in_name, in_phone_num,
 //                        in_password, "c", in_address));
-                inout.sendOutput("We have created your account, you are now able to sign in!");
+                inout.sendOutput("We have created your account! You are now able to sign in!");
             }
 
             if (in_type.equals("r")) {
-                inout.sendOutput(("Thank you for partnering with FeedMe, the last step we would like to know your " +
-                        "restaurant location."));
+                inout.sendOutput(("Thank you for partnering with FeedMe, the last step is to provide your restaurant location."));
                 String in_address = inout.getInput();
                 userManager.createRestaurant(in_name, in_phone_num, in_password, "r", in_address);
 //                userWriter.addUser(userManager.createRestaurant(in_name, in_phone_num, in_password,
 //                        "r", in_address));
-                inout.sendOutput("We have created your account! You are now able to sign in to your account!");
+                inout.sendOutput("We have created your account! You are now able to sign in!");
             }
 
             if (in_type.equals("d")) {
