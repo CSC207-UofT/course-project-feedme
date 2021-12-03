@@ -5,14 +5,19 @@ import Entity.Restaurant;
 
 import java.util.*;
 
-
+/**
+ * Usecases for BrowsingController.
+ */
 public class BrowsingUseCase {
 
-    private final restaurantList restaurants;
+    private final RestaurantList restaurants;
     private final HashMap<String, Restaurant> list = new HashMap<>();
 
+    /**
+     * Initiating a new BrowsingUseCase will obtain a restaurants' list and a Map.
+     */
     public BrowsingUseCase() {
-        this.restaurants = new restaurantList();
+        this.restaurants = new RestaurantList();
         int count = 1;
         for (Restaurant restaurant: restaurants.restaurantsGetter()) {
             this.list.put(String.valueOf(count), restaurant);
@@ -41,7 +46,7 @@ public class BrowsingUseCase {
         StringBuilder menu = new StringBuilder();
         int count = 1;
         for (Product product: list) {
-            menu.append(count + ": " + product  );
+            menu.append(count).append(": ").append(product);
         }
         return menu.toString();
     }

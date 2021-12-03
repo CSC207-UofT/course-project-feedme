@@ -13,7 +13,6 @@ public class OrderUI {
     }
     public Cart ordering() {
         OrderController controller = new OrderController(restaurant);
-        SystemInOut inOut = new SystemInOut();
-        return controller.addToCart(inOut);
+        return controller.addToCart();
     }
 }

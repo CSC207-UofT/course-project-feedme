@@ -7,9 +7,8 @@ import InOut.SystemInOut;
 
 public class LoginUI {
     public User login(){
-        SystemInOut inout = new SystemInOut();
         LoginController lc = new LoginController();
-        lc.start(inout);
+        lc.start();
         return new Customer("a", "416", "abc", "c", "19 abc st.");
     }
 }

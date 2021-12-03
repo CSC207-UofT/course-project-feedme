@@ -1,6 +1,8 @@
 package Entity;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public abstract class User implements Serializable {
     private static final long serialVersionUID = -8540439868375423480L;
@@ -9,6 +11,7 @@ public abstract class User implements Serializable {
     private final String phone_num;
     private final String password;
     private final String type_;
+    private final List<Order> orderHistory;
 
     /**
      * Construct a User, giving the name, phone_num, password, and type.
@@ -23,6 +26,7 @@ public abstract class User implements Serializable {
         this.phone_num = phone_num;
         this.password = password;
         this.type_ = type_;
+        this.orderHistory = new ArrayList<>();
     }
 
     public String getUserName() { return this.name; }
@@ -32,6 +36,10 @@ public abstract class User implements Serializable {
     public String getUserPassword() { return this.password; }
 
     public String getUserType() { return this.type_; }
+
+    public void addOrderToOrderHistory(Order order) { this.orderHistory.add(order);}
+
+    public List<Order> getOrderHistory() {return this.orderHistory;}
 }
 
 

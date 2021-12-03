@@ -13,9 +13,8 @@ public class BrowsingUI {
     public Restaurant browsing() {
 
         BrowsingController controller = new BrowsingController();
-        SystemInOut inOut = new SystemInOut();
 
-        return controller.selectRestaurant(inOut);
+        return controller.selectRestaurant();
     }
 
 

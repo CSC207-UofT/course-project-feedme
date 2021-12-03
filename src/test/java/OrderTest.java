@@ -34,8 +34,8 @@ public class OrderTest {
 
     @Test
     public void testAddInfo(){
-        Restaurant popeyes = new Restaurant("Popeyes", "645 Yonge St", "0123456789", "abcd123", "r");
-        Customer customer = new Customer("Jenny", "St George","2508862345","asdfa132");
+        Restaurant popeyes = new Restaurant("Popeyes", "5437893432", "sdrd67", "r", "645 Yonge St");
+        Customer customer = new Customer("Jenny", "43246823213","fdsd768","St George");
         DeliveryPerson deliveryman = new DeliveryPerson("James", "6437825641", "fwigyeg1", "d", "w");
         order_1.addRestaurantInfo(popeyes);
         order_1.addCustomerInfo(customer);
