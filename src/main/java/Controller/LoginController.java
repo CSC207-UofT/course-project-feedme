@@ -18,13 +18,21 @@ public class LoginController {
 
     public void start(InOut inout){
         boolean verifier = false;
+        boolean validLetter = false;
         inout.sendOutput("Welcome to FeedMe! Please enter \"S\" if you do not have a account; enter \"L\" if you already have a account:");
         try {
-            String answer = inout.getInput();
-            if (answer.equalsIgnoreCase("S")){
-                SignupUI signupUI = new SignupUI();
-                signupUI.signup();
-           }
+            while (!validLetter) {
+                String answer = inout.getInput();
+                if (answer.equalsIgnoreCase("S")) {
+                    SignupUI signupUI = new SignupUI();
+                    signupUI.signup();
+                    validLetter = true;
+                } else if (answer.equalsIgnoreCase("L")) {
+                    validLetter = true;
+                } else {
+                    inout.sendOutput("Please enter a valid letter");
+                }
+            }
             UserManager userManager = new UserManager();
             while (!verifier) {
                 inout.sendOutput("Please enter your registered phone number:");
