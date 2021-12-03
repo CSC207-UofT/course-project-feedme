@@ -17,7 +17,7 @@ public class RestaurantWriterTest {
     public void testWriteRestaurantWriterTest(){
         Product p1 = new Product("cow eye", "001", 1.2, 110);
         Product p2 = new Product("pig leg", "002", 2.1, 112);
-        Restaurant r1 = new Restaurant("Bad boy resturant","4374374377", "abcdef123", "r"
+        Restaurant r1 = new Restaurant("Bad boy restaurant","4374374377", "abcdef123", "r"
                 , "1000 zxcv st.");
         r1.addProductToMenu(p1);
         r1.addProductToMenu(p2);

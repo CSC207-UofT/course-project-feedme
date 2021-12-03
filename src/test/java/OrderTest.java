@@ -28,7 +28,7 @@ public class OrderTest {
         Product tender_combo = new Product("Tender Combo", "2", 11.79, 2);
         order_1.addProductToOrder(ten_wings, 1);
         order_1.addProductToOrder(tender_combo, 1);
-        System.out.println(order_1);
+//        System.out.println(order_1);
         assertEquals(28.28, order_1.getOrderPrice(), 0.01);
     }
 
@@ -40,7 +40,7 @@ public class OrderTest {
         order_1.addRestaurantInfo(popeyes);
         order_1.addCustomerInfo(customer);
         order_1.addDeliveryPersonInfo(deliveryman);
-        System.out.println(order_1.getRestaurantInfo());
+//        System.out.println(order_1.getRestaurantInfo());
         assertEquals("Popeyes", order_1.getRestaurantInfo().get(0));
         assertEquals(2, order_1.getCustomerInfo().size());
         assertEquals(1, order_1.getDeliveryPersonInfo().size());

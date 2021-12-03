@@ -24,6 +24,6 @@ public class ProductTest {
     public void testGetProductId() {
         assertEquals("1", ten_wings.getProductId());
         assertEquals("2",  tender_combo.getProductId());
-        System.out.println(ten_wings);
+//        System.out.println(ten_wings);
     }
 }
