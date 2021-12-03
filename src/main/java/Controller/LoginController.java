@@ -33,6 +33,8 @@ public class LoginController {
                 String password_input = inout.getInput();
                 if (userManager.verifyUser(phone_input, password_input)) {
                     verifier = true;
+                } else {
+                    inout.sendOutput("Your phone number or password is incorrect. Please try again");
                 }
             }
 
