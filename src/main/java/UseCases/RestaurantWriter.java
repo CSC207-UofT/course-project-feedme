@@ -5,6 +5,9 @@ import Entity.Restaurant;
 import java.io.*;
 import java.util.ArrayList;
 
+/**
+ * changes: changed input as an array list (before was restaurant).
+ */
 public class RestaurantWriter implements Serializable{
     public void addRestaurant(Restaurant restaurant) {
         try {
@@ -20,14 +23,14 @@ public class RestaurantWriter implements Serializable{
 
     }
     //TODO: finish this class to update restaurant into restaurant.txt (restaurant client added product to its menu)
-    public void updateRestaurant(Restaurant restaurant){
+    public void updateRestaurant(ArrayList<Restaurant> restaurants_list){
         try{
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("restaurants.txt"));
-            ArrayList<Restaurant> rArr = (ArrayList<Restaurant>) ois.readObject();
-            ois.close();
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("restaurants.txt"));
+            oos.writeObject(restaurants_list);
+            oos.close();
 
         }
-        catch (IOException | ClassNotFoundException e){
+        catch (IOException e){
             e.printStackTrace();
         }
     }
