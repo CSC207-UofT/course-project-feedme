@@ -33,7 +33,6 @@ public class Restaurant extends User implements Serializable {
         this.menu = menu;
     }
 
-
     /**
      * Get Restaurant's address.
      *
@@ -41,14 +40,12 @@ public class Restaurant extends User implements Serializable {
      */
     public String getRestaurantAddress() { return this.address; }
 
-
     /**
      * Get Restaurant's product.
      *
      * @return a list of Product.
      */
     public List<Product> getRestaurantMenu() { return this.menu; }
-
 
     /**
      * Attempt to add new Product to the Restaurant's productList, if the product
@@ -63,7 +60,6 @@ public class Restaurant extends User implements Serializable {
         this.menu.add(product);
         return true;
     }
-
 
     /**
      * Attempt to remove an existing Product from the Restaurant's productList, if the product

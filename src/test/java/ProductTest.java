@@ -26,5 +26,4 @@ public class ProductTest {
         assertEquals("2",  tender_combo.getProductId());
         System.out.println(ten_wings);
     }
-
 }

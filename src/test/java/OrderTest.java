@@ -45,5 +45,4 @@ public class OrderTest {
         assertEquals(2, order_1.getCustomerInfo().size());
         assertEquals(1, order_1.getDeliveryPersonInfo().size());
     }
-
 }

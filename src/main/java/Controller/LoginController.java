@@ -6,7 +6,7 @@ import UserInterface.SignupUI;
 import java.io.IOException;
 
 /**
- * This class manages to Login process of Feedme.
+ * This class manages to Log in process of FeedMe.
  */
 public class LoginController {
 
@@ -18,7 +18,7 @@ public class LoginController {
 
     public void start(InOut inout){
         boolean verifier = false;
-        inout.sendOutput("Welcome to FeedMe! Please enter \"S\" if you do not have a account with us; enter \"L\" if you already have a account:");
+        inout.sendOutput("Welcome to FeedMe! Please enter \"S\" if you do not have a account; enter \"L\" if you already have a account:");
         try {
             String answer = inout.getInput();
             if (answer.equalsIgnoreCase("S")){
