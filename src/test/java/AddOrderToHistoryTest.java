@@ -2,7 +2,7 @@ import Entity.*;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class AddOrderToHistoryTest {
     Restaurant popeyes;
@@ -16,13 +16,13 @@ public class AddOrderToHistoryTest {
 
     @Before
     public void setUp() {
-        popeyes = new Restaurant("Popeyes", "645 Yonge St", "0123456789", "abcd123", 'r');
-        macdonalds = new Restaurant("Macdonald's", "125 Yonge St", "9876543210", "abcd123", 'r');
+        popeyes = new Restaurant("Popeyes", "34579843534", "abcd123", "r", "645 Yonge St");
+        macdonalds = new Restaurant("Macdonald's", "23194843234", "sfa321", "r", "125 Yonge St");
         ten_wings = new Product("10 Wings", "1", 16.49, 2);
-        customer_1 = new Customer("Jenny", "St George", "2508862345", "asdfa132", 'c');
-        customer_2 = new Customer("Tom", "St George", "1232332450", "asdfa132", 'c');
-        deliveryman_1 = new DeliveryPerson("James", "6437825641", "fwigyeg1", 'd');
-        deliveryman_2 = new DeliveryPerson("Tony", "111111111", "fwigyeg1", 'd');
+        customer_1 = new Customer("Jenny", "2508862345", "dsf67", "c", "St George");
+        customer_2 = new Customer("Tom", "5789435354", "asdfa132", "c", "St George");
+        deliveryman_1 = new DeliveryPerson("James", "6437825641", "fwigyeg1", "d", "w");
+        deliveryman_2 = new DeliveryPerson("Tony", "111111111", "fwigyeg1", "d","b");
         order_1 = new Order("1");
     }
 

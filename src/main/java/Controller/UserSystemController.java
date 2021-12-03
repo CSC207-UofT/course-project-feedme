@@ -5,7 +5,7 @@ import UseCases.UserManager;
 
 // Since we have not decided how to use this class, the class and its methods are never used
 public class UserSystemController {
-    private UserManager um;
+    private final UserManager um;
 
     private UserSystemController(UserManager um) { this.um = um; }
 

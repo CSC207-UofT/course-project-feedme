@@ -11,8 +11,8 @@ public class RestaurantTest {
 
     @Before
     public void setUp() {
-        popeyes = new Restaurant("Popeyes", "645 Yonge St", "0123456789", "abcd123", "r");
-        assertEquals('r', popeyes.getUserType());
+        popeyes = new Restaurant("Popeyes", "35479853433", "jhb12", "r", "645 Yonge St");
+        assertEquals("r", popeyes.getUserType());
     }
 
     @Test
@@ -27,7 +27,7 @@ public class RestaurantTest {
         assertTrue(popeyes.addProductToMenu(ten_wings));
         assertFalse(popeyes.addProductToMenu(ten_wings));
         assertTrue(popeyes.addProductToMenu(tender_combo));
-        assertEquals(2, popeyes.getRestaurantProducts().size());
+        assertEquals(2, popeyes.getRestaurantMenu().size());
     }
 
     @Test
@@ -37,6 +37,6 @@ public class RestaurantTest {
         assertTrue(popeyes.addProductToMenu(ten_wings));
         assertTrue(popeyes.addProductToMenu(tender_combo));
         assertTrue(popeyes.removeProductFromMenu(ten_wings));
-        assertEquals(1, popeyes.getRestaurantProducts().size());
+        assertEquals(1, popeyes.getRestaurantMenu().size());
     }
 }
