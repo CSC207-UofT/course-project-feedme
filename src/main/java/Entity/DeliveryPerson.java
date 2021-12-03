@@ -28,5 +28,10 @@ public class DeliveryPerson extends User {
         this.transport = "w";
     }
 
+    /**
+     * Get DeliveryPerson's transport.
+     *
+     * @return a string of the transport
+     */
     public String getTransport() { return transport;}
 }
