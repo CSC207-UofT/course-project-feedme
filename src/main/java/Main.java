@@ -12,9 +12,9 @@ public class Main {
         LoginUI Lui = new LoginUI();
         User user = Lui.login();
         BrowsingUI Bui = new BrowsingUI();
-        Restaurant restaurant = Bui.browsing();
-        if (restaurant != null){
-            OrderUI Oui = new OrderUI(restaurant);
+        String restaurantNum = Bui.browsing();
+        if (restaurantNum != null){
+            OrderUI Oui = new OrderUI(restaurantNum);
             Cart cart = Oui.ordering();
             if (cart != null) {
                 System.out.println("Enter order distribution");

@@ -7,13 +7,12 @@ import InOut.SystemInOut;
 
 public class OrderUI {
 
-    private final Restaurant restaurant;
-    public OrderUI(Restaurant restaurant) {
-        this.restaurant = restaurant;
+    private final String restaurantNum;
+    public OrderUI(String restaurantNum) {
+        this.restaurantNum = restaurantNum;
     }
     public Cart ordering() {
-        OrderController controller = new OrderController(restaurant);
-        SystemInOut inOut = new SystemInOut();
-        return controller.addToCart(inOut);
+        OrderController controller = new OrderController(restaurantNum);
+        return controller.addToCart();
     }
 }

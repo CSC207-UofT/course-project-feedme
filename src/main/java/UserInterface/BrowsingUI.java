@@ -10,12 +10,11 @@ import InOut.SystemInOut;
 
 public class BrowsingUI {
 
-    public Restaurant browsing() {
+    public String browsing() {
 
         BrowsingController controller = new BrowsingController();
-        SystemInOut inOut = new SystemInOut();
 
-        return controller.selectRestaurant(inOut);
+        return controller.selectRestaurant();
     }
 
 

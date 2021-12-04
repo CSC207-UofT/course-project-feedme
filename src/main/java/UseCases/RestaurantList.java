@@ -1,27 +1,48 @@
 package UseCases;
 
-import Entity.Product;
 import Entity.Restaurant;
-import UseCases.RestaurantGatherer;
-import java.util.*;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.io.*;
 
+
+/**
+ * This class is for getting all the restaurants from data files
+ */
 public class RestaurantList {
 
 
     RestaurantGatherer restaurantGatherer = new RestaurantGatherer();
-    private final ArrayList<Restaurant> restaurants = restaurantGatherer.getRestaurants();
+    private final List<Restaurant> restaurants = restaurantGatherer.getRestaurants();
 
-    public ArrayList<Restaurant> restaurantsGetter() { return restaurants; }
+    /**
+     * Get all restaurants form data file
+     * @return a list of Restaurants
+     */
+    public List<Restaurant> restaurantsGetter() { return restaurants; }
 
+    /**
+     * Find Restaurant by its phone number
+     * @param restaurantNum The phone number of the restaurant
+     * @return The restaurant entity
+     */
+    public Restaurant findRestaurnat(String restaurantNum) {
+        for (Restaurant restaurant: this.restaurants) {
+            if (restaurant.getUserPhone_num().equals(restaurantNum)){
+                return restaurant;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Print all restaurants.
+     * @return A formatted string of restaurants
+     */
     @Override
     public String toString() {
         int count = 1;
         StringBuilder list = new StringBuilder("\nHere is the list of restaurants:\n");
-        for (Restaurant restaurant: restaurants) {
+        for (Restaurant restaurant: this.restaurants) {
             String line = count + ": " + restaurant + "\n";
             list.append(line);
             count++;
