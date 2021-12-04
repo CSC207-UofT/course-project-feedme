@@ -5,6 +5,7 @@ import Entity.Product;
 import Entity.Restaurant;
 import UseCases.CartUseCase;
 import InOut.SystemInOut;
+import UseCases.RestaurantList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -37,12 +38,13 @@ public class OrderController implements SystemInOut {
 
     /**
      *
-     * @param restaurant selected restaurant which is returned by BrosingUI.
+     * @param restaurantNum The phone number of selected restaurant which is returned by BrosingUI.
      */
 
-    public OrderController(Restaurant restaurant) {
-        this.restaurant = restaurant;
-        this.cartUseCase = new CartUseCase(restaurant);
+    public OrderController(String restaurantNum) {
+        RestaurantList restaurantList = new RestaurantList();
+        this.restaurant = restaurantList.findRestaurnat(restaurantNum);
+        this.cartUseCase = new CartUseCase(this.restaurant);
     }
 
     /**

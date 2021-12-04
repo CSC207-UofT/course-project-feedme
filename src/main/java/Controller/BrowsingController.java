@@ -36,10 +36,10 @@ public class BrowsingController implements SystemInOut{
 
     /**
      * Method that allows customer to view and select restaurants.
-     * @return Restaurant selected restaurant
+     * @return The phone number of selected restaurants
      */
 
-    public Restaurant selectRestaurant() {
+    public String selectRestaurant() {
 
         boolean confirmSelection = false;
         Restaurant restaurant = null;
@@ -74,8 +74,7 @@ public class BrowsingController implements SystemInOut{
                     confirmSelection = true;
                     break;
                 } else if (input.equals("3")) {
-                    restaurant = null;
-                    return restaurant;
+                    return null;
                 }
 
             } catch (IOException e) {
@@ -83,7 +82,7 @@ public class BrowsingController implements SystemInOut{
             }
         }
     // Return the selected restaurant
-    return restaurant;
+        return browsingUsecase.restaurantNum(restaurant);
 
     }
 }
