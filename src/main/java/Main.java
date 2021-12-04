@@ -15,7 +15,7 @@ public class Main {
 
         if (user.getUserType().equals("d")) {
             DeliverUI deliverUI = new DeliverUI();
-            deliverUI.showDeliverPortal(user);
+            deliverUI.startDeliverUI(user);
         }
         else {
             BrowsingUI Bui = new BrowsingUI();
