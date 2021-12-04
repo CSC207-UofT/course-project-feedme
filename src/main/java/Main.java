@@ -5,21 +5,23 @@ import UserInterface.BrowsingUI;
 import UserInterface.LoginUI;
 import UserInterface.OrderUI;
 
+import java.util.Map;
+
 
 public class Main {
 
     public static void main(String[] args) {
         LoginUI Lui = new LoginUI();
-        User user = Lui.login();
+        String userNum = Lui.login();
         BrowsingUI Bui = new BrowsingUI();
         String restaurantNum = Bui.browsing();
-        if (restaurantNum != null){
+        try {
             OrderUI Oui = new OrderUI(restaurantNum);
-            Cart cart = Oui.ordering();
-            if (cart != null) {
-                System.out.println("Enter order distribution");
-            }
-        }
+            Map cart = Oui.ordering();
+            System.out.println(cart);
+        } catch (NullPointerException ignored) {}
+
+
 
     }
 
