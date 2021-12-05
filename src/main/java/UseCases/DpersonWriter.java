@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DpersonWriter {
     public void updateRestaurant(ArrayList<DeliveryPerson> d_person_list) {
         try {
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Deliveryperson.txt"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Deliveryperson.ser"));
             oos.writeObject(d_person_list);
             oos.close();
 
