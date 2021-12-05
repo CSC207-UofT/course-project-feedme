@@ -1,4 +1,4 @@
-package UseCases;
+package DataAccess;
 
 import Entity.Restaurant;
 
@@ -11,11 +11,11 @@ import java.util.ArrayList;
 public class RestaurantWriter implements Serializable{
     public void addRestaurant(Restaurant restaurant) {
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("restaurants.txt"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("restaurants.ser"));
             ArrayList<Restaurant> rArr = (ArrayList<Restaurant>) ois.readObject();
             rArr.add(restaurant);
             ois.close();
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("restaurants.txt"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("restaurants.ser"));
             oos.writeObject(rArr);
             oos.close();
 
@@ -25,7 +25,7 @@ public class RestaurantWriter implements Serializable{
     //TODO: finish this class to update restaurant into restaurant.txt (restaurant client added product to its menu)
     public void updateRestaurant(ArrayList<Restaurant> restaurants_list){
         try{
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("restaurants.txt"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("restaurants.ser"));
             oos.writeObject(restaurants_list);
             oos.close();
 

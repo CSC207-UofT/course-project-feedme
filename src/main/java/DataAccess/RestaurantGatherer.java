@@ -1,11 +1,10 @@
-package UseCases;
+package DataAccess;
 
 import Entity.Restaurant;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 public class RestaurantGatherer {
@@ -14,7 +13,7 @@ public class RestaurantGatherer {
      */
     public List<Restaurant> getRestaurants() {
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("restaurants.txt"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("restaurants.ser"));
             return (List<Restaurant>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

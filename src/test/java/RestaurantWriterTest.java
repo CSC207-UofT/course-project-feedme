@@ -1,7 +1,7 @@
 import Entity.Product;
 import Entity.Restaurant;
-import UseCases.RestaurantGatherer;
-import UseCases.RestaurantWriter;
+import DataAccess.RestaurantGatherer;
+import DataAccess.RestaurantWriter;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

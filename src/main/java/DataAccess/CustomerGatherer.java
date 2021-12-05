@@ -1,17 +1,17 @@
-package UseCases;
+package DataAccess;
 
 import Entity.Customer;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
+import java.util.List;
 
 public class CustomerGatherer {
-    public ArrayList<Customer> getCustomerArray(){
+    public List<Customer> getCustomerList(){
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("customers.txt"));
-            return (ArrayList<Customer>) ois.readObject();
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("customers.ser"));
+            return (List<Customer>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
