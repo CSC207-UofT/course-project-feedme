@@ -1,17 +1,17 @@
-package DataAccess;
+package UseCases;
 
 import Entity.DeliveryPerson;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.List;
+import java.util.ArrayList;
 
 public class DpersonGatherer {
-    public List<DeliveryPerson> getDpersonList(){
+    public ArrayList<DeliveryPerson> getCustomerArray(){
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Deliveryperson.ser"));
-            return (List<DeliveryPerson>) ois.readObject();
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Deliveryperson.txt"));
+            return (ArrayList<DeliveryPerson>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
