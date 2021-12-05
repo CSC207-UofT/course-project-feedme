@@ -4,7 +4,6 @@ import Entity.DeliveryPerson;
 import Entity.Restaurant;
 import Entity.User;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class UserManager {
