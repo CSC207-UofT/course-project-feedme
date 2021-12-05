@@ -67,6 +67,8 @@ public class UserManager {
 
     public boolean userLookup(String phone_num) { return this.userHashMap.containsKey(phone_num); }
 
+    public String getType(String phone_num) {return this.userHashMap.get(phone_num).getUserType();}
+
     public boolean verifyUser(String phone_num, String enter_password) {
         if (this.userHashMap.containsKey(phone_num)) {
             return (this.userHashMap.get(phone_num).getUserPassword().equals(enter_password));
