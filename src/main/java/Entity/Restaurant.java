@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Restaurant extends User implements Serializable {
 
-    private static final long serialVersionUID = -2191481848339591142L;
+    private static final long serialVersionUID = 1;
 
     private final String address;
     private final List<Product> menu;

@@ -1,4 +1,4 @@
-package UseCases;
+package DataAccess;
 
 import Entity.Restaurant;
 

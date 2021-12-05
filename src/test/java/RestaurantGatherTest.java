@@ -1,6 +1,6 @@
 import Entity.Product;
 import Entity.Restaurant;
-import UseCases.RestaurantGatherer;
+import DataAccess.RestaurantGatherer;
 import org.junit.Before;
 import org.junit.Test;
 

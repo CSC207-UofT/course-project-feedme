@@ -1,5 +1,6 @@
 package UseCases;
 
+import DataAccess.RestaurantGatherer;
 import Entity.Restaurant;
 
 import java.util.List;

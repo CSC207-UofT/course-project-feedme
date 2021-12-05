@@ -12,9 +12,8 @@ public class UserManager {
 //    private final String file_path= "C:\\Users\\Edward\\IdeaProjects\\course-project-feedme\\data\\user_data.txt";
 
     public UserManager(){
-        UserGatherer userGatherer = new UserGatherer();
-        this.userHashMap = userGatherer.loadUser();
-
+        GetUserMap getUserMap = new GetUserMap();
+        this.userHashMap = (HashMap<String, User>) getUserMap.getMap();
     }
 
     public boolean createUser(String phone_num, User user){
