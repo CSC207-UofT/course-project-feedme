@@ -15,7 +15,7 @@ public class RestaurantSystemPresenter {
     public String editOrView() {
         return "Here is your menu, how would you like to edit your menu? Type the id of the selected product:";
     }
-    public String editOrView(boolean bool) {
+    public String editOrView() {
         return "The product is already in the menu. Type 1 to change product name. Type 2 to " +
                 "change product stock or delete the product. Type 3 to change the price of product";
     }
