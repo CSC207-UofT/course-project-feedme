@@ -1,12 +1,10 @@
 package Controller;
-
-import Entity.Restaurant;
 import UseCases.BrowsingUseCase;
 import InOut.SystemInOut;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Objects;
+
 
 /**
  * Controls the process for browsing restaurants menu and decide which restaurant to order.
@@ -43,7 +41,7 @@ public class BrowsingController implements SystemInOut{
     public String selectRestaurant() {
 
         boolean confirmSelection = false;
-        Restaurant restaurant = null;
+        String restaurant = null;
         // While-loop for viewing restaurants' menu
         while (!confirmSelection) {
             // Show a list of restaurants
@@ -66,7 +64,7 @@ public class BrowsingController implements SystemInOut{
                 sendOutput("Something went wrong");
             }
 
-            // Ask customer to comfirm selection or exit.
+            // Ask customer to confirm selection or exit.
             sendOutput("\nPlease type '1' if you would like to order from this restaurant. If you want to go " +
                     "back to the list of restaurants, please type '2'. If you would like to exit, please type '3'.");
             try {
@@ -83,7 +81,7 @@ public class BrowsingController implements SystemInOut{
             }
         }
     // Return the selected restaurant
-        return browsingUsecase.restaurantNum(Objects.requireNonNull(restaurant));
+        return restaurant;
 
     }
 }

@@ -1,7 +1,3 @@
-import Entity.Cart;
-import Entity.Product;
-import Entity.Restaurant;
-import Entity.User;
 import UserInterface.BrowsingUI;
 import UserInterface.LoginUI;
 import UserInterface.OrderUI;
@@ -18,8 +14,8 @@ public class Main {
         String restaurantNum = Bui.browsing();
         try {
             OrderUI Oui = new OrderUI(restaurantNum);
-            Map<Product, Integer> cart = Oui.ordering();
-
+            Map<String, Integer> cart = Oui.ordering();
+            System.out.println(cart);
         } catch (NullPointerException ignored) {}
 
 

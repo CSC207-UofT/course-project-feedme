@@ -1,10 +1,6 @@
 package UserInterface;
 
 import Controller.OrderController;
-import Entity.Cart;
-import Entity.Product;
-import Entity.Restaurant;
-import InOut.SystemInOut;
 
 import java.util.Map;
 
@@ -23,7 +19,7 @@ public class OrderUI {
         this.restaurantNum = restaurantNum;
     }
 
-    public Map<Product, Integer> ordering() {
+    public Map<String, Integer> ordering() {
         OrderController controller = new OrderController(restaurantNum);
         return controller.addToCart();
     }

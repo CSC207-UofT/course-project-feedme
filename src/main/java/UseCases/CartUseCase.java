@@ -31,19 +31,31 @@ public class CartUseCase {
         }
     }
 
-    public Cart getCart() {
-        return this.cart;
-    }
-
-    public Map<Product, Integer> cartToMap(){
-        Map<Product, Integer> products = new HashMap<Product, Integer>();
+    /**
+     * Convert Cart to Map.
+     * @return A Map with Product as keys and Integer as items.
+     */
+    public Map<String, Integer> cartToMap(){
+        Map<String, Integer> products = new HashMap<String, Integer>();
         for (Product product: this.cart.getCart().keySet()){
-            products.put(product, this.cart.getCart().get(product));
+            products.put(product.getProductName(), this.cart.getCart().get(product));
         }
         return products;
     }
 
-    public String showMenu(String restaurantNum) {
+    /**
+     * Show the name of the restaurant
+     * @return (String) the name of the restaurant
+     */
+    public String showRestaurantName(){
+        return this.restaurant.getUserName();
+    }
+
+    /**
+     * Show the restaurant's menu
+     * @return (String) the menu of the restaurant
+     */
+    public String showMenu() {
         List<Product> list = this.restaurant.getRestaurantMenu();
         StringBuilder menu = new StringBuilder("Menu:\n");
         int count = 1;
@@ -54,25 +66,48 @@ public class CartUseCase {
         return menu.toString();
     }
 
+    /**
+     * Verify if the input is valid.
+     * @param num (String) the number of the product.
+     * @return (Boolean) true if the input is valid, false is the input is invalid.
+     */
     public boolean verifyProductNum(String num) {
         return this.menu.containsKey(num);
     }
 
-    public Product getProduct(String num) {
-        return this.menu.get(num);
+    /**
+     * Get product name based on the number of the product
+     * @param num (String) the number of the product.
+     * @return (String) the name of the product.
+     */
+    public String getProductName(String num) {
+        return this.menu.get(num).getProductName();
     }
 
-    public void addToCart(Product product, Integer quantity) {
-        if (cart.getCart().containsKey(product)) {
-            cart.getCart().put(product, cart.getCart().get(product) + quantity);
-        } else {
-            cart.getCart().put(product, quantity);
+
+    public void addToCart(String productName, Integer quantity) {
+        Product product = null;
+        for (Product p: this.restaurant.getRestaurantMenu()) {
+            if (p.getProductName().equals(productName)) {
+                product = p;
+            }
         }
+        if (this.cart.getCart().containsKey(product)) {
+            this.cart.getCart().put(product, this.cart.getCart().get(product) + quantity);
+        } else {
+            this.cart.getCart().put(product, quantity);
+        }
+        assert product != null;
         product.updateStock(-quantity);
     }
 
-    public boolean checkStockAvailability(Product product, Integer quantity) {
-        return quantity <= product.getProductStock();
+    public boolean checkStockAvailability(String productName, Integer quantity) {
+        for (Product product: this.restaurant.getRestaurantMenu()) {
+            if (product.getProductName().equals(productName)) {
+                return quantity <= product.getProductStock();
+            }
+        }
+        return false;
     }
 
     @Override

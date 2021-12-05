@@ -1,10 +1,6 @@
 package Controller;
-
-import Entity.Product;
 import UseCases.CartUseCase;
 import InOut.SystemInOut;
-import UseCases.RestaurantList;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -33,7 +29,6 @@ public class OrderController implements SystemInOut {
     }
 
     private final CartUseCase cartUseCase;
-    private final String restaurantNum;
 
     /**
      *
@@ -41,26 +36,24 @@ public class OrderController implements SystemInOut {
      */
 
     public OrderController(String restaurantNum) {
-        RestaurantList restaurantList = new RestaurantList();
-        this.restaurantNum = restaurantNum;
-        this.cartUseCase = new CartUseCase(this.restaurantNum);
+        this.cartUseCase = new CartUseCase(restaurantNum);
     }
 
     /**
      * addToCart method in OrderController which allows user to add things to cart.
      * @return Cart that is ready to be used to generate an Order.
      */
-    public Map<Product, Integer> addToCart() {
-        sendOutput("\n" + this.restaurantNum + ":");
+    public Map<String, Integer> addToCart() {
+        sendOutput("\n" + cartUseCase.showRestaurantName() + ":");
         boolean orderMore = true;
         // While-loop for checking if the customer wants to add more items into the cart.
         while (orderMore) {
-            Product tempProduct = null;
+            String tempProduct = null;
             boolean verifyProductName = false;
             // While-loop for verifying if product is in the menu
             while (!verifyProductName) {
                 // Show menu
-                sendOutput("\n" + cartUseCase.showMenu(this.restaurantNum));
+                sendOutput("\n" + cartUseCase.showMenu());
                 sendOutput("\nPlease enter the number of the product that you would like to order: ");
                 try{
                     String input = getInput();
@@ -69,7 +62,7 @@ public class OrderController implements SystemInOut {
                     }
                     else {
                         verifyProductName = true;
-                        tempProduct = cartUseCase.getProduct(input);
+                        tempProduct = cartUseCase.getProductName(input);
                     }
                 } catch (IOException e) {
                     sendOutput("Something went wrong");

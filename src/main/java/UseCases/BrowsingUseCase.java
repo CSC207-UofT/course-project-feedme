@@ -38,8 +38,8 @@ public class BrowsingUseCase {
      * @param num Number of the restaurant
      * @return The restaurant
      */
-    public Restaurant getRestaurant(String num) {
-        return this.list.get(num);
+    public String getRestaurant(String num) {
+        return this.list.get(num).getUserPhone_num();
     }
 
     /**
