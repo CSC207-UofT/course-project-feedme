@@ -14,14 +14,17 @@ public class CartUseCase {
 
     private final Cart cart;
     private final Map<String, Product> menu = new HashMap<>();
+    private final Restaurant restaurant;
 
     /**
      * Generate a empty cart, and get information for the restaurant that is selected in the browsing stage.
-     * @param restaurant the restaurant that is selected in browsing stage.
+     * @param restaurantNum the restaurant that is selected in browsing stage.
      */
-    public CartUseCase(Restaurant restaurant) {
+    public CartUseCase(String restaurantNum) {
         this.cart = new Cart();
         int count = 1;
+        RestaurantList restaurantList = new RestaurantList();
+        this.restaurant = restaurantList.findRestaurnat(restaurantNum);
         for (Product product: restaurant.getRestaurantMenu()) {
             this.menu.put(String.valueOf(count), product);
             count++;
@@ -40,8 +43,8 @@ public class CartUseCase {
         return products;
     }
 
-    public String showMenu(Restaurant restaurant) {
-        List<Product> list = restaurant.getRestaurantMenu();
+    public String showMenu(String restaurantNum) {
+        List<Product> list = this.restaurant.getRestaurantMenu();
         StringBuilder menu = new StringBuilder("Menu:\n");
         int count = 1;
         for (Product product: list) {

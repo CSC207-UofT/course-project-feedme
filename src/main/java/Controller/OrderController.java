@@ -1,7 +1,6 @@
 package Controller;
 
 import Entity.Product;
-import Entity.Restaurant;
 import UseCases.CartUseCase;
 import InOut.SystemInOut;
 import UseCases.RestaurantList;
@@ -9,7 +8,6 @@ import UseCases.RestaurantList;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -35,7 +33,7 @@ public class OrderController implements SystemInOut {
     }
 
     private final CartUseCase cartUseCase;
-    private final Restaurant restaurant;
+    private final String restaurantNum;
 
     /**
      *
@@ -44,8 +42,8 @@ public class OrderController implements SystemInOut {
 
     public OrderController(String restaurantNum) {
         RestaurantList restaurantList = new RestaurantList();
-        this.restaurant = restaurantList.findRestaurnat(restaurantNum);
-        this.cartUseCase = new CartUseCase(this.restaurant);
+        this.restaurantNum = restaurantNum;
+        this.cartUseCase = new CartUseCase(this.restaurantNum);
     }
 
     /**
@@ -53,7 +51,7 @@ public class OrderController implements SystemInOut {
      * @return Cart that is ready to be used to generate an Order.
      */
     public Map<Product, Integer> addToCart() {
-        sendOutput("\n" + this.restaurant + ":");
+        sendOutput("\n" + this.restaurantNum + ":");
         boolean orderMore = true;
         // While-loop for checking if the customer wants to add more items into the cart.
         while (orderMore) {
@@ -62,7 +60,7 @@ public class OrderController implements SystemInOut {
             // While-loop for verifying if product is in the menu
             while (!verifyProductName) {
                 // Show menu
-                sendOutput("\n" + cartUseCase.showMenu(this.restaurant));
+                sendOutput("\n" + cartUseCase.showMenu(this.restaurantNum));
                 sendOutput("\nPlease enter the number of the product that you would like to order: ");
                 try{
                     String input = getInput();

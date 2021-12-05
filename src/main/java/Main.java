@@ -19,6 +19,7 @@ public class Main {
         try {
             OrderUI Oui = new OrderUI(restaurantNum);
             Map<Product, Integer> cart = Oui.ordering();
+
         } catch (NullPointerException ignored) {}
 
 
