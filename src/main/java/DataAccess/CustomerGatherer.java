@@ -10,7 +10,7 @@ import java.util.List;
 public class CustomerGatherer {
     public List<Customer> getCustomerList(){
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("customers.ser"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Customers.ser"));
             return (List<Customer>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

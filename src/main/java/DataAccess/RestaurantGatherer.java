@@ -13,7 +13,7 @@ public class RestaurantGatherer {
      */
     public List<Restaurant> getRestaurants() {
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("restaurants.ser"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Restaurants.ser"));
             return (List<Restaurant>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
