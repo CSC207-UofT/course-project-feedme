@@ -59,7 +59,7 @@ public class RestaurantSystemController implements SystemInOut{
                     }
 
                     if (Objects.equals(type, "3")) {
-                        sendOutput((rp.askPrice());
+                        sendOutput(rp.askPrice());
                         double newPrice = Double.parseDouble(getInput());
                         this.resManager.editPrice(numStr, newPrice);
                     } else {
