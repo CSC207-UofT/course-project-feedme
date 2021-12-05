@@ -27,57 +27,80 @@ public class RestaurantSystemController{
 
             inout.sendOutput(rp.greeting());
             String command = inout.getInput();
-            if(Objects.equals(command, "editMenu")){
+            if(verifyQuit(command)){
+                break;
+            }
+            while(Objects.equals(command, "editMenu")) {
                 this.resManager.getMenu();
                 inout.sendOutput(rp.askId());
                 String numStr = inout.getInput();
+                if (verifyQuit(numStr)) {
+                    break;
+                }
 
                 if (this.resManager.containProduct(numStr)) {
                     inout.sendOutput(rp.askChange());
                     String type = inout.getInput();
+                    if (verifyQuit(type)) {
+                        break;
+                    }
                     if (Objects.equals(type, "1")) {
                         inout.sendOutput(rp.askName());
                         String newName = inout.getInput();
+                        if (verifyQuit(newName)) {
+                            break;
+                        }
                         this.resManager.editName(numStr, newName);
                     }
 
                     if (Objects.equals(type, "2")) {
                         inout.sendOutput(rp.askStock());
                         String stockString = inout.getInput();
+                        if (verifyQuit(stockString)) {
+                            break;
+                        }
                         int newStock = Integer.parseInt(stockString);
                         this.resManager.editRestaurantMenu(numStr, newStock);
                     }
 
                     if (Objects.equals(type, "3")) {
                         inout.sendOutput(rp.askPrice());
-                        double newPrice = Double.parseDouble(inout.getInput());
+                        String priceStr = inout.getInput();
+                        if (verifyQuit(priceStr)) {
+                            break;
+                        }
+                        double newPrice = Double.parseDouble(priceStr);
                         this.resManager.editPrice(numStr, newPrice);
-                    }
-                    else {
+                    } else {
                         inout.sendOutput(rp.notInMenu());
                         inout.sendOutput(rp.askName());
-                        String prod_name = inout.getInput();
+                        String prodName = inout.getInput();
+                        if (verifyQuit(prodName)) {
+                            break;
+                        }
                         inout.sendOutput(rp.askPrice());
-                        String prod_price = inout.getInput();
+                        String prodPrice = inout.getInput();
+                        if (verifyQuit(prodPrice)) {
+                            break;
+                        }
                         inout.sendOutput(rp.askStock());
-                        String prod_stock = inout.getInput();
-                        this.resManager.createProduct(prod_name, Double.parseDouble(prod_price), Integer.parseInt(prod_stock));
+                        String prodStock = inout.getInput();
+                        if (verifyQuit(prodStock)) {
+                            break;
+                        }
+                        this.resManager.createProduct(prodName, Double.parseDouble(prodPrice), Integer.parseInt(prodStock));
                         break;
                     }
                 }
+            }
+            if (Objects.equals(command, "orderHistory")){
+                this.resManager.getOrderHistory();
+            }
 
-                if (Objects.equals(command, "orderHistory")){
-                    this.resManager.getOrderHistory();
-                    break;
-                }
-
-                if (Objects.equals(command, "receiveOrders")) {
-                    this.resManager.distributeOrder();
-                    break;
-                }}
-        }
-        {
-            inout.sendOutput(rp.wrongCommand());
+            if (Objects.equals(command, "receiveOrders")) {
+                this.resManager.distributeOrder();
+            }
         }
     }
+
 }
