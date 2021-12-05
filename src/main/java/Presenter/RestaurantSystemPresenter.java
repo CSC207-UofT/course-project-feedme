@@ -12,10 +12,10 @@ public class RestaurantSystemPresenter {
         return "Welcome! Type receivedOrders, editMenu or orderHistory to begin.";
     }
 
-    public String editOrView() {
+    public String askId() {
         return "Here is your menu, how would you like to edit your menu? Type the id of the selected product:";
     }
-    public String editOrView() {
+    public String askChange() {
         return "The product is already in the menu. Type 1 to change product name. Type 2 to " +
                 "change product stock or delete the product. Type 3 to change the price of product";
     }
@@ -26,7 +26,7 @@ public class RestaurantSystemPresenter {
     public String askStock() {
         return "Type the new product stock, where 0 representing deleting of the product.";
     }
-    public String askProce() {
+    public String askPrice() {
         return "Type the new product price formatting in a float number.";
     }
 
