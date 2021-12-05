@@ -14,8 +14,10 @@ public class Main {
         BrowsingUI Bui = new BrowsingUI();
         String restaurantNum = Bui.browsing();
         try {
-            CartUI Oui = new CartUI(restaurantNum);
-            Map<String, Integer> cart = Oui.ordering();
+            CartUI Cui = new CartUI(restaurantNum);
+            Map<String, Integer> cart = Cui.ordering();
+            System.out.println(customer);
+            System.out.println(cart);
         } catch (NullPointerException ignored) {}
 
 

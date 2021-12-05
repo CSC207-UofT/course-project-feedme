@@ -70,7 +70,8 @@ public class BrowsingUseCase {
         StringBuilder menu = new StringBuilder();
         int count = 1;
         for (Product product: list) {
-            menu.append(count).append(": ").append(product);
+            menu.append(count).append(": ").append(product).append("\n");
+            count ++;
         }
         return menu.toString();
     }

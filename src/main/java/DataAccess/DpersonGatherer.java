@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class DpersonGatherer {
     public ArrayList<DeliveryPerson> getCustomerArray(){
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Deliveryperson.txt"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Deliveryperson.ser"));
             return (ArrayList<DeliveryPerson>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

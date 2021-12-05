@@ -1,5 +1,7 @@
 package Entity;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 
 /**
@@ -35,21 +37,22 @@ public class Cart {
         }
     }
 
-    public double getOrderPrice(){
+    public double getOrderPrice() {
         double order_price = 0.00;
-        Integer quantity;
-        for(Product product: cart.keySet()){
+        int quantity;
+        for (Product product : cart.keySet()) {
             quantity = cart.get(product);
-            order_price += product.getProductPrice() * quantity ;
+            order_price += product.getProductPrice() * quantity;
         }
-        return order_price;
+        BigDecimal b = new BigDecimal(order_price);
+        return b.setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
     @Override
     public String toString() {
         StringBuilder items = new StringBuilder("Here are the items in your cart:\n");
         for (Product product: this.cart.keySet()) {
-            items.append(this.cart.get(product)).append("\t").append(product);
+            items.append(this.cart.get(product)).append(" ").append(product).append("\n");
         }
         items.append("\nTotal price: $").append(getOrderPrice());
         return items.toString();
