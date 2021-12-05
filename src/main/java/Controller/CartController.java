@@ -1,22 +1,16 @@
 package Controller;
-
-import Entity.Product;
-import Entity.Restaurant;
 import UseCases.CartUseCase;
 import InOut.SystemInOut;
-import UseCases.RestaurantList;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
 import java.util.Map;
 
 /**
  * Controller that controls the process for adding item into cart
  */
 
-public class OrderController implements SystemInOut {
+public class CartController implements SystemInOut {
 
     /**
      * OrderController's InOut interface that is implemented by SymtemInOut
@@ -35,34 +29,32 @@ public class OrderController implements SystemInOut {
     }
 
     private final CartUseCase cartUseCase;
-    private final Restaurant restaurant;
+
 
     /**
      *
      * @param restaurantNum The phone number of selected restaurant which is returned by BrosingUI.
      */
 
-    public OrderController(String restaurantNum) {
-        RestaurantList restaurantList = new RestaurantList();
-        this.restaurant = restaurantList.findRestaurnat(restaurantNum);
-        this.cartUseCase = new CartUseCase(this.restaurant);
+    public CartController(String restaurantNum) {
+        this.cartUseCase = new CartUseCase(restaurantNum);
     }
 
     /**
      * addToCart method in OrderController which allows user to add things to cart.
      * @return Cart that is ready to be used to generate an Order.
      */
-    public Map<Product, Integer> addToCart() {
-        sendOutput("\n" + this.restaurant + ":");
+    public Map<String, Integer> addToCart() {
+        sendOutput("\n" + cartUseCase.showRestaurantName() + ":");
         boolean orderMore = true;
         // While-loop for checking if the customer wants to add more items into the cart.
         while (orderMore) {
-            Product tempProduct = null;
+            String tempProduct = null;
             boolean verifyProductName = false;
             // While-loop for verifying if product is in the menu
             while (!verifyProductName) {
                 // Show menu
-                sendOutput("\n" + cartUseCase.showMenu(this.restaurant));
+                sendOutput("\n" + cartUseCase.showMenu());
                 sendOutput("\nPlease enter the number of the product that you would like to order: ");
                 try{
                     String input = getInput();
@@ -71,7 +63,7 @@ public class OrderController implements SystemInOut {
                     }
                     else {
                         verifyProductName = true;
-                        tempProduct = cartUseCase.getProduct(input);
+                        tempProduct = cartUseCase.getProductName(input);
                     }
                 } catch (IOException e) {
                     sendOutput("Something went wrong");
@@ -107,8 +99,8 @@ public class OrderController implements SystemInOut {
             }
 
         }
-        // Return a Cart
         return cartUseCase.cartToMap();
     }
+
 
 }

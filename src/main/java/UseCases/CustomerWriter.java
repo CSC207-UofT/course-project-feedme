@@ -11,7 +11,7 @@ public class
 CustomerWriter {
     public void updateRestaurant(ArrayList<Customer> customer_list){
         try{
-            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("customers.txt"));
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Customers.ser"));
             oos.writeObject(customer_list);
             oos.close();
 
