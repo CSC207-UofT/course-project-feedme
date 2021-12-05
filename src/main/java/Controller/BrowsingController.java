@@ -6,6 +6,7 @@ import InOut.SystemInOut;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Objects;
 
 /**
  * Controls the process for browsing restaurants menu and decide which restaurant to order.
@@ -82,7 +83,7 @@ public class BrowsingController implements SystemInOut{
             }
         }
     // Return the selected restaurant
-        return browsingUsecase.restaurantNum(restaurant);
+        return browsingUsecase.restaurantNum(Objects.requireNonNull(restaurant));
 
     }
 }

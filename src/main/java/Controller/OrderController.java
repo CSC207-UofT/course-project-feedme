@@ -1,6 +1,5 @@
 package Controller;
 
-import Entity.Cart;
 import Entity.Product;
 import Entity.Restaurant;
 import UseCases.CartUseCase;
@@ -10,6 +9,8 @@ import UseCases.RestaurantList;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Controller that controls the process for adding item into cart
@@ -51,7 +52,7 @@ public class OrderController implements SystemInOut {
      * addToCart method in OrderController which allows user to add things to cart.
      * @return Cart that is ready to be used to generate an Order.
      */
-    public Cart addToCart() {
+    public Map<Product, Integer> addToCart() {
         sendOutput("\n" + this.restaurant + ":");
         boolean orderMore = true;
         // While-loop for checking if the customer wants to add more items into the cart.
@@ -107,7 +108,7 @@ public class OrderController implements SystemInOut {
 
         }
         // Return a Cart
-        return cartUseCase.getCart();
+        return cartUseCase.cartToMap();
     }
 
 }
