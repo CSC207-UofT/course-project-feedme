@@ -10,7 +10,7 @@ import java.util.Map;
  * Controller that controls the process for adding item into cart
  */
 
-public class OrderController implements SystemInOut {
+public class CartController implements SystemInOut {
 
     /**
      * OrderController's InOut interface that is implemented by SymtemInOut
@@ -30,12 +30,13 @@ public class OrderController implements SystemInOut {
 
     private final CartUseCase cartUseCase;
 
+
     /**
      *
      * @param restaurantNum The phone number of selected restaurant which is returned by BrosingUI.
      */
 
-    public OrderController(String restaurantNum) {
+    public CartController(String restaurantNum) {
         this.cartUseCase = new CartUseCase(restaurantNum);
     }
 
@@ -98,8 +99,8 @@ public class OrderController implements SystemInOut {
             }
 
         }
-        // Return a Cart
         return cartUseCase.cartToMap();
     }
+
 
 }

@@ -1,13 +1,13 @@
 package UserInterface;
 
-import Controller.OrderController;
+import Controller.CartController;
 
 import java.util.Map;
 
 /**
  * User interface for ordering items
  */
-public class OrderUI {
+public class CartUI {
 
     private final String restaurantNum;
 
@@ -15,12 +15,14 @@ public class OrderUI {
      * Initiating OrderUI
      * @param restaurantNum The string of phone number of selected restaurant
      */
-    public OrderUI(String restaurantNum) {
+    public CartUI(String restaurantNum) {
         this.restaurantNum = restaurantNum;
     }
 
     public Map<String, Integer> ordering() {
-        OrderController controller = new OrderController(restaurantNum);
-        return controller.addToCart();
+        CartController cartController = new CartController(restaurantNum);
+        return cartController.addToCart();
     }
+
+
 }

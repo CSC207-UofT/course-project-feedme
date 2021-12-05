@@ -1,6 +1,6 @@
 import UserInterface.BrowsingUI;
 import UserInterface.LoginUI;
-import UserInterface.OrderUI;
+import UserInterface.CartUI;
 
 import java.util.Map;
 
@@ -13,9 +13,8 @@ public class Main {
         BrowsingUI Bui = new BrowsingUI();
         String restaurantNum = Bui.browsing();
         try {
-            OrderUI Oui = new OrderUI(restaurantNum);
+            CartUI Oui = new CartUI(restaurantNum);
             Map<String, Integer> cart = Oui.ordering();
-            System.out.println(cart);
         } catch (NullPointerException ignored) {}
 
 
