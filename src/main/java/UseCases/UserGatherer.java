@@ -2,7 +2,6 @@ package UseCases;
 
 import Entity.Customer;
 import Entity.DeliveryPerson;
-import Entity.Restaurant;
 import Entity.User;
 
 import java.io.BufferedReader;
