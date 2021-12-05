@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class UserManager {
     private final HashMap<String, User> userHashMap;  //Since a UserManager could add and remove users, the field may not
-                                                 // noy be final
+    // noy be final
 //    private final String file_path= "C:\\Users\\Edward\\IdeaProjects\\course-project-feedme\\data\\user_data.txt";
 
     public UserManager(){
