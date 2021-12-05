@@ -1,6 +1,7 @@
 package UseCases;
 
 import Entity.Customer;
+import Entity.DeliveryPerson;
 import Entity.Restaurant;
 import Entity.User;
 
@@ -20,7 +21,15 @@ public class UserWriter {
 //        }
 //    }
     public void saveToFile(User user){
-        try (FileWriter file = new FileWriter("users.txt", true)){
+        String name;
+        if (user instanceof Customer) {
+            name = "customer.txt";
+        } else if (user instanceof DeliveryPerson) {
+            name = "deliveryperson.txt";
+        } else {
+            name = "restaurant.ser";
+        }
+        try (FileWriter file = new FileWriter(name, true)){
             String userdata;
             userdata = user.getUserName() + ',' + user.getUserPhone_num() + ',' + user.getUserPassword() + ',' +
                     user.getUserType();

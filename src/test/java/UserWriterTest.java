@@ -15,8 +15,8 @@ public class UserWriterTest {
     }
 
     @Test
-    public void testUserWrtieIn(){
-        User user = new Customer("edward", "6471231234", "abc123def", "c", "12 abc st.");
+    public void testUserWriteIn(){
+        User user = new Customer("Edward", "6471231234", "abc123", "c", "12 abc St");
         uw.saveToFile(user);
         UserManager um = new UserManager();
         assertTrue(um.userLookup("6471231234"));

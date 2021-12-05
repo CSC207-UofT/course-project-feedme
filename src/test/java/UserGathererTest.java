@@ -13,7 +13,7 @@ public class UserGathererTest {
     HashMap<String, User> map;
     @Before
     public void setup(){
-        map = ug.loadUser();
+        map = ug.loadCustomer();
     }
 
     @Test
