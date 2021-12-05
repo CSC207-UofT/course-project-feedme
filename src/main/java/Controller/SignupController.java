@@ -39,9 +39,8 @@ public class SignupController implements SystemInOut{
                 sendOutput("Thanks for becoming our honorable customer, the last steps for us is for you to " +
                         "provide your address.");
                 String in_address = getInput();
+                userManager.createCustomer(in_name, in_phone_num, in_password, "c", in_address);
 
-                userManager.addUser(in_phone_num, userManager.createCustomer(in_name, in_phone_num,
-                        in_password, "c", in_address));
 //                userWriter.addUser(userManager.createCustomer(in_name, in_phone_num,
 //                        in_password, "c", in_address));
                 sendOutput("We have created your account, you are now able to sign in!");
@@ -51,8 +50,7 @@ public class SignupController implements SystemInOut{
                 sendOutput(("Thank you for partnering with FeedMe, the last step we would like to know your " +
                         "restaurant location."));
                 String in_address = getInput();
-                userManager.addUser(in_phone_num, userManager.createRestaurant(in_name, in_phone_num, in_password,
-                        "r", in_address));
+                userManager.createRestaurant(in_name, in_phone_num, in_password, "c", in_address);
 //                userWriter.addUser(userManager.createRestaurant(in_name, in_phone_num, in_password,
 //                        "r", in_address));
 
@@ -61,8 +59,7 @@ public class SignupController implements SystemInOut{
 
             if (in_type.equals("d")) {
                 sendOutput("Thank you for delivery for us! We have created your account, please sign in now!");
-                userManager.addUser(in_phone_num, userManager.createDeliveryPerson(in_name, in_phone_num,
-                        in_password, "d"));
+                userManager.createDeliveryPerson(in_name, in_phone_num, in_password, "c");
 //                userWriter.addUser(userManager.createDeliveryPerson(in_name, in_phone_num,
 //                        in_password, "d"));
             }
