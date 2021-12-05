@@ -32,6 +32,14 @@ public class CartUseCase {
         return this.cart;
     }
 
+    public Map<Product, Integer> cartToMap(){
+        Map<Product, Integer> products = new HashMap<Product, Integer>();
+        for (Product product: this.cart.getCart().keySet()){
+            products.put(product, this.cart.getCart().get(product));
+        }
+        return products;
+    }
+
     public String showMenu(Restaurant restaurant) {
         List<Product> list = restaurant.getRestaurantMenu();
         StringBuilder menu = new StringBuilder("Menu:\n");

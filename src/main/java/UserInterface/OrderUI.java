@@ -2,18 +2,20 @@ package UserInterface;
 
 import Controller.OrderController;
 import Entity.Cart;
+import Entity.Product;
 import Entity.Restaurant;
 import InOut.SystemInOut;
 
+import java.util.Map;
+
 public class OrderUI {
 
-    private final Restaurant restaurant;
-    public OrderUI(Restaurant restaurant) {
-        this.restaurant = restaurant;
+    private final String restaurantNum;
+    public OrderUI(String restaurantNum) {
+        this.restaurantNum = restaurantNum;
     }
-    public Cart ordering() {
-        OrderController controller = new OrderController(restaurant);
-        SystemInOut inOut = new SystemInOut();
-        return controller.addToCart(inOut);
+    public Map<Product, Integer> ordering() {
+        OrderController controller = new OrderController(restaurantNum);
+        return controller.addToCart();
     }
 }

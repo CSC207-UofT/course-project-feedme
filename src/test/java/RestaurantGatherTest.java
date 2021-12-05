@@ -14,7 +14,7 @@ public class RestaurantGatherTest {
 
     @Before
     public void setup(){
-        list1 = rs.getRestaurants();
+        list1 = (ArrayList<Restaurant>) rs.getRestaurants();
 
     }
 

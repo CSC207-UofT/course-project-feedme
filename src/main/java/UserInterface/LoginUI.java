@@ -6,11 +6,10 @@ import Entity.User;
 import InOut.SystemInOut;
 
 public class LoginUI {
-    public User login(){
-        SystemInOut inout = new SystemInOut();
+    public String login(){
         LoginController lc = new LoginController();
-        lc.start(inout);
-        //TODO: Why we return a new Customer here?
-        return new Customer("a", "416", "abc", "c", "19 abc st.");
+        lc.start();
+        Customer c = new Customer("a", "416", "abc", "c", "19 abc st.");
+        return c.getUserPhone_num();
     }
 }
