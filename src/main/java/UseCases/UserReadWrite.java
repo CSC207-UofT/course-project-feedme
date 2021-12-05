@@ -22,7 +22,7 @@ public class UserReadWrite {
     }
     public List<DeliveryPerson> readDpersons(){
         try {
-            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Deliveryperson.txt"));
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Deliveryperson.ser"));
             return (List<DeliveryPerson>) ois.readObject();
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
