@@ -1,13 +1,15 @@
 package Controller;
 
 
+import Presenter.RestaurantSystemPresenter;
 import UseCases.RestaurantManager;
 
 import java.io.IOException;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class RestaurantSystemController{
+
+    RestaurantSystemPresenter rp;
 
     public interface InOut {
         String getInput() throws IOException;
@@ -25,47 +27,39 @@ public class RestaurantSystemController{
 
         while(true){
 
-            inout.sendOutput("Some greeting words! Type receivedOrders, editMenu or orderHistory to begin.");
+            rp.greeting();
             String command = inout.getInput();
             if(Objects.equals(command, "editMenu")){
                 this.resManager.getMenu();
-                inout.sendOutput("Here is your menu, how would you like to edit your menu? Type the id of the selected product:");
+                rp.editOrView(true);
                 String numStr = inout.getInput();
-                int pid = -1;
-                try{
-                    pid = Integer.parseInt(numStr);
-                } catch (NumberFormatException e) {
-                    inout.sendOutput("Wrong input, please enter an valid integer.");
-                }
 
-                if (this.resManager.containProduct(pid)) {
-                    inout.sendOutput("The product is already in the menu. Type 1 to change product name. Type 2 to " +
-                            "change product stock or delete the product. Type 3 to change the price of product");
+                if (this.resManager.containProduct(numStr)) {
+                    rp.editOrView(false);
                     String type = inout.getInput();
                     if (Objects.equals(type, "1")) {
-                        inout.sendOutput("Type the new product name.");
+                        rp.editOptions(1);
                         String newName = inout.getInput();
-                        this.resManager.editName(pid, newName);
+                        this.resManager.editName(numStr, newName);
                     }
 
                     if (Objects.equals(type, "2")) {
-                        inout.sendOutput("Type the new product stock, where 0 representing deleting of the product.");
+                        rp.editOptions(2);
                         String stockString = inout.getInput();
                         int newStock = Integer.parseInt(stockString);
-                        this.resManager.editRestaurantMenu(pid, newStock);
+                        this.resManager.editRestaurantMenu(numStr, newStock);
                     }
 
                     if (Objects.equals(type, "3")) {
-                        inout.sendOutput("Type the new product price formatting in a float number.");
+                        rp.editOptions(3);
                         double newPrice = Double.parseDouble(inout.getInput());
-                        this.resManager.editPrice(pid, newPrice);
+                        this.resManager.editPrice(numStr, newPrice);
                     } else {
-                        inout.sendOutput("The product is not in the menu. We will help you add new product to your menu. ");
-                        inout.sendOutput("How did you name your new product? Please type below: ");
+                        rp.notInMenu();
                         String prod_name = inout.getInput();
-                        inout.sendOutput("Great! Now for each product how much do you wanna charge? Please type below: ");
+                        rp.askNewPrice();
                         String prod_price = inout.getInput();
-                        inout.sendOutput("Excellent! And don't forget type the number of product that are in stock right now below: ");
+                        rp.askNewStock();
                         String prod_stock = inout.getInput();
                         this.resManager.createProduct(prod_name, Double.parseDouble(prod_price), Integer.parseInt(prod_stock));
                         break;
@@ -83,7 +77,7 @@ public class RestaurantSystemController{
                 }}
         }
         {
-            inout.sendOutput("wrong command:(");
+            rp.wrongCommand();
         }
     }
 }

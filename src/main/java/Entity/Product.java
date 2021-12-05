@@ -3,15 +3,25 @@ package Entity;
 
 import java.io.Serializable;
 
-public class Product {
+public class Product implements Serializable {
+    private static final long serialVersionUID = 3151319034129838294L;
 
-    private final String name;
-    private final Integer id;
-    private final double price;
+
+    private String name;
+    private final String id;
+    private double price;
     private int stock;
 
-    // Initialize Product
-    public Product(String name, Integer id, double price, int stock){
+
+    /**
+     * Construct a Product, giving the name, id, price and stock.
+     *
+     * @param name      The name of Product
+     * @param id        The id of Product
+     * @param price     The price of Product
+     * @param stock     The stock of Product
+     */
+    public Product(String name, String id, double price, int stock){
         this.name = name;
         this.id = id;
         this.price = price;
@@ -24,31 +34,23 @@ public class Product {
 
     public String getProductName(){ return this.name;}
 
-    public Integer getProductId() { return this.id; }
+    public String getProductId() { return this.id; }
 
     public int getProductStock() { return this.stock; }
 
-    public void addProductStock(int n) { this.stock += n; }
+    public void updateStock(int n) { this.stock += n; }
+    
+    public void setPrice(double price){this.price = price; }
 
-    public void reduceProductStock(int n) { this.stock -= n; }
+    public void setName(String name){this.name = name; }
 
-    public String inStockStatus(){
-        if(this.stock > 0){
-            return "in Stock";
-        }
-        return "not in Stock";
-    }
+    public void setStock(int stock) {this.stock = stock; }
 
+    public void reduceProductStock(int num) {this.stock -= num;}
+    
+    @Override
     public String toString(){
-        return name + price + inStockStatus();
+        return this.getProductName() + "\t" + "$" + this.getProductPrice();
     }
 
-    public void setPrice(double price) {
-    }
-
-    public void setName(String name) {
-    }
-
-    public void setStock(int stock) {
-    }
 }

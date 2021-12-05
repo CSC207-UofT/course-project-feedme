@@ -4,13 +4,12 @@ import Entity.Product;
 import Entity.Restaurant;
 import Entity.Order;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+
 import java.util.*;
 
-
+/**
+ * The Use case for the RestaurantSystemController.
+ */
 public class RestaurantManager {
     Restaurant restaurant;
     ArrayList<Order> orderHistory;
@@ -18,7 +17,10 @@ public class RestaurantManager {
     List<Product> productList;
     int prod_id;
 
-
+    /**
+     * Initiating a new RestaurantManager will obtain a new restaurant, an order history,
+     * a list that is ready to distribute and an initial product id.
+     */
     public RestaurantManager(Restaurant restaurant) {
         this.restaurant = restaurant;
         this.orderHistory = new ArrayList<Order>();
@@ -27,75 +29,120 @@ public class RestaurantManager {
 
     }
 
-    public HashMap<Integer, Product> ProductMap(List<Product> prodList){
-        HashMap<Integer, Product> map = new HashMap<>();
+    /**
+     * Show the product list.
+     * @param prodList The list of products that is used to edit.
+     * @return A hashmap of the product with id in the key and product in the value.
+     */
+    public HashMap<String, Product> ProductMap(List<Product> prodList){
+        HashMap<String, Product> map = new HashMap<>();
         for (Product prod : prodList){
             map.put(prod.getProductId(), prod);
         }
         return map;
     }
 
+    /**
+     * Create a new product with new name, price and stock.
+     * @param name The name of new product
+     * @param price The price of new product
+     * @param stock The stock of new product
+     * @return a new product with the given name, price, and stock
+     */
     public Product createProduct(String name, double price, int stock) {
-        Product product = new Product(name, prod_id, price, stock);
+        Product product = new Product(name, String.valueOf(prod_id), price, stock);
         this.prod_id += 1;
         return product;
     }
 
-    public Product findProduct(int productID){
-        return ProductMap(this.restaurant.getRestaurantProducts()).get(productID);
+    /**
+     * Find the product according to the product id
+     * @param productID The identification number of the product
+     * @return A product with given product id
+     */
+    public Product findProduct(String productID){
+        return ProductMap(this.restaurant.getRestaurantMenu()).get(productID);
     }
 
-    public void editPrice(int productID, double price) {
+    /**
+     * Edit the price of the product
+     * @param productID The identification number of the product
+     * @param price The new price  of the product
+     */
+    public void editPrice(String productID, double price) {
         findProduct(productID).setPrice(price);
     }
 
-    public void editName(int productID, String name) {
+    /**
+     * Edit the name of the product
+     * @param productID The identification number of the product
+     * @param name The new name of the product
+     */
+    public void editName(String productID, String name) {
         findProduct(productID).setName(name);
     }
 
-    //Add product to restaurant menu if boolean is true, vice versa.
-    public void editRestaurantMenu(int productID, int stock) {
-        Product product = ProductMap(this.restaurant.getRestaurantProducts()).get(productID);
+    /**
+     * Add product to restaurant menu if boolean is true, vice versa
+     * @param productID The identification number of the product
+     * @param stock The new stock of the product
+     */
+    public void editRestaurantMenu(String productID, int stock) {
+        Product product = ProductMap(this.restaurant.getRestaurantMenu()).get(productID);
         if(stock > 0){
             product.setStock(stock);
-        }
-        this.restaurant.removeRestaurantProduct(product);
-    }
+        }}
 
 
-    //TODO: override toString.
+    /**
+     * Override toString method of orderHistory in the Order entity.
+     */
     public void getOrderHistory() {
         System.out.println(orderHistory.toString());
     }
 
-    //TODO: override toString.
+    /**
+     * Override toString method of readyToDistribute in the Order entity.
+     */
     public void getReadyToDistribute() {
         System.out.println(readyToDistribute.toString());
     }
 
+    /**
+     * Show the overall products that is in the menu with format name: price(stock)
+     */
     public void getMenu(){
-        for(Integer prod : ProductMap(this.restaurant.getRestaurantProducts()).keySet()){
-            Product product  = this.restaurant.getRestaurantProducts().get(prod);
+        for(String prod : ProductMap(this.restaurant.getRestaurantMenu()).keySet()){
+            Product product  = ProductMap(this.restaurant.getRestaurantMenu()).get(prod);
             System.out.println(product.getProductName() + ": " +
-                    product.getProductPrice() + " (" + product.inStockStatus() + ") " + "\n");
+                    product.getProductPrice() + " (" + product.getProductStock() + ") " + "\n");
         }
     }
 
-
-
-    public boolean containProduct(int productID) {
-        return ProductMap(this.restaurant.getRestaurantProducts()).containsKey(productID);
+    /**
+     * Return true if product id is already contained in the restaurant menu, return false if not
+     * @param productID The identification number of the product
+     * @return True or False
+     */
+    public boolean containProduct(String productID) {
+        return ProductMap(this.restaurant.getRestaurantMenu()).containsKey(productID);
     }
 
-    //return the list of order which is ready to distribute and empty the readyToDistribute list.
+    /**
+     * return the list of order which is ready to distribute and empty the readyToDistribute list
+     * @return An arraylist of orders.
+     */
     public ArrayList<Order> distributeOrder() {
         ArrayList<Order> readyToDistribute = this.readyToDistribute;
         this.readyToDistribute.removeAll(readyToDistribute);
         return readyToDistribute;
     }
 
-    //Precondition: products in order are all from the restaurant.
-    //Receive order and record it. The stock reduces by given quantities in the order.
+    /**
+     * Precondition: products in order are all from the restaurant.
+     * Receive order and record it. The stock reduces by given quantities in the order
+     * @param order The new order that is receiving
+     */
     public void receiveOrder(Order order) {
         order.setOrderStatus("preparing");
         this.readyToDistribute.add(order);
@@ -105,36 +152,6 @@ public class RestaurantManager {
             key.reduceProductStock(hashMap.get(key));
         }
     }
-
-    public void readCsvFile(String csv_file) {
-
-        Scanner scanner = new Scanner(csv_file);
-        String[] sin_prod;
-        Product product;
-
-        while (scanner.hasNextLine()) {
-            sin_prod = scanner.nextLine().split(",");
-            product = new Product(sin_prod[0], Integer.parseInt(sin_prod[1]), Double.parseDouble(sin_prod[2]),
-                    Integer.parseInt(sin_prod[3]));
-            productList.add(product);
-        }
-        scanner.close();
-
-    }
-
-    public static void writeCsvFile(Product sin_prod, String csv_file) throws IOException {
-
-        FileWriter fw = new FileWriter(csv_file, true);
-        BufferedWriter bw = new BufferedWriter(fw);
-        PrintWriter pw = new PrintWriter(bw);
-
-        pw.println(sin_prod);
-        pw.flush();
-        pw.close();
-
-
-    }
-
 }
 
 
