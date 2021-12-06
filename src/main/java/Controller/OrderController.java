@@ -27,4 +27,10 @@ public class OrderController implements SystemInOut {
     public OrderController(String customerNum, String restaurantNum, Map<String, Integer> cart) {
         this.orderUseCase = new OrderUseCase(customerNum, restaurantNum, cart);
     }
+
+    public void createOrder(){
+        String id = orderUseCase.makeOrder();
+        sendOutput("Order has been successfully created! Your order id is: " + id);
+
+    }
 }

@@ -4,13 +4,14 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * This is a controller to our ordering process.
  */
 public class Order {
     private final String id;
-    private final HashMap<Product, Integer> listProducts; // key is a Product, value is product number.
+    private Map<Product, Integer> listProducts; // key is a Product, value is product number.
     private String status;
     private final ArrayList<String> restaurantInfo;
     private final ArrayList<String> customerInfo;
@@ -31,7 +32,7 @@ public class Order {
         return this.id;
     }
 
-    public HashMap<Product, Integer> getOrderProducts() {
+    public Map<Product, Integer> getOrderProducts() {
         return this.listProducts;
     }
 
@@ -47,6 +48,10 @@ public class Order {
 
     public void addDeliveryPersonInfo(DeliveryPerson deliveryPerson) {
         this.deliveryPersonInfo.add(deliveryPerson.getUserPhone_num());
+    }
+
+    public void addItems(Map<Product, Integer> items) {
+        this.listProducts = items;
     }
 
     public ArrayList<String> getRestaurantInfo() {

@@ -16,8 +16,13 @@ public class OrderUI {
         this.customerNum = customerNum;
         this.restaurantNum = restaurantNum;
         this.cart = cart;
+    }
+
+    public void placeOrder() {
         OrderController orderController = new OrderController(customerNum, restaurantNum, cart);
-        }
+        orderController.createOrder();
+    }
+
     }
 
 
