@@ -3,6 +3,8 @@ package Entity;
 import java.io.Serializable;
 
 public class Customer extends User implements Serializable {
+    private static final long serialVersionUID = 1;
+
     private final String address;
     private final String customer_type;
 
@@ -42,10 +44,5 @@ public class Customer extends User implements Serializable {
      */
     public String getCustomerAddress() { return this.address; }
 
-    /**
-     * Get Customer's type.
-     *
-     * @return a string of the type.
-     */
     public String getCustomerType() { return this.customer_type; }
 }

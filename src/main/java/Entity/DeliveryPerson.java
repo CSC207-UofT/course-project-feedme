@@ -1,7 +1,13 @@
 package Entity;
 
-public class DeliveryPerson extends User {
+
+import java.io.Serializable;
+
+public class DeliveryPerson extends User implements Serializable {
+    private static final long serialVersionUID = 1;
+
     private final String transport;
+
 
     /**
      * DeliveryPerson is a child class of User. User type 'd' is assigned to DeliveryPerson class.
@@ -28,10 +34,5 @@ public class DeliveryPerson extends User {
         this.transport = "w";
     }
 
-    /**
-     * Get DeliveryPerson's transport.
-     *
-     * @return a string of the transport
-     */
     public String getTransport() { return transport;}
 }

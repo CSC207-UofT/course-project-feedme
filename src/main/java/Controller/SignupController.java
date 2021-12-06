@@ -2,7 +2,6 @@ package Controller;
 
 import InOut.SystemInOut;
 import UseCases.UserManager;
-import UseCases.UserWriter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -24,7 +23,6 @@ public class SignupController implements SystemInOut{
     public void start() {
         try {
             UserManager userManager = new UserManager();
-            UserWriter userWriter = new UserWriter();
             sendOutput("Thank you to join Feed Me! May I get your name please?");
             String in_name = getInput();
             sendOutput("Now, I need your phone number, you would need to use phone number to login.");

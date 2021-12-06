@@ -1,12 +1,12 @@
 package UserInterface;
 
 import Controller.LoginController;
-import Entity.Customer;
-import Entity.User;
-import InOut.SystemInOut;
+
+import java.util.List;
+
 
 public class LoginUI {
-    public String login(){
+    public List<String> login(){
         LoginController lc = new LoginController();
         return lc.start();
     }

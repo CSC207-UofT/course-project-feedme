@@ -7,11 +7,15 @@ import UserInterface.SignupUI;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * This class manages to Log in process of FeedMe.
+ * This class manages to Login process of Feedme.
  */
 public class LoginController implements SystemInOut {
+
+    private UserManager userManager = new UserManager();
 
     @Override
     public String getInput() throws IOException {
@@ -24,37 +28,33 @@ public class LoginController implements SystemInOut {
     public void sendOutput(String output) {
         System.out.println(output);
     }
-    private UserManager userManager = new UserManager();
 
-    public String start(){
-        boolean verifier = false;
-        boolean validLetter = false;
-        sendOutput("Welcome to FeedMe! Please enter \"S\" if you do not have a account; enter \"L\" if you already have a account:");
+    public List<String> start(){
+        sendOutput("Welcome to feed me! Enter \"S\" if you do not have a account with us:");
         try {
-            while (!validLetter) {
-                String answer = getInput();
-                if (answer.equalsIgnoreCase("S")) {
-                    SignupUI signupUI = new SignupUI();
-                    signupUI.signup();
-                    validLetter = true;
-                } else if (answer.equalsIgnoreCase("L")) {
-                    validLetter = true;
-                } else {
-                    sendOutput("Please enter a valid letter");
-                }
-            }
-            UserManager userManager = new UserManager();
-            while (!verifier) {
+           String answer = getInput();
+           if (answer.equals("S") | answer.equals("s")){
+               SignupUI signupUI = new SignupUI();
+               signupUI.Signup();
+               userManager = new UserManager();
+           }
+           userManager = new UserManager();
+           int attempt = 0;
+            while (attempt < 5) {
                 sendOutput("Please enter your registered phone number:");
                 String phone_input = getInput();
-                sendOutput("Please enter your password:");
+                sendOutput("Please enter your password: ");
                 String password_input = getInput();
                 if (userManager.verifyUser(phone_input, password_input)) {
-                    verifier = true;
-                } else {
-                    sendOutput("Your phone number or password is incorrect. Please try again");
+                    String type=userManager.getType(phone_input);
+                    List<String> list = new ArrayList<>();
+                    list.add(phone_input);
+                    list.add(type);
+                    return list;
                 }
+                attempt += 1;
             }
+
 
         } catch (IOException e) {
             System.out.println("Something went wrong.");
