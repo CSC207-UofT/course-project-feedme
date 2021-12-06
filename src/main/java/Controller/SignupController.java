@@ -36,7 +36,7 @@ public class SignupController implements SystemInOut{
             if (in_type.equals("c")) {
                 sendOutput("Thanks for becoming our honorable customer, the last step is to provide your address.");
                 String in_address = getInput();
-                if (userManager.createCustomer(in_name, in_phone_num, in_password, "c", in_address)) {
+                if (!userManager.userLookup(in_phone_num)) {
                     userManager.createCustomer(in_name, in_phone_num, in_password, "c", in_address);
                     sendOutput("We have created your account, you are now able to login!");
                 }
@@ -50,7 +50,7 @@ public class SignupController implements SystemInOut{
             if (in_type.equals("r")) {
                 sendOutput(("Thanks for partnering with Feed Me, the last step is to provide your restaurant's location."));
                 String in_address = getInput();
-                if (userManager.createRestaurant(in_name, in_phone_num, in_password, "r", in_address)) {
+                if (!userManager.userLookup(in_phone_num)) {
                     userManager.createRestaurant(in_name, in_phone_num, in_password, "r", in_address);
                     sendOutput("We have created your account! You are now able to login!");
                 } else {
@@ -61,7 +61,7 @@ public class SignupController implements SystemInOut{
             }
 
             if (in_type.equals("d")) {
-                if (userManager.createDeliveryPerson(in_name, in_phone_num, in_password, "d")) {
+                if (!userManager.userLookup(in_phone_num)) {
                     userManager.createDeliveryPerson(in_name, in_phone_num, in_password, "d");
                     sendOutput("Thank you for delivering for us! We have created your account, you are now able to login!");
                 }
