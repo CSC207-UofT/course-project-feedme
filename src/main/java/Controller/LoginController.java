@@ -30,13 +30,21 @@ public class LoginController implements SystemInOut {
     }
 
     public List<String> start(){
-        sendOutput("Welcome to feed me! Enter \"S\" if you do not have a account with us:");
+        boolean validLetter = false;
+        sendOutput("Welcome to Feed Me! Please enter \"S\" if you do not have a account; enter \"L\" if you already have a account:");
         try {
-            String answer = getInput();
-            if (answer.equals("S") | answer.equals("s")){
-                SignupUI signupUI = new SignupUI();
-                signupUI.Signup();
-                userManager = new UserManager();
+            while (!validLetter) {
+                String answer = getInput();
+                if (answer.equalsIgnoreCase("S")) {
+                    SignupUI signupUI = new SignupUI();
+                    signupUI.Signup();
+                    userManager = new UserManager();
+                    validLetter = true;
+                } else if(answer.equalsIgnoreCase("L")) {
+                    validLetter = true;
+                } else {
+                    sendOutput("Please enter a valid letter");
+                }
             }
             userManager = new UserManager();
             int attempt = 0;
@@ -51,10 +59,11 @@ public class LoginController implements SystemInOut {
                     list.add(phone_input);
                     list.add(type);
                     return list;
+                } else {
+                    sendOutput("Your phone number or password is incorrect. Please try again");
+                    attempt += 1;
                 }
-                attempt += 1;
             }
-
 
         } catch (IOException e) {
             System.out.println("Something went wrong.");
