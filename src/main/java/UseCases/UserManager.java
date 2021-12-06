@@ -1,9 +1,11 @@
 package UseCases;
+
 import Entity.Customer;
 import Entity.DeliveryPerson;
 import Entity.Restaurant;
 import Entity.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class UserManager {
@@ -53,8 +55,24 @@ public class UserManager {
 //    }
 
     public void updateUser(User user){
-        UserWriter writer = new UserWriter();
-        writer.addUser(user);
+        UserReadWrite urw = new UserReadWrite();
+        if (user instanceof Customer) {
+            ArrayList<Customer> list = (ArrayList<Customer>) urw.readCustomers();
+            list.add((Customer) user);
+            urw.updateCustomer(list);
+        }
+        else  if (user instanceof Restaurant){
+            ArrayList<Restaurant> list = (ArrayList<Restaurant>) urw.readRestaurants();
+            list.add((Restaurant) user);
+            urw.updateRestaurant(list);
+        }
+        else {
+            ArrayList<DeliveryPerson> list =(ArrayList<DeliveryPerson>) urw.readDpersons();
+            list.add((DeliveryPerson) user);
+            urw.updateDperson(list);
+        }
+
+
     }
     public boolean addUser(String phone_num, User user){
         if(!this.userHashMap.containsKey(phone_num)){

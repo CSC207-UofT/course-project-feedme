@@ -21,7 +21,7 @@ public class GetUserMap {
         List<User> list = new ArrayList<>();
         list.addAll(restaurantGatherer.getRestaurants());
         list.addAll(customerGatherer.getCustomerArray());
-        list.addAll(dpersonGatherer.getCustomerArray());
+        list.addAll(dpersonGatherer.getDpersonArray());
         for (User user : list){
             hash_map.put(user.getUserPhone_num(), user);
         }

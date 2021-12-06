@@ -38,6 +38,7 @@ public class LoginController implements SystemInOut {
                signupUI.Signup();
                userManager = new UserManager();
            }
+           userManager = new UserManager();
            int attempt = 0;
             while (attempt < 5) {
                 sendOutput("Please enter your registered phone number:");
