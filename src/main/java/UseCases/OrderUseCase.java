@@ -36,10 +36,32 @@ public class OrderUseCase {
         Order order = new Order(id);
         order.addCustomerInfo(this.customer);
         order.addRestaurantInfo(this.restaurant);
-        order.addItems(items);
+        order.addItems(this.items);
         this.customer.addOrderToOrderHistory(order);
         this.restaurant.addOrderToOrderHistory(order);
+        updateUserOrderHistory(order);
         return id;
+    }
+
+    public void updateUserOrderHistory(Order order) {
+        UserReadWrite readWrite = new UserReadWrite();
+        List<Customer> customerList = readWrite.readCustomers();
+        List<Restaurant> restaurantList = readWrite.readRestaurants();
+
+        for(Customer customer: customerList) {
+            if (customer.getUserPhone_num().equals(this.customer.getUserPhone_num())) {
+                customer.addOrderToOrderHistory(order);
+            }
+        }
+
+        for(Restaurant restaurant: restaurantList) {
+            if (restaurant.getUserPhone_num().equals(this.restaurant.getUserPhone_num())) {
+                restaurant.addOrderToOrderHistory(order);
+            }
+        }
+
+        readWrite.updateCustomer(customerList);
+        readWrite.updateRestaurant(restaurantList);
     }
 
 

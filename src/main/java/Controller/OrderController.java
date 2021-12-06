@@ -3,6 +3,7 @@ package Controller;
 
 import InOut.SystemInOut;
 import UseCases.OrderUseCase;
+import UseCases.UserManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -28,9 +29,11 @@ public class OrderController implements SystemInOut {
         this.orderUseCase = new OrderUseCase(customerNum, restaurantNum, cart);
     }
 
-    public void createOrder(){
+    public void createOrder(String customerNum){
         String id = orderUseCase.makeOrder();
         sendOutput("Order has been successfully created! Your order id is: " + id);
+        UserManager um = new UserManager();
+        sendOutput(String.valueOf(um.getCustomer(customerNum).getOrderHistory()));
 
     }
 }

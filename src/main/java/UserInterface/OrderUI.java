@@ -20,7 +20,7 @@ public class OrderUI {
 
     public void placeOrder() {
         OrderController orderController = new OrderController(customerNum, restaurantNum, cart);
-        orderController.createOrder();
+        orderController.createOrder(customerNum);
     }
 
     }
