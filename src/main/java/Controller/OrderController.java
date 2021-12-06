@@ -10,6 +10,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Map;
 
+/**
+ * The controller for generating order
+ */
 public class OrderController implements SystemInOut {
     @Override
     public String getInput() throws IOException {
@@ -25,6 +28,12 @@ public class OrderController implements SystemInOut {
 
     private final OrderUseCase orderUseCase;
 
+    /**
+     * Initiate the order controller
+     * @param customerNum
+     * @param restaurantNum
+     * @param cart
+     */
     public OrderController(String customerNum, String restaurantNum, Map<String, Integer> cart) {
         this.orderUseCase = new OrderUseCase(customerNum, restaurantNum, cart);
     }
