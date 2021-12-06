@@ -34,14 +34,14 @@ public class LoginController implements SystemInOut {
         LoginPrompt lp = new LoginPrompt();
         sendOutput(lp.askAcc());
         try {
-           String answer = getInput();
-           if (answer.equals("S") | answer.equals("s")){
+            String answer = getInput();
+            if (answer.equals("S") | answer.equals("s")){
                SignupUI signupUI = new SignupUI();
                signupUI.Signup();
                userManager = new UserManager();
-           }
-           userManager = new UserManager();
-           int attempt = 0;
+            }
+            userManager = new UserManager();
+            int attempt = 0;
             while (attempt < 5) {
                 sendOutput(lp.askPhone());
                 String phone_input = getInput();

@@ -38,27 +38,29 @@ public class SignupController implements SystemInOut{
                 sendOutput(sp.askCustomerAddress());
                 String in_address = getInput();
 
-                userManager.addUser(in_phone_num, userManager.createCustomer(in_name, in_phone_num,
-                        in_password, "c", in_address));
-
-                sendOutput(sp.greetCusRest());
+                if (!userManager.userLookup(in_phone_num)) {
+                    userManager.createUser(in_name, in_phone_num, in_password, in_type, in_address);
+                    sendOutput(sp.greetCusRest());
+                }
+                sendOutput(sp.alreadyRegister());
             }
 
             if (in_type.equals("r")) {
                 sendOutput((sp.askRestaurantAddress()));
                 String in_address = getInput();
-                userManager.addUser(in_phone_num, userManager.createRestaurant(in_name, in_phone_num, in_password,
-                        "r", in_address));
-
-
-                sendOutput(sp.greetCusRest());
+                if (!userManager.userLookup(in_phone_num)) {
+                    userManager.createUser(in_name, in_phone_num, in_password, in_type, in_address);
+                    sendOutput(sp.greetCusRest());
+                }
+                sendOutput(sp.alreadyRegister());
             }
 
             if (in_type.equals("d")) {
-                sendOutput(sp.thankDperson());
-                userManager.addUser(in_phone_num, userManager.createDeliveryPerson(in_name, in_phone_num,
-                        in_password, "d"));
-
+                if (!userManager.userLookup(in_phone_num)) {
+                    sendOutput(sp.thankDperson());
+                    userManager.createUser(in_name, in_phone_num, in_password, in_type, null);
+                }
+                sendOutput(sp.alreadyRegister());
             }
         } catch (IOException e) {
             e.printStackTrace();

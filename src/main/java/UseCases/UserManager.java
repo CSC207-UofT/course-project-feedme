@@ -18,9 +18,17 @@ public class UserManager {
         this.userHashMap = (HashMap<String, User>) getUserMap.getMap();
     }
 
-    public boolean createUser(String phone_num, User user){
+    public boolean createUser(String name, String phone_num, String password, String type_, String address){
         if(!this.userHashMap.containsKey(phone_num)){
-            this.userHashMap.put(phone_num, user);
+            if (type_.equals("c")){
+                this.addUser(phone_num, new Customer(name, phone_num, password, type_, address));
+            }
+            else if (type_.equals("r")){
+                this.addUser(phone_num, new Restaurant(name, phone_num, password,type_, address));
+            }
+            else{
+                this.addUser(phone_num, new DeliveryPerson(name, phone_num, password, type_));
+            }
             return true;
         }
         return false;
