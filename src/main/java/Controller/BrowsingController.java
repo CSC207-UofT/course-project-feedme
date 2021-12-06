@@ -1,4 +1,5 @@
 package Controller;
+import Presenter.BrowsingPrensenter;
 import UseCases.BrowsingUseCase;
 import InOut.SystemInOut;
 import java.io.BufferedReader;
@@ -32,6 +33,7 @@ public class BrowsingController implements SystemInOut{
      */
 
     private final BrowsingUseCase browsingUsecase = new BrowsingUseCase();
+    private final BrowsingPrensenter browsingPrensenter = new BrowsingPrensenter();
 
     /**
      * Method that allows customer to view and select restaurants.
@@ -45,28 +47,27 @@ public class BrowsingController implements SystemInOut{
         // While-loop for viewing restaurants' menu
         while (!confirmSelection) {
             // Show a list of restaurants
-            sendOutput(browsingUsecase.showRestaurants());
+            sendOutput(browsingPrensenter.showRestaurantsList());
             try {
                 String input = getInput();
                 // While loop for checking valid input
                 while (!browsingUsecase.verifyRestautantSeleciton(input)) {
-                    sendOutput("\nThe number you entered is not valid. Please check and re-enter the number.");
+                    sendOutput(browsingPrensenter.invalidMessage());
                     sendOutput(browsingUsecase.showRestaurants());
                     input = getInput();
                 }
                 // Save selected restaurant
                 restaurant = browsingUsecase.getRestaurant(input);
                 // Show menu
-                sendOutput("\nHere is the menu for " + browsingUsecase.showRestaurantName(input) + ":");
+                sendOutput(browsingPrensenter.showRestaurantName(input));
                 sendOutput(browsingUsecase.showMenu(input));
 
             } catch (IOException e) {
-                sendOutput("Something went wrong");
+                sendOutput(browsingPrensenter.showError());
             }
 
             // Ask customer to confirm selection or exit.
-            sendOutput("\nPlease type '1' if you would like to order from this restaurant. If you want to go " +
-                    "back to the list of restaurants, please type '2'. If you would like to exit, please type '3'.");
+            sendOutput(browsingPrensenter.askSelection());
             try {
                 String input = getInput();
                 if (input.equals("1")){
@@ -77,7 +78,7 @@ public class BrowsingController implements SystemInOut{
                 }
 
             } catch (IOException e) {
-                sendOutput("Something went wrong");
+                sendOutput(browsingPrensenter.showError());
             }
         }
     // Return the selected restaurant
