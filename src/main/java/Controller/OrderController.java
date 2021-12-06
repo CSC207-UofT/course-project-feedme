@@ -29,11 +29,9 @@ public class OrderController implements SystemInOut {
         this.orderUseCase = new OrderUseCase(customerNum, restaurantNum, cart);
     }
 
-    public void createOrder(String customerNum){
+    public void createOrder(){
         String id = orderUseCase.makeOrder();
         sendOutput("Order has been successfully created! Your order id is: " + id);
-        UserManager um = new UserManager();
-        sendOutput(String.valueOf(um.getCustomer(customerNum).getOrderHistory()));
 
     }
 }
