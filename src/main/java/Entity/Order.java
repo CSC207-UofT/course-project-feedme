@@ -1,5 +1,6 @@
 package Entity;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -9,7 +10,8 @@ import java.util.Map;
 /**
  * This is a controller to our ordering process.
  */
-public class Order {
+public class Order implements Serializable {
+    private static final long serialVersionUID = 1;
     private final String id;
     private Map<Product, Integer> listProducts; // key is a Product, value is product number.
     private String status;
