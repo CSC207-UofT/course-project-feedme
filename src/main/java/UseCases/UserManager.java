@@ -65,6 +65,14 @@ public class UserManager {
         return false;
     }
 
+    public Customer getCustomer(String customerNum) {
+        return (Customer) this.userHashMap.get(customerNum);
+    }
+
+    public Restaurant getRestaurant(String restaurantNum) {
+        return (Restaurant) this.userHashMap.get(restaurantNum);
+    }
+
     public boolean userLookup(String phone_num) { return this.userHashMap.containsKey(phone_num); }
 
     public String getType(String phone_num) {return this.userHashMap.get(phone_num).getUserType();}

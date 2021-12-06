@@ -1,8 +1,5 @@
 package UseCases;
-
-import DataAccess.RestaurantGatherer;
 import Entity.Restaurant;
-
 import java.util.List;
 
 
@@ -12,8 +9,8 @@ import java.util.List;
 public class RestaurantList {
 
 
-    RestaurantGatherer restaurantGatherer = new RestaurantGatherer();
-    private final List<Restaurant> restaurants = restaurantGatherer.getRestaurants();
+    UserReadWrite userReadWrite = new UserReadWrite();
+    private final List<Restaurant> restaurants = userReadWrite.readRestaurants();
 
     /**
      * Get all restaurants form data file
