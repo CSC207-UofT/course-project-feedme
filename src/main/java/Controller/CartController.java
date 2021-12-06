@@ -1,4 +1,5 @@
 package Controller;
+import Presenter.CartPresenter;
 import UseCases.CartUseCase;
 import InOut.SystemInOut;
 import java.io.BufferedReader;
@@ -29,6 +30,7 @@ public class CartController implements SystemInOut {
     }
 
     private final CartUseCase cartUseCase;
+    private final CartPresenter cartPresenter;
 
 
     /**
@@ -38,6 +40,7 @@ public class CartController implements SystemInOut {
 
     public CartController(String restaurantNum) {
         this.cartUseCase = new CartUseCase(restaurantNum);
+        this.cartPresenter = new CartPresenter(restaurantNum);
     }
 
     /**
@@ -45,7 +48,7 @@ public class CartController implements SystemInOut {
      * @return Cart that is ready to be used to generate an Order.
      */
     public Map<String, Integer> addToCart() {
-        sendOutput("\n" + cartUseCase.showRestaurantName() + ":");
+        sendOutput(cartPresenter.showRestaurantName());
         boolean orderMore = true;
         // While-loop for checking if the customer wants to add more items into the cart.
         while (orderMore) {
@@ -54,48 +57,47 @@ public class CartController implements SystemInOut {
             // While-loop for verifying if product is in the menu
             while (!verifyProductName) {
                 // Show menu
-                sendOutput("\n" + cartUseCase.showMenu());
-                sendOutput("\nPlease enter the number of the product that you would like to order: ");
+                sendOutput(cartPresenter.showRestaurantMenu());
+                sendOutput(cartPresenter.askProductSelection());
                 try{
                     String input = getInput();
                     if (!cartUseCase.verifyProductNum(input)){
-                        sendOutput("\nInvalid input. please check the menu and re-enter the number.\n");
+                        sendOutput(cartPresenter.invalidMessage());
                     }
                     else {
                         verifyProductName = true;
                         tempProduct = cartUseCase.getProductName(input);
                     }
                 } catch (IOException e) {
-                    sendOutput("Something went wrong");
+                    sendOutput(cartPresenter.errorMessage());
                 }
             }
 
-            sendOutput("\nPlease enter the quantity you would like to order:");
+            sendOutput(cartPresenter.askQuantity());
             try{
                 String input = getInput();
                 // Check if item has enough stock
                 if (cartUseCase.checkStockAvailability(tempProduct, Integer.valueOf(input))){
                     cartUseCase.addToCart(tempProduct, Integer.valueOf(input));
-                    sendOutput("\nItem has successfully added to cart");
+                    sendOutput(cartPresenter.showSuccess());
                     sendOutput("\n" + cartUseCase);
 
                 } else {
-                    sendOutput("\nSorry, there isn't enough stock" );
+                    sendOutput(cartPresenter.noStock());
                 }
 
             } catch (IOException e) {
-                sendOutput("Something went wrong");
+                sendOutput(cartPresenter.errorMessage());
             }
             // Ask customer if they would like to add another item into the cart or if they are ready to confirm order.
-            sendOutput("\nPlease type '1' if you would like to order another item, type '2' if you are readly " +
-                    "to submit your order");
+            sendOutput(cartPresenter.askSubmitOrder());
             try {
                 String input = getInput();
                 if (input.equals("2")) {
                     orderMore = false;
                 }
             } catch (IOException e) {
-                sendOutput("Something went wrong");
+                sendOutput(cartPresenter.errorMessage());
             }
 
         }
