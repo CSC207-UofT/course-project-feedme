@@ -19,12 +19,17 @@ public class OrderUseCase {
         this.customer = userManager.getCustomer(customerNum);
         this.restaurant = userManager.getRestaurant(restaurantNum);
         this.items = new HashMap<Product, Integer>();
+        for (String productName: cart.keySet()){
+            this.items.put(getProduct(productName), cart.get(productName));
+        }
     }
 
     public Product getProduct(String productName) {
         for (Product product: this.restaurant.getRestaurantMenu()){
-            if()
-        }
+            if(product.getProductName().equals(productName)) {
+                return product;
+            }
+        } return null;
     }
 
 
