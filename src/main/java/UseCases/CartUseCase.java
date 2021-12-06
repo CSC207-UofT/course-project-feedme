@@ -17,7 +17,7 @@ public class CartUseCase {
     private final Restaurant restaurant;
 
     /**
-     * Generate a empty cart, and get information for the restaurant that is selected in the browsing stage.
+     * Generate an empty cart, and get information for the restaurant that is selected in the browsing stage.
      * @param restaurantNum the restaurant that is selected in browsing stage.
      */
     public CartUseCase(String restaurantNum) {
@@ -84,7 +84,7 @@ public class CartUseCase {
         return this.menu.get(num).getProductName();
     }
 
-
+//Move this method to Cart.java
     public void addToCart(String productName, Integer quantity) {
         Product product = null;
         for (Product p: this.restaurant.getRestaurantMenu()) {

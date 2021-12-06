@@ -84,9 +84,5 @@ public class BrowsingUseCase {
         return restaurant.getUserPhone_num();
      }
 
-
-
-
-
 }
 

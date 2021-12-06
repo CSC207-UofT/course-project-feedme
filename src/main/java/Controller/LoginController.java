@@ -26,7 +26,7 @@ public class LoginController implements SystemInOut {
     }
     private UserManager userManager = new UserManager();
 
-    public void start(){
+    public String start(){
         boolean verifier = false;
         boolean validLetter = false;
         sendOutput("Welcome to FeedMe! Please enter \"S\" if you do not have a account; enter \"L\" if you already have a account:");
@@ -60,5 +60,6 @@ public class LoginController implements SystemInOut {
             System.out.println("Something went wrong.");
         }
         sendOutput("You have successfully login.");
+        return null;
     }
 }
