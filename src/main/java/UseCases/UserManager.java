@@ -116,5 +116,3 @@ public class UserManager {
         return new DeliveryPerson(name, phone_num, password, type_);
     }
 }
-
-

@@ -4,7 +4,7 @@ import Controller.SignupController;
 import InOut.SystemInOut;
 
 public class SignupUI {
-    public void signup(){
+    public void Signup(){
         SignupController sc = new SignupController();
         sc.start();
     }

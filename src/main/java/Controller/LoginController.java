@@ -32,14 +32,14 @@ public class LoginController implements SystemInOut {
     public List<String> start(){
         sendOutput("Welcome to feed me! Enter \"S\" if you do not have a account with us:");
         try {
-           String answer = getInput();
-           if (answer.equals("S") | answer.equals("s")){
-               SignupUI signupUI = new SignupUI();
-               signupUI.Signup();
-               userManager = new UserManager();
-           }
-           userManager = new UserManager();
-           int attempt = 0;
+            String answer = getInput();
+            if (answer.equals("S") | answer.equals("s")){
+                SignupUI signupUI = new SignupUI();
+                signupUI.Signup();
+                userManager = new UserManager();
+            }
+            userManager = new UserManager();
+            int attempt = 0;
             while (attempt < 5) {
                 sendOutput("Please enter your registered phone number:");
                 String phone_input = getInput();
