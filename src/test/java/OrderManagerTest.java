@@ -3,6 +3,8 @@ import UseCases.OrderManager;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class OrderManagerTest {
@@ -32,5 +34,18 @@ public class OrderManagerTest {
         order_1.addRestaurantInfo(popeyes);
         order_1.addCustomerInfo(customer);
         assertTrue(om.matchDeliveryPerson(order_1));
+    }
+
+    @Test
+    public void testGetOrderById() {
+        om.addOrder(order_1);
+        assertEquals(om.getOrderById("1"), order_1);
+    }
+
+    @Test
+    public void testUpdateDeliveryPerson() {
+        om.addOrder(order_1);
+        om.updateOrderDeliveryPerson("1", deliveryPerson);
+        assertTrue(order_1.getDeliveryPersonInfo().contains(deliveryPerson.getUserPhone_num()));
     }
 }
