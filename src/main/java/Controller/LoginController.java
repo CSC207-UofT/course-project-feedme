@@ -1,6 +1,7 @@
 package Controller;
 
 import InOut.SystemInOut;
+import Presenter.LoginPrompt;
 import UseCases.UserManager;
 import UserInterface.SignupUI;
 
@@ -30,7 +31,8 @@ public class LoginController implements SystemInOut {
     }
 
     public List<String> start(){
-        sendOutput("Welcome to feed me! Enter \"S\" if you do not have a account with us:");
+        LoginPrompt lp = new LoginPrompt();
+        sendOutput(lp.askAcc());
         try {
            String answer = getInput();
            if (answer.equals("S") | answer.equals("s")){
@@ -41,9 +43,9 @@ public class LoginController implements SystemInOut {
            userManager = new UserManager();
            int attempt = 0;
             while (attempt < 5) {
-                sendOutput("Please enter your registered phone number:");
+                sendOutput(lp.askPhone());
                 String phone_input = getInput();
-                sendOutput("Please enter your password: ");
+                sendOutput(lp.askPassword());
                 String password_input = getInput();
                 if (userManager.verifyUser(phone_input, password_input)) {
                     String type=userManager.getType(phone_input);

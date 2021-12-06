@@ -1,6 +1,7 @@
 package Controller;
 
 import InOut.SystemInOut;
+import Presenter.SignupPrompt;
 import UseCases.UserManager;
 
 import java.io.BufferedReader;
@@ -22,47 +23,42 @@ public class SignupController implements SystemInOut{
 
     public void start() {
         try {
+            SignupPrompt sp = new SignupPrompt();
             UserManager userManager = new UserManager();
-            sendOutput("Thank you to join Feed Me! May I get your name please?");
+            sendOutput(sp.askNewName());
             String in_name = getInput();
-            sendOutput("Now, I need your phone number, you would need to use phone number to login.");
+            sendOutput(sp.askNewPhone());
             String in_phone_num = getInput();
-            sendOutput("We have received your phone number, please enter your login password now.");
+            sendOutput(sp.askNewPassword());
             String in_password = getInput();
-            sendOutput("Would you like to become customer, restaurant partner or deliver man? please enter " +
-                    "one character c (customer), r (restaurant), d (deliver man)");
+            sendOutput(sp.askNewType());
             String in_type = getInput();
 
             if (in_type.equals("c")) {
-                sendOutput("Thanks for becoming our honorable customer, the last steps for us is for you to " +
-                        "provide your address.");
+                sendOutput(sp.askCustomerAddress());
                 String in_address = getInput();
 
                 userManager.addUser(in_phone_num, userManager.createCustomer(in_name, in_phone_num,
                         in_password, "c", in_address));
-//                userWriter.addUser(userManager.createCustomer(in_name, in_phone_num,
-//                        in_password, "c", in_address));
-                sendOutput("We have created your account, you are now able to sign in!");
+
+                sendOutput(sp.greetCusRest());
             }
 
             if (in_type.equals("r")) {
-                sendOutput(("Thank you for partnering with FeedMe, the last step we would like to know your " +
-                        "restaurant location."));
+                sendOutput((sp.askRestaurantAddress()));
                 String in_address = getInput();
                 userManager.addUser(in_phone_num, userManager.createRestaurant(in_name, in_phone_num, in_password,
                         "r", in_address));
-//                userWriter.addUser(userManager.createRestaurant(in_name, in_phone_num, in_password,
-//                        "r", in_address));
 
-                sendOutput("We have created your account! You are now able to sign in to your account!");
+
+                sendOutput(sp.greetCusRest());
             }
 
             if (in_type.equals("d")) {
-                sendOutput("Thank you for delivery for us! We have created your account, please sign in now!");
+                sendOutput(sp.thankDperson());
                 userManager.addUser(in_phone_num, userManager.createDeliveryPerson(in_name, in_phone_num,
                         in_password, "d"));
-//                userWriter.addUser(userManager.createDeliveryPerson(in_name, in_phone_num,
-//                        in_password, "d"));
+
             }
         } catch (IOException e) {
             e.printStackTrace();
