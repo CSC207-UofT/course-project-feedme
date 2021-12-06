@@ -13,13 +13,13 @@ public class UserManager {
     // noy be final
 //    private final String file_path= "C:\\Users\\Edward\\IdeaProjects\\course-project-feedme\\data\\user_data.txt";
 
-    public UserManager(){
+    public UserManager() {
         GetUserMap getUserMap = new GetUserMap();
         this.userHashMap = (HashMap<String, User>) getUserMap.getMap();
     }
 
-    public boolean createUser(String phone_num, User user){
-        if(!this.userHashMap.containsKey(phone_num)){
+    public boolean createUser(String phone_num, User user) {
+        if (!this.userHashMap.containsKey(phone_num)) {
             this.userHashMap.put(phone_num, user);
             return true;
         }
@@ -54,28 +54,27 @@ public class UserManager {
 //        }
 //    }
 
-    public void updateUser(User user){
+    public void updateUser(User user) {
         UserReadWrite urw = new UserReadWrite();
         if (user instanceof Customer) {
             ArrayList<Customer> list = (ArrayList<Customer>) urw.readCustomers();
             list.add((Customer) user);
             urw.updateCustomer(list);
-        }
-        else  if (user instanceof Restaurant){
+        } else if (user instanceof Restaurant) {
             ArrayList<Restaurant> list = (ArrayList<Restaurant>) urw.readRestaurants();
             list.add((Restaurant) user);
             urw.updateRestaurant(list);
-        }
-        else {
-            ArrayList<DeliveryPerson> list =(ArrayList<DeliveryPerson>) urw.readDpersons();
+        } else {
+            ArrayList<DeliveryPerson> list = (ArrayList<DeliveryPerson>) urw.readDpersons();
             list.add((DeliveryPerson) user);
             urw.updateDperson(list);
         }
 
 
     }
-    public boolean addUser(String phone_num, User user){
-        if(!this.userHashMap.containsKey(phone_num)){
+
+    public boolean addUser(String phone_num, User user) {
+        if (!this.userHashMap.containsKey(phone_num)) {
             this.userHashMap.put(phone_num, user);
             this.updateUser(user);
             return true;
@@ -91,9 +90,13 @@ public class UserManager {
         return (Restaurant) this.userHashMap.get(restaurantNum);
     }
 
-    public boolean userLookup(String phone_num) { return this.userHashMap.containsKey(phone_num); }
+    public boolean userLookup(String phone_num) {
+        return this.userHashMap.containsKey(phone_num);
+    }
 
-    public String getType(String phone_num) {return this.userHashMap.get(phone_num).getUserType();}
+    public String getType(String phone_num) {
+        return this.userHashMap.get(phone_num).getUserType();
+    }
 
     public boolean verifyUser(String phone_num, String enter_password) {
         if (this.userHashMap.containsKey(phone_num)) {
@@ -102,17 +105,20 @@ public class UserManager {
         return false;
     }
 
-    public Customer createCustomer(String name, String phone_num, String password, String type_, String address){
-        return new Customer(name, phone_num, password, type_, address);
+    public boolean createCustomer(String name, String phone_num, String password, String type_, String address) {
+        Customer customer = new Customer(name, phone_num, password, type_, address);
+        return this.addUser(customer.getUserPhone_num(), customer);
     }
 
     // For method restaurantSignup and deliveryPersonSignup, since we are not sure the relation between them and Login &
     // Signup, we just leave them as they are
-    public Restaurant createRestaurant(String name, String phone_num, String password, String type_, String address){
-        return new Restaurant(name, phone_num, password, type_, address);
+    public boolean createRestaurant(String name, String phone_num, String password, String type_, String address) {
+        Restaurant restaurant = new Restaurant(name, phone_num, password, type_, address);
+        return this.addUser(restaurant.getUserPhone_num(), restaurant);
     }
 
-    public DeliveryPerson createDeliveryPerson(String name, String phone_num, String password, String type_){
-        return new DeliveryPerson(name, phone_num, password, type_);
+    public boolean createDeliveryPerson(String name, String phone_num, String password, String type_) {
+        DeliveryPerson deliveryPerson = new DeliveryPerson(name, phone_num, password, type_);
+        return this.addUser(deliveryPerson.getUserPhone_num(), deliveryPerson);
     }
 }
