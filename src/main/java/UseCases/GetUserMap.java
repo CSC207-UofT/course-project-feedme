@@ -20,8 +20,8 @@ public class GetUserMap {
     public Map<String, User> getMap(){
         List<User> list = new ArrayList<>();
         list.addAll(restaurantGatherer.getRestaurants());
-        list.addAll(customerGatherer.getCustomerList());
-        list.addAll(dpersonGatherer.getDpersonList());
+        list.addAll(customerGatherer.getCustomerArray());
+        list.addAll(dpersonGatherer.getDpersonArray());
         for (User user : list){
             hash_map.put(user.getUserPhone_num(), user);
         }
