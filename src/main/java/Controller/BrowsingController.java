@@ -81,7 +81,7 @@ public class BrowsingController implements SystemInOut{
                 sendOutput(browsingPrensenter.showError());
             }
         }
-    // Return the selected restaurant
+        // Return the selected restaurant's phone number as a String
         return restaurant;
 
     }

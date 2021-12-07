@@ -84,7 +84,11 @@ public class CartUseCase {
         return this.menu.get(num).getProductName();
     }
 
-//Move this method to Cart.java
+    /**
+     * Add product to cart
+     * @param productName (String) Product name
+     * @param quantity (Integer) Product quantity
+     */
     public void addToCart(String productName, Integer quantity) {
         Product product = null;
         for (Product p: this.restaurant.getRestaurantMenu()) {
@@ -101,6 +105,12 @@ public class CartUseCase {
         product.updateStock(-quantity);
     }
 
+    /**
+     * Check if there is enough stock
+     * @param productName (String) product name
+     * @param quantity (Integer) product quantity
+     * @return (boolean) true of there is enough stock, false otherwise
+     */
     public boolean checkStockAvailability(String productName, Integer quantity) {
         for (Product product: this.restaurant.getRestaurantMenu()) {
             if (product.getProductName().equals(productName)) {

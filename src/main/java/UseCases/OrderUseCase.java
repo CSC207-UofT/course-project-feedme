@@ -2,9 +2,7 @@ package UseCases;
 
 import Entity.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -48,7 +46,8 @@ public class OrderUseCase {
     }
 
     /**
-     * Generating order and add order to user's order history
+     * Generating order and add order to user's order history. Use updateUserOderHistory in UserManager to update
+     * user's order history,
      * @return (String) The order id
      */
     public String makeOrder(){

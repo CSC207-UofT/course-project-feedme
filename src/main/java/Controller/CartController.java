@@ -34,8 +34,8 @@ public class CartController implements SystemInOut {
 
 
     /**
-     *
-     * @param restaurantNum The phone number of selected restaurant which is returned by BrosingUI.
+     * Initiate a CartController
+     * @param restaurantNum The phone number of selected restaurant which is returned by BrowsingUI.
      */
 
     public CartController(String restaurantNum) {
@@ -45,7 +45,8 @@ public class CartController implements SystemInOut {
 
     /**
      * addToCart method in OrderController which allows user to add things to cart.
-     * @return Cart that is ready to be used to generate an Order.
+     * @return Map<String, Integer> which contains the product name and quantity and will be used by orderUI to
+     * generate order.
      */
     public Map<String, Integer> addToCart() {
         sendOutput(cartPresenter.showRestaurantName());

@@ -2,6 +2,7 @@ package Controller;
 
 
 import InOut.SystemInOut;
+import Presenter.OrderPresenter;
 import UseCases.OrderUseCase;
 
 import java.io.BufferedReader;
@@ -10,7 +11,7 @@ import java.io.InputStreamReader;
 import java.util.Map;
 
 /**
- * The controller for generating order
+ * The controller for generating an order and add it to user's order history
  */
 public class OrderController implements SystemInOut {
     @Override
@@ -26,6 +27,7 @@ public class OrderController implements SystemInOut {
     }
 
     private final OrderUseCase orderUseCase;
+    private final OrderPresenter orderPresenter = new OrderPresenter();
 
     /**
      * Initiate the order controller
@@ -37,9 +39,12 @@ public class OrderController implements SystemInOut {
         this.orderUseCase = new OrderUseCase(customerNum, restaurantNum, cart);
     }
 
+    /**
+     * Create Order and add it to user's history
+     */
     public void createOrder(){
         String id = orderUseCase.makeOrder();
-        sendOutput("Order has been successfully created! Your order id is: " + id);
+        sendOutput(orderPresenter.successMessage(id));
 
     }
 }

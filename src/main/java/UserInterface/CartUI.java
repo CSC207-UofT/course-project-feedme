@@ -19,6 +19,10 @@ public class CartUI {
         this.restaurantNum = restaurantNum;
     }
 
+    /**
+     * All customer to add items to the cart
+     * @return (Map<String, Integer>) A map that contains the name of selected product and its quantity
+     */
     public Map<String, Integer> ordering() {
         CartController cartController = new CartController(restaurantNum);
         return cartController.addToCart();

@@ -9,13 +9,26 @@ import java.util.HashMap;
  */
 public class Cart {
     private final HashMap<Product, Integer> cart; // key is a Product, value is product quantity
-    //Initialize an chart
+
+    /**
+     * Initiate a Cart
+     */
     public Cart(){
         this.cart = new HashMap<>();
     }
 
+    /**
+     * Getter for cart
+     * @return
+     */
     public HashMap<Product, Integer> getCart() { return this.cart; }
 
+    /**
+     * Add product and quantity to the cart whiling checking if there is enough stock.
+     * @param product (Product) The product that needs to be added to the cart
+     * @param quantity (Integer) The quantity of product that needs to be added to the cart
+     * @return (boolean) true if product and quantity has been successfully added, false otherwise.
+     */
     public boolean addProductToCart(Product product, Integer quantity) {
         if (this.cart.containsKey(product)) {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock
@@ -36,6 +49,12 @@ public class Cart {
         }
     }
 
+    /**
+     * Remove product from cart
+     * @param product (Product) the product that needs to be removed
+     * @param quantity (Ineteger) the quantity of the product that needs to be removed
+     * @return (boolean) true if product and quantity has been successfully removed, false otherwise.
+     */
     public boolean removeProductFromCart(Product product, Integer quantity) {
         if (cart.containsKey(product)) {
             if (quantity.equals(cart.get(product))) {
@@ -56,6 +75,10 @@ public class Cart {
         }
     }
 
+    /**
+     * Get the total prices of the items in the cart.
+     * @return (douple) The price of all items in the cart
+     */
     public double getOrderPrice() {
         double order_price = 0.00;
         int quantity;
@@ -67,6 +90,10 @@ public class Cart {
         return b.setScale(2, RoundingMode.HALF_UP).doubleValue();
     }
 
+    /**
+     * Overwrite toString to show the cart
+     * @return (String) the formatted string that represent cart
+     */
     @Override
     public String toString() {
         StringBuilder items = new StringBuilder("Here are the items in your cart:\n");

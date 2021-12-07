@@ -1,8 +1,6 @@
 package UserInterface;
 
 import Controller.BrowsingController;
-import Entity.Restaurant;
-import InOut.SystemInOut;
 
 /**
  * An user interface for customer to view restaurants' menu and select which restaurant to order.
@@ -10,6 +8,10 @@ import InOut.SystemInOut;
 
 public class BrowsingUI {
 
+    /**
+     * Allow customer to browse all restaurants and their menu
+     * @return (String) The selected restaurant name
+     */
     public String browsing() {
 
         BrowsingController controller = new BrowsingController();
