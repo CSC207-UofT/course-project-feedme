@@ -1,46 +1,74 @@
 package Controller;
 
+import InOut.SystemInOut;
 import UseCases.UserManager;
 import UserInterface.SignupUI;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class manages to Login process of Feedme.
  */
-public class LoginController {
+public class LoginController implements SystemInOut {
 
-    public interface InOut {
-        String getInput() throws IOException;
-
-        void sendOutput(String output);
-    }
     private UserManager userManager = new UserManager();
 
+    @Override
+    public String getInput() throws IOException {
+        BufferedReader reader;
+        reader = new BufferedReader(new InputStreamReader(System.in));
+        return reader.readLine();
+    }
 
-    public void start(InOut inout){
-        boolean verifier = false;
-        inout.sendOutput("Welcome to feed me! Enter \"S\" if you do not have a account with us:");
+    @Override
+    public void sendOutput(String output) {
+        System.out.println(output);
+    }
+
+    public List<String> start(){
+        boolean validLetter = false;
+        sendOutput("Welcome to Feed Me! Please enter \"S\" if you do not have a account; enter \"L\" if you already have a account:");
         try {
-           String answer = inout.getInput();
-           if (answer.equals("S") | answer.equals("s")){
-               SignupUI signupUI = new SignupUI();
-               signupUI.Signup();
-               userManager = new UserManager();
-           }
-            while (!verifier) {
-                inout.sendOutput("Please enter your registered phone number:");
-                String phone_input = inout.getInput();
-                inout.sendOutput("Please enter your password: ");
-                String password_input = inout.getInput();
+            while (!validLetter) {
+                String answer = getInput();
+                if (answer.equalsIgnoreCase("S")) {
+                    SignupUI signupUI = new SignupUI();
+                    signupUI.Signup();
+                    userManager = new UserManager();
+                    validLetter = true;
+                } else if(answer.equalsIgnoreCase("L")) {
+                    validLetter = true;
+                } else {
+                    sendOutput("Please enter a valid letter");
+                }
+            }
+            userManager = new UserManager();
+            int attempt = 0;
+            while (attempt < 5) {
+                sendOutput("Please enter your registered phone number:");
+                String phone_input = getInput();
+                sendOutput("Please enter your password: ");
+                String password_input = getInput();
                 if (userManager.verifyUser(phone_input, password_input)) {
-                    verifier = true;
+                    String type=userManager.getType(phone_input);
+                    List<String> list = new ArrayList<>();
+                    list.add(phone_input);
+                    list.add(type);
+                    return list;
+                } else {
+                    sendOutput("Your phone number or password is incorrect. Please try again");
+                    attempt += 1;
                 }
             }
 
         } catch (IOException e) {
             System.out.println("Something went wrong.");
         }
-        inout.sendOutput("You have successfully login.");
+        sendOutput("You have successfully login.");
+        return null;
     }
 }

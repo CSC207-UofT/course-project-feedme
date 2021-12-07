@@ -1,7 +1,11 @@
 package Entity;
 
 
-public class DeliveryPerson extends User {
+import java.io.Serializable;
+
+public class DeliveryPerson extends User implements Serializable {
+    private static final long serialVersionUID = 1;
+
     private final String transport;
 
 

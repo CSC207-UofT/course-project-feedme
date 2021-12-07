@@ -1,83 +1,88 @@
 package Controller;
-
-import Entity.Restaurant;
+import Presenter.BrowsingPrensenter;
 import UseCases.BrowsingUseCase;
-
+import InOut.SystemInOut;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+
 
 /**
  * Controls the process for browsing restaurants menu and decide which restaurant to order.
  */
 
-public class BrowsingController {
+public class BrowsingController implements SystemInOut{
 
-    /**
-     * The input and output boundary for the browsing Controller.
-     */
 
-    public interface InOut {
-        String getInput() throws IOException;
-
-        void sendOutput(String output);
+    @Override
+    public String getInput() throws IOException {
+        BufferedReader reader;
+        reader = new BufferedReader(new InputStreamReader(System.in));
+        return reader.readLine();
     }
+
+    @Override
+    public void sendOutput(String output) {
+        System.out.println(output);
+    }
+
+
 
     /**
      * Initiate a new BrowsingUseCase which will read restaurant serialization file.
      */
 
     private final BrowsingUseCase browsingUsecase = new BrowsingUseCase();
+    private final BrowsingPrensenter browsingPrensenter = new BrowsingPrensenter();
 
     /**
      * Method that allows customer to view and select restaurants.
-     * @param inOut input output boundary
-     * @return Restaurant selected restaurant
+     * @return The phone number of selected restaurants
      */
 
-    public Restaurant selectRestaurant(InOut inOut) {
+    public String selectRestaurant() {
 
         boolean confirmSelection = false;
-        Restaurant restaurant = null;
+        String restaurant = null;
         // While-loop for viewing restaurants' menu
         while (!confirmSelection) {
             // Show a list of restaurants
-            inOut.sendOutput(browsingUsecase.showRestaurants());
+            sendOutput(browsingPrensenter.showRestaurantsList());
             try {
-                String input = inOut.getInput();
+                String input = getInput();
                 // While loop for checking valid input
                 while (!browsingUsecase.verifyRestautantSeleciton(input)) {
-                    inOut.sendOutput("\nThe number you entered is not valid. Please check and re-enter the number.");
-                    inOut.sendOutput(browsingUsecase.showRestaurants());
-                    input = inOut.getInput();
+                    sendOutput(browsingPrensenter.invalidMessage());
+                    sendOutput(browsingUsecase.showRestaurants());
+                    input = getInput();
                 }
                 // Save selected restaurant
                 restaurant = browsingUsecase.getRestaurant(input);
                 // Show menu
-                inOut.sendOutput("\nHere is the menu for " + browsingUsecase.showRestaurantName(input) + ":");
-                inOut.sendOutput(browsingUsecase.showMenu(input));
+                sendOutput(browsingPrensenter.showRestaurantName(input));
+                sendOutput(browsingUsecase.showMenu(input));
 
             } catch (IOException e) {
-                inOut.sendOutput("Something went wrong");
+                sendOutput(browsingPrensenter.showError());
             }
 
-            // Ask customer to comfirm selection or exit.
-            inOut.sendOutput("\nPlease type '1' if you would like to order from this restaurant. If you want to go " +
-                    "back to the list of restaurants, please type '2'. If you would like to exit, please type '3'.");
+            // Ask customer to confirm selection or exit.
+            sendOutput(browsingPrensenter.askSelection());
             try {
-                String input = inOut.getInput();
+                String input = getInput();
                 if (input.equals("1")){
                     confirmSelection = true;
                     break;
                 } else if (input.equals("3")) {
-                    restaurant = null;
-                    return restaurant;
+                    return null;
                 }
 
             } catch (IOException e) {
-                inOut.sendOutput("Something went wrong");
+                sendOutput(browsingPrensenter.showError());
             }
         }
-    // Return the selected restaurant
-    return restaurant;
+        // Return the selected restaurant's phone number as a String
+        return restaurant;
 
     }
 }
