@@ -2,9 +2,7 @@ package UseCases;
 
 import Entity.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,6 +14,7 @@ public class OrderUseCase {
     private final Customer customer;
     private final Restaurant restaurant;
     private final Map<Product, Integer> items;
+    private final UserManager userManager = new UserManager();
 
     /**
      * Construct the order use case
@@ -25,7 +24,6 @@ public class OrderUseCase {
      */
 
     public OrderUseCase(String customerNum, String restaurantNum, Map<String, Integer> cart){
-        UserManager userManager = new UserManager();
         this.customer = userManager.getCustomer(customerNum);
         this.restaurant = userManager.getRestaurant(restaurantNum);
         this.items = new HashMap<>();
@@ -48,7 +46,8 @@ public class OrderUseCase {
     }
 
     /**
-     * Generating order and add order to user's order history
+     * Generating order and add order to user's order history. Use updateUserOderHistory in UserManager to update
+     * user's order history,
      * @return (String) The order id
      */
     public String makeOrder(){
@@ -59,35 +58,8 @@ public class OrderUseCase {
         order.addItems(items);
         this.customer.addOrderToOrderHistory(order);
         this.restaurant.addOrderToOrderHistory(order);
-        updateUser(order);
+        this.userManager.updateUserOrderHistory(order, this.customer.getUserPhone_num(), this.restaurant.getUserPhone_num());
         return id;
-    }
-
-    /**
-     * Update order history in serialized files.
-     * @param order (Order) The order that needs to be added to the order history of users.
-     */
-    public void updateUser(Order order) {
-        UserReadWrite readWrite = new UserReadWrite();
-
-        List<Customer> customerList = readWrite.readCustomers();
-        List<Restaurant> restaurantList = readWrite.readRestaurants();
-
-        for (Customer customer: customerList) {
-            if (customer.getUserPhone_num().equals(this.customer.getUserPhone_num())) {
-                customer.addOrderToOrderHistory(order);
-            }
-        }
-
-        for (Restaurant restaurant: restaurantList) {
-            if (restaurant.getUserPhone_num().equals(this.restaurant.getUserPhone_num())) {
-                restaurant.addOrderToOrderHistory(order);
-            }
-        }
-
-        readWrite.updateCustomer(customerList);
-        readWrite.updateRestaurant(restaurantList);
-
     }
 
 

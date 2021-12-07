@@ -1,6 +1,9 @@
+
+
 package Presenter;
 
 public class SignupPrompt {
+    private String language = "English";
     public String askNewName(){
         return "Thank you to join Feed Me! May I get your name please?";
     }
@@ -33,6 +36,10 @@ public class SignupPrompt {
 
     public String thankDperson(){
         return "Thank you for delivery for us! We have created your account, please sign in now!";
+    }
+
+    public String alreadyRegister(){
+        return "You have already registered with us. Please login with your phone number";
     }
 
 

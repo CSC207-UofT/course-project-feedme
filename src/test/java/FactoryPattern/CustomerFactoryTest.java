@@ -1,3 +1,5 @@
+package FactoryPattern;
+
 import Entity.Customer;
 import Entity.PremiumCustomer;
 import Entity.RegularCustomer;
