@@ -1,12 +1,10 @@
 package UseCases;
 
-import Entity.Customer;
-import Entity.DeliveryPerson;
-import Entity.Restaurant;
-import Entity.User;
+import Entity.*;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class UserManager {
     private final HashMap<String, User> userHashMap;  //Since a UserManager could add and remove users, the field may not
@@ -120,5 +118,28 @@ public class UserManager {
     public boolean createDeliveryPerson(String name, String phone_num, String password, String type_) {
         DeliveryPerson deliveryPerson = new DeliveryPerson(name, phone_num, password, type_);
         return this.addUser(deliveryPerson.getUserPhone_num(), deliveryPerson);
+    }
+
+    public void updateUserOrderHistory(Order order, String customerNum, String restaurantNum) {
+        UserReadWrite readWrite = new UserReadWrite();
+
+        List<Customer> customerList = readWrite.readCustomers();
+        List<Restaurant> restaurantList = readWrite.readRestaurants();
+
+        for (Customer customer: customerList) {
+            if (customer.getUserPhone_num().equals(customerNum)) {
+                customer.addOrderToOrderHistory(order);
+            }
+        }
+
+        for (Restaurant restaurant: restaurantList) {
+            if (restaurant.getUserPhone_num().equals(restaurantNum)) {
+                restaurant.addOrderToOrderHistory(order);
+            }
+        }
+
+        readWrite.updateCustomer(customerList);
+        readWrite.updateRestaurant(restaurantList);
+
     }
 }
