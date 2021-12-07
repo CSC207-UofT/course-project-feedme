@@ -129,50 +129,50 @@ public class Order implements Serializable {
 
 
 
-//    /**
-//     * Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
-//     * stock and listProducts, and return true. If stock is not enough, return false.
-//     * @param product (Product) The product that is added to the order
-//     * @param quantity (Integer) The quantity of product that is added to the order
-//     * @return (boolean) true if product is successfully added, false if there isn't enough stock
-//     */
-//    public boolean addProductToOrder(Product product, Integer quantity) {
-//        if (this.getOrderProducts().containsKey(product)) {
-//            if (product.getProductStock() >= quantity) {// Check if there is enough stock
-//                listProducts.put(product, listProducts.get(product) + quantity);
-//                product.updateStock(-quantity);
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        } else {
-//            if (product.getProductStock() >= quantity) {// Check if there is enough stock
-//                listProducts.put(product, quantity);
-//                product.updateStock(quantity);
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        }
-//    }
-//
-//    public boolean removeProductFromOrder(Product product, Integer quantity) {
-//        if (this.getOrderProducts().containsKey(product)) {
-//            if (quantity.equals(this.getOrderProducts().get(product))) {
-//                listProducts.remove(product);
-//                product.updateStock(quantity);
-//                return true;
-//            } else if (quantity < listProducts.get(product)) {
-//                listProducts.put(product, listProducts.get(product) - quantity);
-//                product.updateStock(quantity);
-//                return true;
-//            } else {
-//                return false; // Number of product to remove > Product number in listProducts.
-//            }
-//        } else {
-//            return false; // listProduct does not contain Product product.
-//        }
-//    }
+    /**
+     * Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
+     * stock and listProducts, and return true. If stock is not enough, return false.
+     * @param product (Product) The product that is added to the order
+     * @param quantity (Integer) The quantity of product that is added to the order
+     * @return (boolean) true if product is successfully added, false if there isn't enough stock
+     */
+    public boolean addProductToOrder(Product product, Integer quantity) {
+        if (this.getOrderProducts().containsKey(product)) {
+            if (product.getProductStock() >= quantity) {// Check if there is enough stock
+                listProducts.put(product, listProducts.get(product) + quantity);
+                product.updateStock(-quantity);
+                return true;
+            } else {
+                return false;
+            }
+        } else {
+            if (product.getProductStock() >= quantity) {// Check if there is enough stock
+                listProducts.put(product, quantity);
+                product.updateStock(quantity);
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public boolean removeProductFromOrder(Product product, Integer quantity) {
+        if (this.getOrderProducts().containsKey(product)) {
+            if (quantity.equals(this.getOrderProducts().get(product))) {
+                listProducts.remove(product);
+                product.updateStock(quantity);
+                return true;
+            } else if (quantity < listProducts.get(product)) {
+                listProducts.put(product, listProducts.get(product) - quantity);
+                product.updateStock(quantity);
+                return true;
+            } else {
+                return false; // Number of product to remove > Product number in listProducts.
+            }
+        } else {
+            return false; // listProduct does not contain Product product.
+        }
+    }
 
 
     /**
