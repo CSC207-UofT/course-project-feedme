@@ -10,21 +10,24 @@ import java.util.Objects;
 public class RestaurantSystemController{
 
     public RestaurantManager resManager;
-    RestaurantSystemPresenter rp;
+    public RestaurantSystemPresenter rp;
 
     public interface InOut {
         String getInput() throws IOException;
 
         void sendOutput(String output);
     }
+
     public RestaurantSystemController(RestaurantManager resManager) {
         this.resManager = resManager;
+        this.rp = new RestaurantSystemPresenter();
     }
+    public boolean verifyQuit(String command){
+        return command.equals("quit");
+    }
+
     public void run(InOut inout) throws IOException {
-
         while(true){
-
-
             inout.sendOutput(rp.greeting());
             String command = inout.getInput();
             if(verifyQuit(command)){
@@ -35,8 +38,10 @@ public class RestaurantSystemController{
                 inout.sendOutput(rp.askId());
                 String numStr = inout.getInput();
                 if (verifyQuit(numStr)) {
+                    System.out.println("quit detected");
                     break;
                 }
+                System.out.println("result:"+ this.resManager.containProduct(numStr));
 
                 if (this.resManager.containProduct(numStr)) {
                     inout.sendOutput(rp.askChange());
@@ -71,7 +76,8 @@ public class RestaurantSystemController{
                         }
                         double newPrice = Double.parseDouble(priceStr);
                         this.resManager.editPrice(numStr, newPrice);
-                    } else {
+                    }
+                    else {
                         inout.sendOutput(rp.notInMenu());
                         inout.sendOutput(rp.askName());
                         String prodName = inout.getInput();

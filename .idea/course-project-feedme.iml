@@ -6,6 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/.idea/cscCards" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/crcCards" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
     </content>
     <content url="file://$MODULE_DIR$/out" />
     <orderEntry type="inheritedJdk" />
