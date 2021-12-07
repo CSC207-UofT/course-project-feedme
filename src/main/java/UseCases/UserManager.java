@@ -34,34 +34,6 @@ public class UserManager {
         return false;
     }
 
-
-    //May be used in the future
-//    public void initUserMap()  {
-//        try {
-//            File file = new File(this.file_path);
-//            Scanner sc = new Scanner(file);
-//            while (sc.hasNextLine()) {
-//                String[] user_info = sc.nextLine().split(",");
-//                if (user_info[3].equals("c")) {
-//                    this.addUser(user_info[1], this.createCustomer(user_info[0], user_info[1],
-//                            user_info[2], user_info[3], user_info[4]));
-//                }
-//                if (user_info[3].equals("r")) {
-//                    this.addUser(user_info[1], this.createRestaurant(user_info[0], user_info[1],
-//                            user_info[2], user_info[3], user_info[4]));
-//                }
-//                if (user_info[3].equals("d")) {
-//                    this.addUser(user_info[1], this.createDeliveryPerson(user_info[0],
-//                            user_info[1], user_info[2], user_info[3]));
-//                }
-//            }
-//
-//        }
-//        catch (Exception e){
-//            System.out.println("There is error reading user data. Please contact us.");
-//        }
-//    }
-
     public void updateUser(User user){
         UserReadWrite urw = new UserReadWrite();
         if (user instanceof Customer) {
@@ -110,19 +82,6 @@ public class UserManager {
         return false;
     }
 
-    public Customer createCustomer(String name, String phone_num, String password, String type_, String address){
-        return new Customer(name, phone_num, password, type_, address);
-    }
-
-    // For method restaurantSignup and deliveryPersonSignup, since we are not sure the relation between them and Login &
-    // Signup, we just leave them as they are
-    public Restaurant createRestaurant(String name, String phone_num, String password, String type_, String address){
-        return new Restaurant(name, phone_num, password, type_, address);
-    }
-
-    public DeliveryPerson createDeliveryPerson(String name, String phone_num, String password, String type_){
-        return new DeliveryPerson(name, phone_num, password, type_);
-    }
 }
 
 

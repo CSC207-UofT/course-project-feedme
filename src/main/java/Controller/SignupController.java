@@ -37,30 +37,33 @@ public class SignupController implements SystemInOut{
             if (in_type.equals("c")) {
                 sendOutput(sp.askCustomerAddress());
                 String in_address = getInput();
-
-                if (!userManager.userLookup(in_phone_num)) {
+                if (userManager.userLookup(in_phone_num)) {
+                    sendOutput(sp.alreadyRegister());
+                }
+                else {
                     userManager.createUser(in_name, in_phone_num, in_password, in_type, in_address);
                     sendOutput(sp.greetCusRest());
                 }
-                sendOutput(sp.alreadyRegister());
             }
-
             if (in_type.equals("r")) {
                 sendOutput((sp.askRestaurantAddress()));
                 String in_address = getInput();
-                if (!userManager.userLookup(in_phone_num)) {
+                if (userManager.userLookup(in_phone_num)) {
+                    sendOutput(sp.alreadyRegister());
+                }
+                else{
                     userManager.createUser(in_name, in_phone_num, in_password, in_type, in_address);
                     sendOutput(sp.greetCusRest());
                 }
-                sendOutput(sp.alreadyRegister());
             }
-
             if (in_type.equals("d")) {
-                if (!userManager.userLookup(in_phone_num)) {
+                if (userManager.userLookup(in_phone_num)) {
+                    sendOutput(sp.alreadyRegister());
+                }
+                else{
                     sendOutput(sp.thankDperson());
                     userManager.createUser(in_name, in_phone_num, in_password, in_type, null);
                 }
-                sendOutput(sp.alreadyRegister());
             }
         } catch (IOException e) {
             e.printStackTrace();
