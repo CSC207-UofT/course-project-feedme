@@ -54,4 +54,12 @@ public class Customer extends User implements Serializable {
      * @return a string of the Customer type.
      */
     public String getCustomerType() { return this.customer_type; }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "address='" + address + '\'' +
+                ", customer_type='" + customer_type + '\'' +
+                '}';
+    }
 }

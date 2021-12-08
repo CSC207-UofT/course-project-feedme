@@ -40,4 +40,11 @@ public class DeliveryPerson extends User implements Serializable {
      * @return a string of DeliveryPerson's transport.
      */
     public String getTransport() { return transport;}
+
+    @Override
+    public String toString() {
+        return "DeliveryPerson{" +
+                "transport='" + transport + '\'' +
+                '}';
+    }
 }
