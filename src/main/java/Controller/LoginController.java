@@ -1,5 +1,6 @@
 package Controller;
 import InOut.SystemInOut;
+import Presenter.LoginPrompt;
 import UseCases.UserManager;
 import UserInterface.SignupUI;
 
@@ -29,28 +30,21 @@ public class LoginController implements SystemInOut {
     }
 
     public List<String> start(){
-        boolean validLetter = false;
-        sendOutput("Welcome to Feed Me! Please enter \"S\" if you do not have a account; enter \"L\" if you already have a account:");
+        LoginPrompt lp = new LoginPrompt();
+        sendOutput(lp.askAcc());
         try {
-            while (!validLetter) {
-                String answer = getInput();
-                if (answer.equalsIgnoreCase("S")) {
-                    SignupUI signupUI = new SignupUI();
-                    signupUI.Signup();
-                    userManager = new UserManager();
-                    validLetter = true;
-                } else if(answer.equalsIgnoreCase("L")) {
-                    validLetter = true;
-                } else {
-                    sendOutput("Please enter a valid letter");
-                }
+            String answer = getInput();
+            if (answer.equals("S") | answer.equals("s")){
+               SignupUI signupUI = new SignupUI();
+               signupUI.Signup();
+               userManager = new UserManager();
             }
             userManager = new UserManager();
             int attempt = 0;
             while (attempt < 5) {
-                sendOutput("Please enter your registered phone number:");
+                sendOutput(lp.askPhone());
                 String phone_input = getInput();
-                sendOutput("Please enter your password: ");
+                sendOutput(lp.askPassword());
                 String password_input = getInput();
                 if (userManager.verifyUser(phone_input, password_input)) {
 
@@ -59,11 +53,10 @@ public class LoginController implements SystemInOut {
                     list.add(phone_input);
                     list.add(type);
                     return list;
-                } else {
-                    sendOutput("Your phone number or password is incorrect. Please try again");
-                    attempt += 1;
                 }
+                attempt += 1;
             }
+
 
         } catch (IOException e) {
             System.out.println("Something went wrong.");
