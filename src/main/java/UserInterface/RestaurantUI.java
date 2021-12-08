@@ -2,20 +2,21 @@ package UserInterface;
 
 import Controller.RestaurantSystemController;
 import Entity.Restaurant;
+import UseCases.BrowsingUseCase;
 import UseCases.RestaurantManager;
-import InOut.SystemInOut;
+
 import java.io.IOException;
 
 public class RestaurantUI {
-    Restaurant r;
-    public RestaurantUI(Restaurant restaurant){
+    String r;
+    public RestaurantUI(String restaurant){
         this.r = restaurant;
     }
 
-    public void restaurantEdit() throws IOException {
-        RestaurantManager rm = new RestaurantManager(r);
+    public void restaurantEdit(Restaurant res) throws IOException {
+
+        RestaurantManager rm = new RestaurantManager(res);
         RestaurantSystemController rsc = new RestaurantSystemController(rm);
-        SystemInOut inOut = new SystemInOut();
-        rsc.run(inOut);
+        rsc.run();
     }
 }

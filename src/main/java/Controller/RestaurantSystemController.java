@@ -1,21 +1,26 @@
 package Controller;
 
 
+import InOut.SystemInOut;
 import Presenter.RestaurantSystemPresenter;
 import UseCases.RestaurantManager;
 
 import java.io.IOException;
 import java.util.Objects;
 
-public class RestaurantSystemController{
+public class RestaurantSystemController implements SystemInOut {
 
     public RestaurantManager resManager;
     public RestaurantSystemPresenter rp;
 
-    public interface InOut {
-        String getInput() throws IOException;
+    @Override
+    public String getInput() throws IOException {
+        return null;
+    }
 
-        void sendOutput(String output);
+    @Override
+    public void sendOutput(String output) {
+
     }
 
     public RestaurantSystemController(RestaurantManager resManager) {
@@ -26,17 +31,17 @@ public class RestaurantSystemController{
         return command.equals("quit");
     }
 
-    public void run(InOut inout) throws IOException {
+    public void run() throws IOException {
         while(true){
-            inout.sendOutput(rp.greeting());
-            String command = inout.getInput();
+            sendOutput(rp.greeting());
+            String command = getInput();
             if(verifyQuit(command)){
                 break;
             }
             while(Objects.equals(command, "editMenu")) {
                 this.resManager.getMenu();
-                inout.sendOutput(rp.askId());
-                String numStr = inout.getInput();
+                sendOutput(rp.askId());
+                String numStr = getInput();
                 if (verifyQuit(numStr)) {
                     System.out.println("quit detected");
                     break;
@@ -44,14 +49,14 @@ public class RestaurantSystemController{
                 System.out.println("result:"+ this.resManager.containProduct(numStr));
 
                 if (this.resManager.containProduct(numStr)) {
-                    inout.sendOutput(rp.askChange());
-                    String type = inout.getInput();
+                    sendOutput(rp.askChange());
+                    String type = getInput();
                     if (verifyQuit(type)) {
                         break;
                     }
                     if (Objects.equals(type, "1")) {
-                        inout.sendOutput(rp.askName());
-                        String newName = inout.getInput();
+                        sendOutput(rp.askName());
+                        String newName = getInput();
                         if (verifyQuit(newName)) {
                             break;
                         }
@@ -59,8 +64,8 @@ public class RestaurantSystemController{
                     }
 
                     if (Objects.equals(type, "2")) {
-                        inout.sendOutput(rp.askStock());
-                        String stockString = inout.getInput();
+                        sendOutput(rp.askStock());
+                        String stockString = getInput();
                         if (verifyQuit(stockString)) {
                             break;
                         }
@@ -69,8 +74,8 @@ public class RestaurantSystemController{
                     }
 
                     if (Objects.equals(type, "3")) {
-                        inout.sendOutput(rp.askPrice());
-                        String priceStr = inout.getInput();
+                        sendOutput(rp.askPrice());
+                        String priceStr = getInput();
                         if (verifyQuit(priceStr)) {
                             break;
                         }
@@ -78,19 +83,19 @@ public class RestaurantSystemController{
                         this.resManager.editPrice(numStr, newPrice);
                     }
                     else {
-                        inout.sendOutput(rp.notInMenu());
-                        inout.sendOutput(rp.askName());
-                        String prodName = inout.getInput();
+                        sendOutput(rp.notInMenu());
+                        sendOutput(rp.askName());
+                        String prodName = getInput();
                         if (verifyQuit(prodName)) {
                             break;
                         }
-                        inout.sendOutput(rp.askPrice());
-                        String prodPrice = inout.getInput();
+                        sendOutput(rp.askPrice());
+                        String prodPrice = getInput();
                         if (verifyQuit(prodPrice)) {
                             break;
                         }
-                        inout.sendOutput(rp.askStock());
-                        String prodStock = inout.getInput();
+                        sendOutput(rp.askStock());
+                        String prodStock = getInput();
                         if (verifyQuit(prodStock)) {
                             break;
                         }

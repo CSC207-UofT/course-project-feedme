@@ -20,6 +20,7 @@ public class RestaurantManager {
     /**
      * Initiating a new RestaurantManager will obtain a new restaurant, an order history,
      * a list that is ready to distribute and an initial product id.
+     * @param restaurant
      */
     public RestaurantManager(Restaurant restaurant) {
         this.restaurant = restaurant;
@@ -147,12 +148,10 @@ public class RestaurantManager {
         order.setOrderStatus("preparing");
         this.readyToDistribute.add(order);
         this.orderHistory.add(order);
-        HashMap<Product, Integer> hashMap = order.getOrderProducts();
+        HashMap<Product, Integer> hashMap = (HashMap<Product, Integer>) order.getOrderProducts();
         for (Product key : hashMap.keySet()) {
             key.reduceProductStock(hashMap.get(key));
         }
     }
+
 }
-
-
-
