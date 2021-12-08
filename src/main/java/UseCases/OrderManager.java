@@ -75,9 +75,9 @@ public class OrderManager {
         return  null;
     }
 
-    public void updateOrderDeliveryPerson(String currentOrderId, User user) {
+    public void updateOrderDeliveryPerson(String currentOrderId, String user_phonenum) {
         Order currentOrder = getOrderById(currentOrderId);
-        currentOrder.addDeliveryPersonInfo(user);
+        currentOrder.addDeliveryPersonInfo(user_phonenum);
     }
 }
 //
@@ -112,43 +112,3 @@ public class OrderManager {
 //    }
 
 
-    // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
-    // stock and listProducts, and return true. If stock is not enough, return false.
-//    public boolean addProductToOrder(Product product, Integer quantity) {
-//        if (orderHashMap.containsKey(product)) {
-//            if (product.getProductStock() >= quantity) {// Check if there is enough stock
-//                orderHashMap.put(product, orderHashMap.get(product) + quantity);
-//                product.updateStock(-quantity);
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        } else {
-//            if (product.getProductStock() >= quantity) {// Check if there is enough stock
-//                orderHashMap.put(product, quantity);
-//                product.updateStock(quantity);
-//                return true;
-//            } else {
-//                return false;
-//            }
-//        }
-//    }
-//
-//    public boolean removeProductFromOrder(Product product, Integer quantity) {
-//        if (orderHashMap.containsKey(product)) {
-//            if (quantity.equals(orderHashMap.get(product))) {
-//                orderHashMap.remove(product);
-//                product.updateStock(quantity);
-//                return true;
-//            } else if (quantity < orderHashMap.get(product)) {
-//                orderHashMap.put(product, orderHashMap.get(product) - quantity);
-//                product.updateStock(quantity);
-//                return true;
-//            } else {
-//                return false; // Number of product to remove > Product number in listProducts.
-//            }
-//        } else {
-//            return false; // listProduct does not contain Product product.
-//        }
-//    }
-//

@@ -1,33 +1,36 @@
-import Entity.Cart;
-import Entity.Restaurant;
-import Entity.User;
+import Entity.Customer;
+import UseCases.UserReadWrite;
 import UserInterface.BrowsingUI;
 import UserInterface.DeliverUI;
 import UserInterface.LoginUI;
+import UserInterface.CartUI;
 import UserInterface.OrderUI;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 
 
 public class Main {
 
     public static void main(String[] args) {
         LoginUI Lui = new LoginUI();
-        User user = Lui.login();
 
-        if (user.getUserType().equals("d")) {
-            DeliverUI deliverUI = new DeliverUI();
-            deliverUI.startDeliverUI(user);
-        }
-        else {
+        List<String> user = Lui.login();
+        if (user.get(1).equals("c")) {
+            String customerNum = user.get(0);
             BrowsingUI Bui = new BrowsingUI();
-            Restaurant restaurant = Bui.browsing();
-
-            if (restaurant != null){
-                OrderUI Oui = new OrderUI(restaurant);
-                Cart cart = Oui.ordering();
-                if (cart != null) {
-                    System.out.println("Enter order distribution");
-                }
+            String restaurantNum = Bui.browsing();
+            try {
+                CartUI Cui = new CartUI(restaurantNum);
+                Map<String, Integer> cart = Cui.ordering();
+                OrderUI Oui = new OrderUI(customerNum, restaurantNum, cart);
+                Oui.placeOrder();
+            } catch (NullPointerException ignored) {
             }
+        } else if (user.get(1).equals("d")) {
+            DeliverUI deliverUI = new DeliverUI();
+            deliverUI.startDeliverUI(user.get(0));
         }
     }
 

@@ -43,7 +43,7 @@ public class OrderManagerTest {
     @Test
     public void testUpdateDeliveryPerson() {
         om.addOrder(order_1);
-        om.updateOrderDeliveryPerson("1", deliveryPerson);
+        om.updateOrderDeliveryPerson("1", deliveryPerson.getUserPhone_num());
         assertTrue(order_1.getDeliveryPersonInfo().contains(deliveryPerson.getUserPhone_num()));
     }
 

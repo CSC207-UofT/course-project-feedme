@@ -3,7 +3,7 @@ package Controller;
 import Entity.User;
 import UseCases.UserManager;
 
-// Since we have not decided how to use this class, the class and its methods are never used
+// TODO: Consider delete this controller
 public class UserSystemController {
     private final UserManager um;
 

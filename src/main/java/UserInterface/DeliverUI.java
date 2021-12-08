@@ -18,9 +18,8 @@ import java.util.Scanner;
 
 public class DeliverUI {
 
-    public void startDeliverUI(User user) {
-        SystemInOut inOut = new SystemInOut();
+    public void startDeliverUI(String user_phonenum) {
         DeliverController deliverController = new DeliverController();
-        deliverController.showDeliverPortal(user, inOut);
+        deliverController.showDeliverPortal(user_phonenum);
     }
 }

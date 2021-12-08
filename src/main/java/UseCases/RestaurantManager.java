@@ -7,6 +7,7 @@ import Entity.Order;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 
 public class RestaurantManager {
@@ -35,7 +36,7 @@ public class RestaurantManager {
     //Receive order and record it. The stock reduces by given quantities in the order.
     public void receiveOrder(Order order){
         this.orderHistory.add(order);
-        HashMap<Product, Integer> hashMap = order.getOrderProducts();
+        Map<Product, Integer> hashMap = order.getOrderProducts();
         for (Product key: hashMap.keySet()) {
             key.updateStock(-hashMap.get(key));
         }
