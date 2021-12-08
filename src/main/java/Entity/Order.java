@@ -3,10 +3,7 @@ package Entity;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Order has all the information for restaurant owner and delivery person to distribute and deliver the order. Order
@@ -79,6 +76,10 @@ public class Order implements Serializable {
         this.deliveryPersonInfo.add(deliveryPerson.getUserPhone_num());
     }
 
+    public void addDeliveryPersonInfo(String user_phonenum) {
+        this.deliveryPersonInfo.add(user_phonenum);
+    }
+
     /**
      * Change productList to items.
      * @param items (Map<Product, Integer>) a Map from CartUI that contains products that need to be added to the order.
@@ -129,13 +130,14 @@ public class Order implements Serializable {
 
 
 
-    /**
-     * Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
-     * stock and listProducts, and return true. If stock is not enough, return false.
-     * @param product (Product) The product that is added to the order
-     * @param quantity (Integer) The quantity of product that is added to the order
-     * @return (boolean) true if product is successfully added, false if there isn't enough stock
-     */
+
+   /**
+    * Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
+    * stock and listProducts, and return true. If stock is not enough, return false.
+    * @param product (Product) The product that is added to the order
+    * @param quantity (Integer) The quantity of product that is added to the order
+    * @return (boolean) true if product is successfully added, false if there isn't enough stock
+    */
     public boolean addProductToOrder(Product product, Integer quantity) {
         if (this.getOrderProducts().containsKey(product)) {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock

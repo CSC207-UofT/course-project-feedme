@@ -1,5 +1,4 @@
 package Controller;
-
 import InOut.SystemInOut;
 import Presenter.LoginPrompt;
 import UseCases.UserManager;
@@ -48,6 +47,7 @@ public class LoginController implements SystemInOut {
                 sendOutput(lp.askPassword());
                 String password_input = getInput();
                 if (userManager.verifyUser(phone_input, password_input)) {
+
                     String type=userManager.getType(phone_input);
                     List<String> list = new ArrayList<>();
                     list.add(phone_input);
