@@ -1,9 +1,11 @@
 package Controller;
 
 
+import Entity.Restaurant;
 import InOut.SystemInOut;
 import Presenter.RestaurantSystemPresenter;
 import UseCases.RestaurantManager;
+import UseCases.BrowsingUseCase;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,6 +20,8 @@ public class RestaurantSystemController implements SystemInOut {
 
     public RestaurantManager resManager;
     public RestaurantSystemPresenter rp;
+    protected BrowsingUseCase browsingUseCase;
+
 
     @Override
     public String getInput() throws IOException {
@@ -35,10 +39,13 @@ public class RestaurantSystemController implements SystemInOut {
      * Method that allows restaurant owner to edit, view on the restaurant menus.
      */
 
-    public RestaurantSystemController(RestaurantManager resManager) {
-        this.resManager = resManager;
+    public RestaurantSystemController(String resNUm) {
+        assert false;
+        this.resManager = new RestaurantManager(browsingUseCase.findRestaurant(resNUm));
         this.rp = new RestaurantSystemPresenter();
     }
+
+
     public boolean verifyQuit(String command){
         return command.equals("quit");
     }

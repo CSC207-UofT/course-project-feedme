@@ -16,10 +16,10 @@ public class RestaurantUI {
         this.r = restaurant;
     }
 
-    public void restaurantEdit(Restaurant res) throws IOException {
+    public void restaurantEdit(String resNum) throws IOException {
 
-        RestaurantManager rm = new RestaurantManager(res);
-        RestaurantSystemController rsc = new RestaurantSystemController(rm);
+
+        RestaurantSystemController rsc = new RestaurantSystemController(resNum);
         rsc.run();
     }
 }

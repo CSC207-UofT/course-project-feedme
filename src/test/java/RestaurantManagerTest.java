@@ -20,15 +20,6 @@ public class RestaurantManagerTest {
 
     }
 
-//    @Test
-//    public void testCreateProduct() {
-//        assertEquals(mcDonaldController.createProduct("Fried Chicken", 22.3, 5), new Product("Fried Chicken", "0", 22.3, 5));
-//        assertEquals(mcDonaldController.createProduct("Big Mac", 10.5, 1000), new Product("Big Mac", "1", 10.5, 1000));
-//        assertEquals(mcDonaldController.createProduct("Mc_Flurry", 5.0, 1), new Product("Mc_Flurry", "2", 5.0, 1));
-//
-//    }
-
-
     @Test
     public void testProductMap() {
         Product fried_chicken = new Product("Fried Chicken", "0", 22.3, 5);
