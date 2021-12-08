@@ -1,9 +1,8 @@
-import Entity.*;
+package Entity;
+
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
-
 
 public class CartTest {
     Cart cart_1;
@@ -33,5 +32,4 @@ public class CartTest {
 //        System.out.println(cart_1);
         assertEquals(40.07, cart_1.getOrderPrice(), 0);
     }
-
 }

@@ -27,23 +27,23 @@ public class Product implements Serializable {
 
 
     /**
-     * The product's name.
+     * The Product's name.
      *
-     * @return the product's name.
+     * @return the Product's name.
      */
     public String getProductName(){ return this.name;}
 
     /**
-     * The product's id.
+     * The Product's id.
      *
-     * @return the product's id.
+     * @return the Product's id.
      */
     public String getProductId() { return this.id; }
 
     /**
-     * The product's price.
+     * The Product's price.
      *
-     * @return the product's price.
+     * @return a double of Product's price.
      */
     public double getProductPrice(){
         return this.price;
@@ -52,20 +52,20 @@ public class Product implements Serializable {
     /**
      * The product's stock.
      *
-     * @return the number of product's stock.
+     * @return the number of Product's stock.
      */
     public int getProductStock() { return this.stock; }
 
     /**
-     * Update the product's stock by n.
+     * Update the Product's stock by n.
      * @param n the number of stock that needs to be changed.
      */
     public void updateStock(int n) { this.stock += n; }
 
     /**
-     * Return the String representation of the product.
+     * Return the String representation of the Product.
      *
-     * @return the name of the product and its price.
+     * @return the name of the Product and its price.
      */
     @Override
     public String toString(){

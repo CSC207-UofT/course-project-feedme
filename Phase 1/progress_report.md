@@ -47,7 +47,7 @@ Build following new files:
 - `PremiumCustomer`
 - `CustomerFactory`
 - `AddOrderToHistoryTest`
-- `CustomerFactoryTest`
+- `FactoryPattern.CustomerFactoryTest`
 - `PremiumCustomerTest`
 
 Upadte following files:

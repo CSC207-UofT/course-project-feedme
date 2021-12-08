@@ -1,8 +1,8 @@
+package UseCases;
+
 import Entity.*;
-import UseCases.OrderManager;
 import org.junit.Before;
 import org.junit.Test;
-
 import static org.junit.Assert.*;
 
 public class OrderManagerTest {
