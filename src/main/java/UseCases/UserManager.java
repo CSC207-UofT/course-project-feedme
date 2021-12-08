@@ -1,6 +1,7 @@
 package UseCases;
 
 import Entity.*;
+import Gateway.UserReadWrite;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,11 +1,8 @@
-import Entity.Customer;
-import UseCases.UserReadWrite;
 import UserInterface.BrowsingUI;
 import UserInterface.LoginUI;
 import UserInterface.CartUI;
 import UserInterface.OrderUI;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 

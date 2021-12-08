@@ -1,4 +1,4 @@
-package UseCases;
+package Gateway;
 
 import Entity.Customer;
 import Entity.DeliveryPerson;

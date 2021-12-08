@@ -2,7 +2,6 @@ package UseCases;
 
 import Entity.Product;
 import Entity.Restaurant;
-
 import java.util.*;
 
 /**
