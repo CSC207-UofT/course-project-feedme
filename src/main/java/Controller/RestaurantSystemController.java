@@ -5,8 +5,14 @@ import InOut.SystemInOut;
 import Presenter.RestaurantSystemPresenter;
 import UseCases.RestaurantManager;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Objects;
+
+/**
+ * Controls the process for editing menu, checking out the order history and receiving orders.
+ */
 
 public class RestaurantSystemController implements SystemInOut {
 
@@ -15,13 +21,19 @@ public class RestaurantSystemController implements SystemInOut {
 
     @Override
     public String getInput() throws IOException {
-        return null;
+        BufferedReader reader;
+        reader = new BufferedReader(new InputStreamReader(System.in));
+        return reader.readLine();
     }
 
     @Override
     public void sendOutput(String output) {
 
     }
+
+    /**
+     * Method that allows restaurant owner to edit, view on the restaurant menus.
+     */
 
     public RestaurantSystemController(RestaurantManager resManager) {
         this.resManager = resManager;
