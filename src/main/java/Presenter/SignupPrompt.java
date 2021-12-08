@@ -40,9 +40,6 @@ public class SignupPrompt {
         return "You have already registered with us. Please login with your phone number";
     }
 
-    public String alreadyRegister(){
-        return "You have already registered with us. Please login with your phone number";
-    }
 
 
 
