@@ -2,6 +2,7 @@ package UseCases;
 
 
 import Entity.User;
+import Gateway.UserReadWrite;
 
 import java.util.ArrayList;
 import java.util.HashMap;
