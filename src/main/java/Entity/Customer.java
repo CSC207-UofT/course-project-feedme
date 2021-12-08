@@ -1,11 +1,18 @@
 package Entity;
 
-public class Customer extends User {
+import java.io.Serializable;
+
+/**
+ * Customer is a type of user that can browse restaurants and make an order. It is a child class of User and is
+ * assigned with type 'c'.
+ */
+public class Customer extends User implements Serializable {
+    private static final long serialVersionUID = 1;
+
     private final String address;
     private final String customer_type;
 
     /**
-     * Customer is a child class of User. User type 'c' is assigned to Customer class.
      * Construct a Customer, giving the name, phone_num, password, type and address.
      *
      * @param name        The name of Customer
@@ -20,6 +27,7 @@ public class Customer extends User {
         this.address = address;
         this.customer_type = customer_type;
     }
+
 
     public Customer(String name, String phone_num, String password, String type_, String address){
         super(name, phone_num, password, type_);

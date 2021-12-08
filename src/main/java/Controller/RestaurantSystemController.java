@@ -28,7 +28,7 @@ public class RestaurantSystemController implements SystemInOut {
 
     @Override
     public void sendOutput(String output) {
-
+        System.out.println(output);
     }
 
     /**

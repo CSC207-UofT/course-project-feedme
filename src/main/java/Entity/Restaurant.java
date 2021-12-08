@@ -1,11 +1,12 @@
 package Entity;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Restaurant extends User implements Serializable {
 
-    private static final long serialVersionUID = -2191481848339591142L;
+    private static final long serialVersionUID = 1;
 
     private final String address;
     private final List<Product> menu;
@@ -32,7 +33,6 @@ public class Restaurant extends User implements Serializable {
         this.menu = menu;
     }
 
-
     /**
      * Get Restaurant's address.
      *
@@ -40,14 +40,12 @@ public class Restaurant extends User implements Serializable {
      */
     public String getRestaurantAddress() { return this.address; }
 
-
     /**
      * Get Restaurant's product.
      *
      * @return a list of Product.
      */
     public List<Product> getRestaurantMenu() { return this.menu; }
-
 
     /**
      * Attempt to add new Product to the Restaurant's productList, if the product
@@ -63,7 +61,6 @@ public class Restaurant extends User implements Serializable {
         return true;
     }
 
-
     /**
      * Attempt to remove an existing Product from the Restaurant's productList, if the product
      * is in the productList. Otherwise, return False.
@@ -78,6 +75,8 @@ public class Restaurant extends User implements Serializable {
         return true;
     }
 
+
+    // TODO: Consider ignore this method?
     @Override
     public String toString() {
         return this.getUserName();

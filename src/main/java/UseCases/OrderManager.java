@@ -13,6 +13,13 @@ public class OrderManager {
     public OrderManager() {
         this.orderList = new ArrayList<>();
         this.availableDeliveryPersonList = new ArrayList<>();
+
+        //create default orders
+        Order order = new Order("order1");
+        orderList.add(order);
+
+        Order order_2 = new Order("order2");
+        orderList.add(order_2);
     }
 
     public void addOrder(Order order) {
@@ -54,6 +61,24 @@ public class OrderManager {
         availableDeliveryPersonList.remove(deliveryPerson);
         return true;
     }
+
+    public List<Order> getAllOrders() {
+        return orderList;
+    }
+
+    public Order getOrderById(String id) {
+        for (Order order : orderList) {
+            if (order.getOrderId().equals(id)) {
+                return order;
+            }
+        }
+        return  null;
+    }
+
+    public void updateOrderDeliveryPerson(String currentOrderId, String user_phonenum) {
+        Order currentOrder = getOrderById(currentOrderId);
+        currentOrder.addDeliveryPersonInfo(user_phonenum);
+    }
 }
 //
 //    private HashMap<Product, Integer> orderHashMap;
@@ -87,8 +112,8 @@ public class OrderManager {
 //    }
 
 
-    // Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
-    // stock and listProducts, and return true. If stock is not enough, return false.
+// Add quantity number of Product product to listProduct. If there is enough stock for product, update product's
+// stock and listProducts, and return true. If stock is not enough, return false.
 //    public boolean addProductToOrder(Product product, Integer quantity) {
 //        if (orderHashMap.containsKey(product)) {
 //            if (product.getProductStock() >= quantity) {// Check if there is enough stock
