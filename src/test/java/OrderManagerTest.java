@@ -33,4 +33,22 @@ public class OrderManagerTest {
         order_1.addCustomerInfo(customer);
         assertTrue(om.matchDeliveryPerson(order_1));
     }
+
+    @Test
+    public void testGetOrderById() {
+        om.addOrder(order_1);
+        assertEquals(om.getOrderById("1"), order_1);
+    }
+
+    @Test
+    public void testUpdateDeliveryPerson() {
+        om.addOrder(order_1);
+        om.updateOrderDeliveryPerson("1", deliveryPerson.getUserPhone_num());
+        assertTrue(order_1.getDeliveryPersonInfo().contains(deliveryPerson.getUserPhone_num()));
+    }
+
+    // public void testGetAllUndeliveredOrders() {
+     //   om.addOrder(order_1);
+       // om.addOrder(undelivered_order);
+       // om.getAllOrders()
 }

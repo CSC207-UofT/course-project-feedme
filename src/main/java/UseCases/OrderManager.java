@@ -13,6 +13,13 @@ public class OrderManager {
     public OrderManager() {
         this.orderList = new ArrayList<>();
         this.availableDeliveryPersonList = new ArrayList<>();
+
+        //create default orders
+        Order order = new Order("order1");
+        orderList.add(order);
+
+        Order order_2 = new Order("order2");
+        orderList.add(order_2);
     }
 
     public void addOrder(Order order) {
@@ -53,6 +60,24 @@ public class OrderManager {
         order.addDeliveryPersonInfo(deliveryPerson);
         availableDeliveryPersonList.remove(deliveryPerson);
         return true;
+    }
+
+    public List<Order> getAllOrders() {
+        return orderList;
+    }
+
+    public Order getOrderById(String id) {
+        for (Order order : orderList) {
+            if (order.getOrderId().equals(id)) {
+                return order;
+            }
+        }
+        return  null;
+    }
+
+    public void updateOrderDeliveryPerson(String currentOrderId, String user_phonenum) {
+        Order currentOrder = getOrderById(currentOrderId);
+        currentOrder.addDeliveryPersonInfo(user_phonenum);
     }
 }
 //

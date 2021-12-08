@@ -1,6 +1,7 @@
 import Entity.Customer;
 import UseCases.UserReadWrite;
 import UserInterface.BrowsingUI;
+import UserInterface.DeliverUI;
 import UserInterface.LoginUI;
 import UserInterface.CartUI;
 import UserInterface.OrderUI;
@@ -14,6 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
         LoginUI Lui = new LoginUI();
+
         List<String> user = Lui.login();
         if (user.get(1).equals("c")) {
             String customerNum = user.get(0);
@@ -26,6 +28,9 @@ public class Main {
                 Oui.placeOrder();
             } catch (NullPointerException ignored) {
             }
+        } else if (user.get(1).equals("d")) {
+            DeliverUI deliverUI = new DeliverUI();
+            deliverUI.startDeliverUI(user.get(0));
         }
     }
 
