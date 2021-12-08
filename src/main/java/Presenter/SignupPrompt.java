@@ -1,5 +1,3 @@
-
-
 package Presenter;
 
 public class SignupPrompt {
