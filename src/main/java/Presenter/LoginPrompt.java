@@ -3,7 +3,7 @@ package Presenter;
 public class LoginPrompt {
     private String language = "English";
     public String askAcc(){
-        return "Welcome to feed me! Enter \"S\" if you do not have a account with us. If you have an account, press enter to login:";
+        return "Welcome to feed me! Enter \"S\" if you do not have a account. If you already have an account, press enter to login:";
     }
 
     public String askPhone(){

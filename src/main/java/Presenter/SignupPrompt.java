@@ -29,11 +29,11 @@ public class SignupPrompt {
     }
 
     public String greetCusRest(){
-        return "We have created your account, you are now able to sign in!";
+        return "We have created your account, you are now able to login!";
     }
 
     public String thankDperson(){
-        return "Thank you for delivery for us! We have created your account, please sign in now!";
+        return "Thank you for delivery for us! We have created your account, please login now!";
     }
 
     public String alreadyRegister(){
