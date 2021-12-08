@@ -37,34 +37,34 @@ public abstract class User implements Serializable {
     public String getUserName() { return this.name; }
 
     /**
-     * The user's phone number.
+     * The User's phone number.
      *
-     * @return the user's phone number.
+     * @return the User's phone number.
      */
     public String getUserPhone_num() { return this.phone_num; }
 
     /**
-     * The user's password.
+     * The User's password.
      *
-     * @return the user's password.
+     * @return the User's password.
      */
     public String getUserPassword() { return this.password; }
 
     /**
-     * The user's type.
-     * @return the user's type.
+     * The User's type.
+     * @return the User's type.
      */
     public String getUserType() { return this.type_; }
 
     /**
-     * Add an order to user's order history.
+     * Add an order to User's order history.
      */
     public void addOrderToOrderHistory(Order order) { this.orderHistory.add(order);}
 
     /**
-     * The user's order history.
+     * The User's order history.
      *
-     * @return user's order history.
+     * @return User's order history.
      */
     public List<Order> getOrderHistory() {return this.orderHistory;}
 }

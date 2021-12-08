@@ -6,29 +6,47 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Random;
 
+/**
+ * Represents the entire system of Order.
+ */
 public class OrderManager {
     private final List<Order> orderList;
     private final List<DeliveryPerson> availableDeliveryPersonList;
 
+    /**
+     * Creates a OrderManager with lists of Order and DeliveryPerson.
+     */
     public OrderManager() {
         this.orderList = new ArrayList<>();
         this.availableDeliveryPersonList = new ArrayList<>();
     }
 
+    /**
+     * Stores the order in this Order's order list.
+     * @param order Order to be added
+     */
     public void addOrder(Order order) {
         orderList.add(order);
     }
 
+    /**
+     * Stores the deliveryPerson in this Order's available delivery person list.
+     * @param deliveryPerson DeliveryPerson to be added
+     */
     public void addDeliveryPerson(DeliveryPerson deliveryPerson) {
         availableDeliveryPersonList.add(deliveryPerson);
     }
-
+    /**
+     * Match DeliveryPerson with Order due to different type of Customer. Regular Customer will match delivery person
+     * randomly while Premium Customer will match delivery person who ride a bike or drive a car􏱉 firstly (General􏰿y,
+     * people 􏱁who ride a bike or drive a car􏱉 are faster than 􏱁walking􏱊􏱂).
+     * @param order Order need to deliver
+     */
     public boolean matchDeliveryPerson(Order order) {
         if (availableDeliveryPersonList.size() == 0) {
             return false;
         }
         if (Objects.equals(order.getCustomerInfo().get(0), "r")) {
-            // list.get(rand.nextInt(list.size()));
             Random rand = new Random();
             DeliveryPerson deliveryPerson = availableDeliveryPersonList.get(rand.nextInt(availableDeliveryPersonList.size()));
             order.addDeliveryPersonInfo(deliveryPerson);

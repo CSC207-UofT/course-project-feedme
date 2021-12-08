@@ -40,9 +40,14 @@ public class Customer extends User implements Serializable {
     /**
      * Get Customer's address.
      *
-     * @return a string of the address.
+     * @return a string of the Customer's address.
      */
     public String getCustomerAddress() { return this.address; }
 
+    /**
+     * Get Customer's type.
+     *
+     * @return a string of the Customer type.
+     */
     public String getCustomerType() { return this.customer_type; }
 }
