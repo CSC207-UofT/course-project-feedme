@@ -1,6 +1,7 @@
 package Controller;
 
 import InOut.SystemInOut;
+import Presenter.SignupPrompt;
 import UseCases.UserManager;
 
 import java.io.BufferedReader;
@@ -22,54 +23,47 @@ public class SignupController implements SystemInOut{
 
     public void start() {
         try {
+            SignupPrompt sp = new SignupPrompt();
             UserManager userManager = new UserManager();
-            sendOutput("Thank you for joining Feed Me! May I have your name please?");
+            sendOutput(sp.askNewName());
             String in_name = getInput();
-            sendOutput("Now, I need your phone number, you will need to use the phone number to login.");
+            sendOutput(sp.askNewPhone());
             String in_phone_num = getInput();
-            sendOutput("We have received your phone number, please enter your login password.");
+            sendOutput(sp.askNewPassword());
             String in_password = getInput();
-            sendOutput("Would you like to become customer, restaurant partner or deliver man? please enter " +
-                    "one character c (customer), r (restaurant), d (deliver man).");
+            sendOutput(sp.askNewType());
             String in_type = getInput();
 
             if (in_type.equals("c")) {
-                sendOutput("Thanks for becoming our honorable customer, the last step is to provide your address.");
+                sendOutput(sp.askCustomerAddress());
                 String in_address = getInput();
-                if (userManager.createCustomer(in_name, in_phone_num, in_password, "c", in_address)) {
-                    userManager.createCustomer(in_name, in_phone_num, in_password, "c", in_address);
-                    sendOutput("We have created your account, you are now able to login!");
+                if (userManager.userLookup(in_phone_num)) {
+                    sendOutput(sp.alreadyRegister());
                 }
                 else {
-                    sendOutput("You've already registered with this phone number, please login.");
+                    userManager.createUser(in_name, in_phone_num, in_password, in_type, in_address);
+                    sendOutput(sp.greetCusRest());
                 }
-//                userWriter.addUser(userManager.createCustomer(in_name, in_phone_num,
-//                        in_password, "c", in_address));
             }
-
             if (in_type.equals("r")) {
-                sendOutput(("Thanks for partnering with Feed Me, the last step is to provide your restaurant's location."));
+                sendOutput((sp.askRestaurantAddress()));
                 String in_address = getInput();
-                if (userManager.createRestaurant(in_name, in_phone_num, in_password, "r", in_address)) {
-                    userManager.createRestaurant(in_name, in_phone_num, in_password, "r", in_address);
-                    sendOutput("We have created your account! You are now able to login!");
-                } else {
-                    sendOutput("You've already registered with this phone number, please login");
+                if (userManager.userLookup(in_phone_num)) {
+                    sendOutput(sp.alreadyRegister());
                 }
-//                userWriter.addUser(userManager.createRestaurant(in_name, in_phone_num, in_password,
-//                        "r", in_address));
+                else{
+                    userManager.createUser(in_name, in_phone_num, in_password, in_type, in_address);
+                    sendOutput(sp.greetCusRest());
+                }
             }
-
             if (in_type.equals("d")) {
-                if (userManager.createDeliveryPerson(in_name, in_phone_num, in_password, "d")) {
-                    userManager.createDeliveryPerson(in_name, in_phone_num, in_password, "d");
-                    sendOutput("Thank you for delivering for us! We have created your account, you are now able to login!");
+                if (userManager.userLookup(in_phone_num)) {
+                    sendOutput(sp.alreadyRegister());
                 }
-                else {
-                    sendOutput("You've already registered with this phone number, please login");
+                else{
+                    sendOutput(sp.thankDperson());
+                    userManager.createUser(in_name, in_phone_num, in_password, in_type, null);
                 }
-//                userWriter.addUser(userManager.createDeliveryPerson(in_name, in_phone_num,
-//                        in_password, "d"));
             }
         } catch (IOException e) {
             e.printStackTrace();
