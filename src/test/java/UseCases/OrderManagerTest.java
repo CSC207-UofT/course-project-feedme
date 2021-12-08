@@ -15,6 +15,7 @@ public class OrderManagerTest {
 
     @Before
     public void setUp() {
+        System.setProperty("isTest","111") ;
         om = new OrderManager();
         order_1 = new Order("1");
         ten_wings = new Product("10 Wings", "1", 16.49, 5);
