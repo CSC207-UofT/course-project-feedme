@@ -75,6 +75,8 @@ public class Restaurant extends User implements Serializable {
         return true;
     }
 
+
+    // TODO: Consider ignore this method?
     @Override
     public String toString() {
         return this.getUserName();
