@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 
 public class DeliverController {
-    private OrderManager orderManager = new OrderManager();
+    private final OrderManager orderManager = new OrderManager();
 
     public List<Order> getAllUndeliveredOrders() {
         List<Order> undeliveredOrder = new ArrayList<>();
