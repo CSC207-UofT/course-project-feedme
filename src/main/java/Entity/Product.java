@@ -5,9 +5,9 @@ import java.io.Serializable;
 public class Product implements Serializable {
     private static final long serialVersionUID = 1;
 
-    private final String name;
+    private String name;
     private final String id;
-    private final double price;
+    private double price;
     private int stock;
 
     /**
@@ -61,6 +61,30 @@ public class Product implements Serializable {
      * @param n the number of stock that needs to be changed.
      */
     public void updateStock(int n) { this.stock += n; }
+
+    /**
+     * Adjusting the product's price.
+     * @param price the price of product that needs to be changed.
+     */
+    public void setPrice(double price){this.price = price; }
+
+    /**
+     * Setting the product's name.
+     * @param name the name of product that needs to be changed.
+     */
+    public void setName(String name){this.name = name; }
+
+    /**
+     * Setting the product's stock.
+     * @param stock the stock of product that needs to be changed.
+     */
+    public void setStock(int stock) {this.stock = stock; }
+
+    /**
+     * Reduce the product's stock by number.
+     * @param num the number of stock that needs to be reduced.
+     */
+    public void reduceProductStock(int num) {this.stock -= num;}
 
     /**
      * Return the String representation of the Product.
