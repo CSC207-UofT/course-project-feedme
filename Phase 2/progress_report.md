@@ -38,7 +38,9 @@ My work in Phase 2 involved in two main parts:
 Added docstring.
 7. Refactored the `createUser` method in `UserManager` that the `SignupController` would interact with entities 
    anymore, instead, it would put inputs into the method and do everything in `UserManager`.
+   
 - pull request #31 (https://github.com/CSC207-UofT/course-project-feedme/pull/31)
+This pull request is a really important milestone, it stated the completion of our program, in which the most important controllers that build up the fundamental of our program, the login and signup part.
 
 ## Huiru Tan
 
