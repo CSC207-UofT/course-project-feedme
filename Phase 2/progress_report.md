@@ -72,6 +72,7 @@ In phase 2, I completed the Delivery System, including the following classes/int
 Update:
 - `product`
 - `restaurant`
+- `main`
 
 complete:
 - `restaurantManager`
@@ -88,6 +89,7 @@ https://github.com/CSC207-UofT/course-project-feedme/pull/33
 Updated:
 - `product`
 - `restaurant`
+- `main`
 
 complete:
 - `restaurantSystemController`
