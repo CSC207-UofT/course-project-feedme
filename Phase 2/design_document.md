@@ -70,7 +70,9 @@ the controller or UserInterface. Instead, we pass the string that contains the i
 entity, and then we create a method in the UseCase to find the entities using this string.
 
 ### Refactoring
-(Pull request #27) Our previous design about `SystemInOut` violates the open-closed principle because SystemInOut was implementing every Controller class. Therefore, we refactored the code to invert the implementation that every Controller class is now implementing the SystemInOut.
+(Pull request #27: https://github.com/CSC207-UofT/course-project-feedme/pull/27) Our previous design about 
+`SystemInOut` violates the open-closed principle because SystemInOut 
+was implementing every Controller class. Therefore, we refactored the code to invert the implementation that every Controller class is now implementing the SystemInOut.
 
 
 
