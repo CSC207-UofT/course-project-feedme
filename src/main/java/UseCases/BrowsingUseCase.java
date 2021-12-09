@@ -82,7 +82,17 @@ public class BrowsingUseCase {
      */
     public String restaurantNum(Restaurant restaurant) {
         return restaurant.getUserPhone_num();
-     }
+    }
+
+    /**
+     * Get the restaurant according to the given phone number of the selected restaurant
+     * @param resNum The selected restaurant phone number
+     * @return The restaurant
+     */
+    public Restaurant findRestaurant(String resNum) {
+        return list.get(resNum);
+    }
 
 }
+
 
