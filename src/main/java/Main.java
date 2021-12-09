@@ -29,6 +29,13 @@ public class Main {
             DeliverUI deliverUI = new DeliverUI();
             deliverUI.startDeliverUI(user.get(0));
         }
+        if (user.get(1).equals("r")) {
+            try {
+                RestaurantUI restaurantUI = new RestaurantUI(user.get(0));
+                restaurantUI.restaurantEdit(user.get(0));
+            } catch (NullPointerException ignored) {
+            }
+        }
     }
 
 }
