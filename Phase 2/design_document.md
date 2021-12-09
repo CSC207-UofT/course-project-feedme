@@ -70,9 +70,35 @@ the controller or UserInterface. Instead, we pass the string that contains the i
 entity, and then we create a method in the UseCase to find the entities using this string.
 
 ### Refactoring
-(Pull request #27: https://github.com/CSC207-UofT/course-project-feedme/pull/27) Our previous design about 
-`SystemInOut` violates the open-closed principle because SystemInOut 
-was implementing every Controller class. Therefore, we refactored the code to invert the implementation that every Controller class is now implementing the SystemInOut.
+- (Pull request #27: https://github.com/CSC207-UofT/course-project-feedme/pull/27) Our previous design about 
+  `SystemInOut` violates the open-closed principle because `SystemInOut` was implementing every Controller class.  
+  Therefore, we refactored the code to invert the implementation that every Controller class is now implementing the 
+  `SystemInOut`.
+- `userWriter` method in `UserManager` has refactored to out as `UserWriter` class and ·UserGatherer· class,  to 
+   avoid violating the dependency inversion principle as it is supposed to be a gateway, then further combined into 
+   UserReadWrite since they serve an equivalent function.
+
+### Design patterns
+In our project, we have an entity class called customer, and customers are divided into two, one is 
+`RegularCustomer`, another one is the `PremiumCustomer`.  `PremiumCustomer` has more privileges, such as receiving 
+coupons every week and matching with quality delivery men.  
+
+Basically, `RegularCustomer` and `PremiumCustomer` are two different customer types, and we create a customer 
+interface, let them implement that interface.  In this case, a Simple Factory Pattern is appropriate for this system 
+since we can let the subclass decide which customer type to instantiate by a customer factory.  Moreover, if we want 
+to create more customer types, we can modify them simply by extending the customer factory.  
+
+For the customer interface, we implement a void method called `matchDeliveryPerson`, and both `RegularCustomer` and 
+`PremiumCustomer` need to override this method.  The method in `RegularCustomer` class will match delivery men 
+randomly while method in `PremiumCustomer` class will match delivery men who drive a car or ride a bike first 
+(Generally, people who drive a car or ride a bike are faster than walking). 
+
+However, as the project goes on, we find that it is reasonable to have `OrderManager` to implement the method 
+`matchDeliveryPerson`. In this case, we consider implementing a Factory Pattern for signing up. When a new customer 
+signs up, the system will let the customer choose which type of customer is, and instantiate the class, e.g. 
+`RegularCustomer` or `PremiumCustomer`. And we do consider implementing Factory design pattern to all types of 
+`User` in the future.
+
 
 
 

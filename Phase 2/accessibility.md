@@ -55,4 +55,14 @@ and effort.
 ## Principle 7: Size and Space for Approach and Use
 The format of the command line will have adequate space for the accessory. And for each instruction, we only have 
 1~2 sentences at most, which almost can be accommodated for any user, regardless of their accessibility.
+
+- The most marketable area would be various kinds of restaurants since they are the origin of all business cycles. 
+  Restaurants need programs to designate orders to the delivery person, and display menus to attract customers. By 
+  using our program, restaurant owners can optimize their profits instead of selling offline. Online food delivery 
+  indicates more opportunities. Besides, customers will also need our program to access more types of restaurants 
+  and kinds of food. The delivery person can use our program as a platform for working.
+
+- Our program will be less likely to be used by people who do not enjoy shopping online. Since some old fashion 
+  people would think food bought online is unreliable and unsafe.
+ 
  
