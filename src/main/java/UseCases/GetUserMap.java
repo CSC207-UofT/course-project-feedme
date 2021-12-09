@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * this is a helper class for UserManager to take all the user in three different serialized file into map to use.
+ */
 public class GetUserMap {
     UserReadWrite urw = new UserReadWrite();
 

@@ -1,7 +1,11 @@
 package Presenter;
 
+/**
+ * This is a presenter class for SignupController to give out all dialog during the sign up phase.
+ * (future change is very easy and do not require changing lots of code or finding it in the controller)
+ */
 public class SignupPrompt {
-    private String language = "English";
+    private String language = "English"; //future implementation
     public String askNewName(){
         return "Thank you to join Feed Me! May I get your name please?";
     }
