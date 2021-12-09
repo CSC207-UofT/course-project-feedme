@@ -11,11 +11,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class manages to Login process of Feedme.
+ * This class manages to login process of FeedMe, By calling Usermanager to verify the user. If user never registered to
+ * Feed Me before, Direct the user to Signup UI first (we are aware that this violated the clean architecture). By
+ * returning the phone number and type, we can direct the user according to their type and phone number is for
+ * communicating with the UserManager that tells user's information In later user.
  */
 public class LoginController implements SystemInOut {
-
-    private UserManager userManager = new UserManager();
 
     @Override
     public String getInput() throws IOException {
@@ -34,10 +35,10 @@ public class LoginController implements SystemInOut {
         sendOutput(lp.askAcc());
         try {
             String answer = getInput();
+            UserManager userManager;
             if (answer.equals("S") | answer.equals("s")){
                SignupUI signupUI = new SignupUI();
                signupUI.Signup();
-               userManager = new UserManager();
             }
             userManager = new UserManager();
             int attempt = 0;
@@ -48,7 +49,7 @@ public class LoginController implements SystemInOut {
                 String password_input = getInput();
                 if (userManager.verifyUser(phone_input, password_input)) {
 
-                    String type=userManager.getType(phone_input);
+                    String type= userManager.getType(phone_input);
                     List<String> list = new ArrayList<>();
                     list.add(phone_input);
                     list.add(type);

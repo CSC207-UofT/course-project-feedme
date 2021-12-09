@@ -8,6 +8,11 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+
+/**
+ * This controller in charge of signup process, that included displaying prompt and taking input from the user, call out
+ * the UserManager to Create user and store to database.
+ */
 public class SignupController implements SystemInOut{
     @Override
     public String getInput() throws IOException {

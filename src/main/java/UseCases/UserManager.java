@@ -1,16 +1,21 @@
 package UseCases;
 
 import Entity.*;
+import Gateway.UserReadWrite;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class UserManager {
-    private final HashMap<String, User> userHashMap;  //Since a UserManager could add and remove users, the field may not
-    // noy be final
-//    private final String file_path= "C:\\Users\\Edward\\IdeaProjects\\course-project-feedme\\data\\user_data.txt";
 
+public class UserManager {
+    private final HashMap<String, User> userHashMap;
+
+    /**
+     * This is a large use case to control all the users. Any other use case or controller would like to get user info
+     * would need to use this class. This class called getUserMap (helper class) by default to gather all users' info
+     * as Map first.
+     */
     public UserManager(){
         GetUserMap getUserMap = new GetUserMap();
         this.userHashMap = (HashMap<String, User>) getUserMap.getMap();

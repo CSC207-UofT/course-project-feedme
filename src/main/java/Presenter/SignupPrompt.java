@@ -1,7 +1,11 @@
 package Presenter;
 
+/**
+ * This is a presenter class for SignupController to give out all dialog during the sign up phase.
+ * (future change is very easy and do not require changing lots of code or finding it in the controller)
+ */
 public class SignupPrompt {
-    private String language = "English";
+    private String language = "English"; //future implementation
     public String askNewName(){
         return "Thank you to join Feed Me! May I get your name please?";
     }
@@ -29,16 +33,17 @@ public class SignupPrompt {
     }
 
     public String greetCusRest(){
-        return "We have created your account, you are now able to sign in!";
+        return "We have created your account, you are now able to login!";
     }
 
     public String thankDperson(){
-        return "Thank you for delivery for us! We have created your account, please sign in now!";
+        return "Thank you for delivery for us! We have created your account, please login now!";
     }
 
     public String alreadyRegister(){
         return "You have already registered with us. Please login with your phone number";
     }
+
 
 
 

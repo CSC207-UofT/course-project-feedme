@@ -34,5 +34,17 @@ public class DeliveryPerson extends User implements Serializable {
         this.transport = "w";
     }
 
+    /**
+     * Get DeliveryPerson's transport.
+     *
+     * @return a string of DeliveryPerson's transport.
+     */
     public String getTransport() { return transport;}
+
+    @Override
+    public String toString() {
+        return "DeliveryPerson{" +
+                "transport='" + transport + '\'' +
+                '}';
+    }
 }

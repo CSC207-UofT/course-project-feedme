@@ -41,7 +41,7 @@ public class Cart {
         } else {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock
                 cart.put(product, quantity);
-                product.updateStock(quantity);
+                product.updateStock(-quantity);
                 return true;
             } else {
                 return false;

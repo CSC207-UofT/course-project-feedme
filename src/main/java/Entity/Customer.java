@@ -32,21 +32,34 @@ public class Customer extends User implements Serializable {
     public Customer(String name, String phone_num, String password, String type_, String address){
         super(name, phone_num, password, type_);
         this.address = address;
-        this.customer_type = "n";
+        this.customer_type = "r";
     }
 
     public Customer(String name, String phone_num, String password, String address){
         super(name, phone_num, password, "c");
         this.address = address;
-        this.customer_type = "n";
+        this.customer_type = "r";
     }
 
     /**
      * Get Customer's address.
      *
-     * @return a string of the address.
+     * @return a string of the Customer's address.
      */
     public String getCustomerAddress() { return this.address; }
 
+    /**
+     * Get Customer's type.
+     *
+     * @return a string of the Customer type.
+     */
     public String getCustomerType() { return this.customer_type; }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "address='" + address + '\'' +
+                ", customer_type='" + customer_type + '\'' +
+                '}';
+    }
 }

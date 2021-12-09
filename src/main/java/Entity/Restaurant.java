@@ -34,24 +34,24 @@ public class Restaurant extends User implements Serializable {
     }
 
     /**
-     * Get Restaurant's address.
+     * Get restaurant's address.
      *
      * @return a string of the address.
      */
     public String getRestaurantAddress() { return this.address; }
 
     /**
-     * Get Restaurant's product.
+     * Get restaurant's product.
      *
      * @return a list of Product.
      */
     public List<Product> getRestaurantMenu() { return this.menu; }
 
     /**
-     * Attempt to add new Product to the Restaurant's productList, if the product
+     * Attempt to add new product to the restaurant's productList, if the product
      * hasn't added in the productList. Otherwise, return False.
      *
-     * @return True if Product is added in the productList successfully.
+     * @return True if product is added in the productList successfully.
      */
     public boolean addProductToMenu(Product product) {
         if (this.menu.contains(product)) {
@@ -62,7 +62,7 @@ public class Restaurant extends User implements Serializable {
     }
 
     /**
-     * Attempt to remove an existing Product from the Restaurant's productList, if the product
+     * Attempt to remove an existing product from the restaurant's productList, if the product
      * is in the productList. Otherwise, return False.
      *
      * @return True if Product removes from the productList successfully.
@@ -75,8 +75,11 @@ public class Restaurant extends User implements Serializable {
         return true;
     }
 
-
-    // TODO: Consider ignore this method?
+    /**
+     * Get Restaurant's name.
+     *
+     * @return a string of Restaurant's name.
+     */
     @Override
     public String toString() {
         return this.getUserName();

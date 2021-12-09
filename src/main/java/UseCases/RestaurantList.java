@@ -1,5 +1,7 @@
 package UseCases;
 import Entity.Restaurant;
+import Gateway.UserReadWrite;
+
 import java.util.List;
 
 
