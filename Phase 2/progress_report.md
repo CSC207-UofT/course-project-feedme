@@ -66,6 +66,7 @@ In phase 2, I completed the Delivery System, including the following classes/int
     Delivery person to see what orders still needs to deliver, and update order information if they have chosen to 
     deliver something. In `DeliverUI`, it is a user interface for Deliveryperson to see the deliver portal. It needs to 
     access the `DeliverController`.
+  4. pull request #25 (https://github.com/CSC207-UofT/course-project-feedme/pull/25). This is important for the project since it means the Delivery System has been completed.
 
 ## Lulu Cheng
 
@@ -80,9 +81,12 @@ complete:
 - `menuList`
 - `restaurantManagerTest`
 
-In phase2, I continued to work with Francis to complete the construction of the interface for the restaurant owner. 
-Firstly, to better meet the requirements of clean architecture, I added the restaurant SystemPresenter section. The main role of the Presenter here is to call the controller to be better used by the use case output port. The presenter, who is on the same level as the controller, exists to display what the user input will show after the program is executed internally, thus making it easier to operate the UI. I also continued to collaborate on the restaurantSystemController build in phase2, tweaking the restaurant UI for compatibility issues.
-In addition, due to some changes in the underlying logic that overlap within the group, we have also made significant adjustments to the framework for each of the relevant restaurant system controllers. Finally, I added a controller test case for each method to verify that it makes sense.
+1. continue to work with Francis to complete the construction of the interface for the restaurant owner. 
+2. To better meet the requirements of clean architecture, I added the restaurant SystemPresenter section. The main role of the Presenter here is to call the controller to be better used by the use case output port. The presenter, who is on the same level as the controller, exists to display what the user input will show after the program is executed internally, thus making it easier to operate the UI. 
+3. Continue to collaborate on the restaurantSystemController build in phase2, tweaking the restaurant UI for compatibility issues.
+4. Due to some changes in the underlying logic that overlap within the group, we have also made significant adjustments to the framework for each of the relevant restaurant system controllers. 
+5. Add a controller test case for each method to verify that it makes sense.
+6. Write the accessibility report for our project.
 https://github.com/CSC207-UofT/course-project-feedme/pull/33
 
 
