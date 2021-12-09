@@ -21,7 +21,7 @@ public class UserManager {
         this.userHashMap = (HashMap<String, User>) getUserMap.getMap();
     }
 
-    public boolean createUser(String name, String phone_num, String password, String type_, String address){
+    public void createUser(String name, String phone_num, String password, String type_, String address){
         if(!this.userHashMap.containsKey(phone_num)){
             if (type_.equals("c")){
                 this.addUser(phone_num, new Customer(name, phone_num, password, type_, address));
@@ -32,9 +32,7 @@ public class UserManager {
             else{
                 this.addUser(phone_num, new DeliveryPerson(name, phone_num, password, type_));
             }
-            return true;
         }
-        return false;
     }
 
     public void updateUser(User user){
@@ -57,13 +55,11 @@ public class UserManager {
 
 
     }
-    public boolean addUser(String phone_num, User user){
+    public void addUser(String phone_num, User user){
         if(!this.userHashMap.containsKey(phone_num)){
             this.userHashMap.put(phone_num, user);
             this.updateUser(user);
-            return true;
         }
-        return false;
     }
 
     public Customer getCustomer(String customerNum) {
