@@ -20,22 +20,22 @@ public class UserReadWriteTest {
         userReadWrite = new UserReadWrite();
     }
     @Test
-    public void readCustomers() {
+    public void testReadCustomers() {
         System.out.println("all customers : "+userReadWrite.readCustomers());
     }
 
     @Test
-    public void readDpersons() {
+    public void testReadDeliveryPerson() {
         System.out.println("all deliveryPersons : "+userReadWrite.readDpersons());
     }
 
     @Test
-    public void readRestaurants() {
+    public void testReadRestaurants() {
         System.out.println("all Restaurants: "+userReadWrite.readRestaurants());
     }
 
     @Test
-    public void updateCustomer() {
+    public void testUpdateCustomer() {
         List<Customer> customerList = userReadWrite.readCustomers();
         System.out.println("change before : "+customerList);
         String name = "Bob";
@@ -49,7 +49,7 @@ public class UserReadWriteTest {
     }
 
     @Test
-    public void updateDperson() {
+    public void testUpdateDeliveryPerson() {
         List<DeliveryPerson> dPersons = userReadWrite.readDpersons();
         System.out.println("change before : "+dPersons);
         String name = "Leo";
@@ -62,7 +62,7 @@ public class UserReadWriteTest {
     }
 
     @Test
-    public void updateRestaurant() {
+    public void testUpdateRestaurant() {
         List<Restaurant> restaurants = userReadWrite.readRestaurants();
         System.out.println("change before : "+restaurants);
         String name = "Loblaws";

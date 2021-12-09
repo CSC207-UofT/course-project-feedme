@@ -2,9 +2,7 @@ package UseCases;
 
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.Map;
-
 import static org.junit.Assert.*;
 
 public class CartUseCaseTest {
@@ -18,7 +16,7 @@ public class CartUseCaseTest {
     }
 
     @Test
-    public void cartToMap() {
+    public void testCartToMap() {
         addToCart();
         Map<String, Integer> cartToMap =  cartUseCase.cartToMap();
         for(String key : cartToMap.keySet()){
@@ -27,31 +25,44 @@ public class CartUseCaseTest {
     }
 
     @Test
-    public void showRestaurantName() {
+    public void testShowRestaurantName() {
         System.out.println("showRestaurantName :" +cartUseCase.showRestaurantName());
     }
 
     @Test
-    public void showMenu() {
+    public void testShowMenu() {
         System.out.println("showMenu :" +cartUseCase.showMenu());
     }
 
     @Test
-    public void verifyProductNum() {
+    public void testVerifyProductNum() {
         addToCart();
-        String productINdex = "1";
-        assertTrue(cartUseCase.verifyProductNum(productINdex));
+        String productIndex = "1";
+        assertTrue(cartUseCase.verifyProductNum(productIndex));
     }
 
     @Test
-    public void getProductName() {
+    public void testGetProductName() {
         addToCart();
-        String productINdex = "1";
-        assertEquals(cartUseCase.getProductName(productINdex),"apple");
+        String productIndex = "1";
+        assertEquals(cartUseCase.getProductName(productIndex),"apple");
     }
 
     @Test
     public void addToCart() {
         cartUseCase.addToCart("apple",1);
+        cartUseCase.addToCart("apple",1);
+    }
+
+    @Test
+    public void testCheckStockAvailability() {
+        assertTrue(cartUseCase.checkStockAvailability("apple", 2));
+        assertFalse(cartUseCase.checkStockAvailability("apple", 201));
+        assertFalse(cartUseCase.checkStockAvailability("coke", 1));
+    }
+
+    @Test
+    public void testToString() {
+        assertNotNull(cartUseCase.toString());
     }
 }

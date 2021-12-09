@@ -32,13 +32,13 @@ public class Customer extends User implements Serializable {
     public Customer(String name, String phone_num, String password, String type_, String address){
         super(name, phone_num, password, type_);
         this.address = address;
-        this.customer_type = "n";
+        this.customer_type = "r";
     }
 
     public Customer(String name, String phone_num, String password, String address){
         super(name, phone_num, password, "c");
         this.address = address;
-        this.customer_type = "n";
+        this.customer_type = "r";
     }
 
     /**

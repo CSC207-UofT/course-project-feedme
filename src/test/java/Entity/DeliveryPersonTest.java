@@ -3,6 +3,7 @@ package Entity;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class DeliveryPersonTest {
     DeliveryPerson deliveryperson;
@@ -10,6 +11,8 @@ public class DeliveryPersonTest {
     @Before
     public void setUp() {
         deliveryperson = new DeliveryPerson("Jack", "132032474232", "rte567", "d", "w");
+        deliveryperson = new DeliveryPerson("Jack", "132032474232", "rte567", "d");
+        deliveryperson = new DeliveryPerson("Jack", "132032474232", "rte567");
     }
 
     @Test
@@ -20,5 +23,10 @@ public class DeliveryPersonTest {
         assertEquals("d", deliveryperson.getUserType());
         assertEquals("w", deliveryperson.getTransport());
         assertEquals(0, deliveryperson.getOrderHistory().size());
+    }
+
+    @Test
+    public void testToString() {
+        assertNotNull(deliveryperson.toString());
     }
 }

@@ -150,7 +150,7 @@ public class Order implements Serializable {
         } else {
             if (product.getProductStock() >= quantity) {// Check if there is enough stock
                 listProducts.put(product, quantity);
-                product.updateStock(quantity);
+                product.updateStock(-quantity);
                 return true;
             } else {
                 return false;

@@ -37,4 +37,9 @@ public class ProductTest {
         ten_wings.updateStock(10);
         assertEquals(15, ten_wings.getProductStock());
     }
+
+    @Test
+    public void testToString() {
+        assertNotNull(ten_wings.toString());
+    }
 }

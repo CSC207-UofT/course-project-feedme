@@ -11,7 +11,9 @@ public class OrderManagerTest {
     Product ten_wings;
     Restaurant popeyes;
     Customer customer;
+    Customer customer2;
     DeliveryPerson deliveryPerson;
+    DeliveryPerson deliveryPerson2;
 
     @Before
     public void setUp() {
@@ -21,12 +23,14 @@ public class OrderManagerTest {
         ten_wings = new Product("10 Wings", "1", 16.49, 5);
         popeyes = new Restaurant("Popeyes", "5384975983", "abcd123", "r", "645 Yonge St");
         customer = new Customer("Jenny", "34579345534", "iojju564", "St George");
+        customer2 = new PremiumCustomer("Bob", "2168237263","asdf1234", "c","St George", "p");
         deliveryPerson = new DeliveryPerson("James", "6437825641", "fwigyeg1", "d", "w");
+        deliveryPerson2 = new DeliveryPerson("Curry", "2437825641", "fwigyeg1", "d", "r");
     }
 
 
     @Test
-    public void testMatchDeliveryPerson() {
+    public void testMatchDeliveryPerson1() {
         om.addDeliveryPerson(deliveryPerson);
         order_1.addProductToOrder(ten_wings, 1);
         om.addOrder(order_1);
@@ -36,20 +40,32 @@ public class OrderManagerTest {
     }
 
     @Test
-    public void testGetOrderById() {
+    public void testMatchDeliveryPerson2() {
+        order_1.addProductToOrder(ten_wings, 1);
         om.addOrder(order_1);
-        assertEquals(om.getOrderById("1"), order_1);
+        order_1.addRestaurantInfo(popeyes);
+        order_1.addCustomerInfo(customer);
+        assertFalse(om.matchDeliveryPerson(order_1));
     }
 
     @Test
-    public void testUpdateDeliveryPerson() {
+    public void testMatchDeliveryPerson3() {
+        om.addDeliveryPerson(deliveryPerson);
+        om.addDeliveryPerson(deliveryPerson2);
+        order_1.addProductToOrder(ten_wings, 1);
         om.addOrder(order_1);
-        om.updateOrderDeliveryPerson("1", deliveryPerson.getUserPhone_num());
-        assertTrue(order_1.getDeliveryPersonInfo().contains(deliveryPerson.getUserPhone_num()));
+        order_1.addRestaurantInfo(popeyes);
+        order_1.addCustomerInfo(customer2);
+        assertTrue(om.matchDeliveryPerson(order_1));
     }
 
-    // public void testGetAllUndeliveredOrders() {
-     //   om.addOrder(order_1);
-       // om.addOrder(undelivered_order);
-       // om.getAllOrders()
+    @Test
+    public void testMatchDeliveryPerson4() {
+        om.addDeliveryPerson(deliveryPerson);
+        order_1.addProductToOrder(ten_wings, 1);
+        om.addOrder(order_1);
+        order_1.addRestaurantInfo(popeyes);
+        order_1.addCustomerInfo(customer2);
+        assertTrue(om.matchDeliveryPerson(order_1));
+    }
 }
