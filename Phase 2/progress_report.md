@@ -81,7 +81,7 @@ complete:
 - `restaurantManagerTest`
 
 In phase2, I continued to work with Francis to complete the construction of the interface for the restaurant owner. 
-Firstly, to better meet the requirements of clean architecture, I added the restaurant SystemPresenter section. The main role of the Presenter here is to call the controller to be better used by the use case output port. The presenter, who is on the same level as the controller, exists to display what the user input will show after the program is executed internally, thus making it easier to operate the UI.
+Firstly, to better meet the requirements of clean architecture, I added the restaurant SystemPresenter section. The main role of the Presenter here is to call the controller to be better used by the use case output port. The presenter, who is on the same level as the controller, exists to display what the user input will show after the program is executed internally, thus making it easier to operate the UI. I also continued to collaborate on the restaurantSystemController build in phase2, tweaking the restaurant UI for compatibility issues.
 In addition, due to some changes in the underlying logic that overlap within the group, we have also made significant adjustments to the framework for each of the relevant restaurant system controllers. Finally, I added a controller test case for each method to verify that it makes sense.
 https://github.com/CSC207-UofT/course-project-feedme/pull/33
 
