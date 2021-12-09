@@ -70,8 +70,8 @@ In phase 2, I completed the Delivery System, including the following classes/int
 ## Lulu Cheng
 
 Update:
-- ’products‘
-- ’restaurant‘
+- `products`
+- `restaurant`
 
 complete:
 restaurantManager
