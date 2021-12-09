@@ -16,6 +16,7 @@ public class UserManagerTest {
 
     @Before
     public void setUp() {
+        System.setProperty("isTest","111") ;
         um = new UserManager();
         customer = new Customer("Jenny", "34579345534", "iojju564", "St George");
         customer2 = new Customer("Bob", "21394832340", "iojju564", "St George");

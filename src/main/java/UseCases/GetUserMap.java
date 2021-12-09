@@ -15,7 +15,7 @@ import java.util.Map;
 public class GetUserMap {
     UserReadWrite urw = new UserReadWrite();
 
-    private HashMap<String, User> hash_map= new HashMap<>();
+    private final HashMap<String, User> hash_map= new HashMap<>();
 
     public Map<String, User> getMap(){
         List<User> list = new ArrayList<>();
