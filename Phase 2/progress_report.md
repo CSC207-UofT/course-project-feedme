@@ -70,35 +70,33 @@ In phase 2, I completed the Delivery System, including the following classes/int
 ## Lulu Cheng
 
 Update:
-- `products`
+- `product`
 - `restaurant`
 
 complete:
-restaurantManager
-restaurantSystemPresenter
-menuList
-restaurantManagerTest
+- `restaurantManager`
+- `restaurantSystemPresenter`
+- `menuList`
+- `restaurantManagerTest`
 
 In phase2, I continued to work with Francis to complete the construction of the interface for the restaurant owner. Firstly, to better meet the requirements of clean architecture, I added the restaurant SystemPresenter section. The main role of the Presenter here is to call the controller to be better used by the use case output port. The presenter, who is on the same level as the controller, exists to display what the user input will show after the program is executed internally, thus making it easier to operate the UI.
 In addition, due to some changes in the underlying logic that overlap within the group, we have also made significant adjustments to the framework for each of the relevant restaurant system controllers. Finally, I added a controller test case for each method to verify that it makes sense.
-
 https://github.com/CSC207-UofT/course-project-feedme/pull/33
+
 
 ## Bowen Liang
 Updated:
-products
-restaurant
+- `product`
+- `restaurant`
 
 complete:
-restaurantSystemController
-restaurantUI
-restaurantManager
+- `restaurantSystemController`
+- `restaurantUI`
+- `restaurantManager`
 
 In our subgroup, we have refined the construction of the restaurant SystemController, which was not implemented in phase1. The following is a rough flow of how the restaurantSystemController implements its functionality.
-
 This is the “restaurant system controller”, which is used by the owner of the restaurant. When the restaurant owner runs the program, a “restaurant UI” is created, followed by the “restaurant controller”, which uses the closely linked “restaurantManager “. In addition, to keep the UI simple, we have the “restaurantSystemPresenter” which contains most of the output. The “restaurant manager” will continue to use the ‘restaurant’ and ‘product’ at the bottom level. After a series of user registration and login procedures as described above, the restaurant owner is faced with three options, namely “editMenu”, “orderHistory” and “ receiveOrders”. Once the restaurant owner has selected “editMenu”, the restaurant system controller will check if the product id entered already exists. If it already exists, the controller will continue to give three options, namely, to change the product name, to change the product stock and to change the product price. The restaurant owner simply enters the keywords 1, 2 or 3 as per the question to complete the operation. If the product does not already exist, the controller will automatically build a new product for the restaurant owner by asking for the name, price, and stock of the new product. The second option, “orderHistory”, shows the history of orders that have existed. The third option “receiveOrders” is used to receive new orders. It is worth noting that the restaurant owner can return to the previous level by typing QUIT, regardless of the level reached. This design takes universal design into account and can be used to minimise errors.
 We also added the restaurantUI and updated the main section in order to allow the controller and presenter to be presented.
-
 https://github.com/CSC207-UofT/course-project-feedme/pull/32
 
 
