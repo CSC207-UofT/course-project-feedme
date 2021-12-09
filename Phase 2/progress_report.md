@@ -42,6 +42,20 @@ Added docstring.
 - pull request #31 (https://github.com/CSC207-UofT/course-project-feedme/pull/31)
 This pull request is a really important milestone, it stated the completion of our program, in which the most important controllers that build up the fundamental of our program, the login and signup part.
 
+## Bingchen Liu
+- Participate in each significant decision. For example, for the implementation of login and sign up functions, we decided to use different controllers to implement them; create a new folder `Presenter` to send visual information to the UI. These decisions make our project follow clear architecture.
+
+- Complete more functions of the `SignupController` and `LoginController`.  For example, when a user tries to sign up, the system will detect whether the user's phone number has been stored in the database. If the phone number already exists, the system will remind the user and call the `LoginUI`.
+
+- Complete all javadoc in `Entity`except `Cart`.
+
+- Refactor the `createUser` and `addUser` method in `UserManager` so that the `SignupController` no longer interacts with entities (work with Edward).
+
+- Complete all `Entity` and `Controller` layer tests and reach 100% line cover. (Since one teammate added a new use case on December 8th, the final test was not 100% cover)
+
+- Pull request #29 https://github.com/CSC207-UofT/course-project-feedme/pull/29. Other team members seemed to have forgotten the problem raised by TA in phase 1 feedback. I fixed it and chose this as the pull request because I think it’s important to read the feedback carefully and fix the issue.
+
+
 ## Huiru Tan
 
 In phase 2, I completed the Delivery System, including the following classes/interfaces/tests:
