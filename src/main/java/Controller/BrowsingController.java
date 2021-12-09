@@ -36,7 +36,7 @@ public class BrowsingController implements SystemInOut{
     private final BrowsingPrensenter browsingPrensenter = new BrowsingPrensenter();
 
     /**
-     * Method that allows customer to view and select restaurants.
+     * Allows customer to view and select restaurants.
      * @return The phone number of selected restaurants
      */
 
