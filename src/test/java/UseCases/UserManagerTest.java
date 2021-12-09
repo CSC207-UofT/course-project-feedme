@@ -4,77 +4,117 @@ import Entity.*;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.Random;
+
 import static org.junit.Assert.*;
 
 public class UserManagerTest {
-    Customer customer;
-    Customer customer2;
     UserManager um;
-    Restaurant popeyes;
-    Restaurant kfc;
-    DeliveryPerson deliveryPerson;
 
     @Before
     public void setUp() {
         System.setProperty("isTest","111") ;
         um = new UserManager();
-        customer = new Customer("Jenny", "34579345534", "iojju564", "St George");
-        customer2 = new Customer("Bob", "21394832340", "iojju564", "St George");
-        popeyes = new Restaurant("Popeyes", "35479853433", "jhb12", "r", "645 Yonge St");
-        kfc = new Restaurant("KFC", "2343290193", "jhb12", "r", "1000 Bay St");
-        deliveryPerson = new DeliveryPerson("James", "6437825641", "fwigyeg1", "d", "w");
     }
 
     @Test
     public void testCreateUser() {
-        um.createUser(customer.getUserName(), customer.getUserPhone_num(), customer.getUserPassword(),
-                customer.getUserType(), customer.getCustomerAddress());
-        um.createUser(popeyes.getUserName(), popeyes.getUserPhone_num(), popeyes.getUserPassword(),
-                popeyes.getUserType(), popeyes.getRestaurantAddress());
-        um.createUser(deliveryPerson.getUserName(), deliveryPerson.getUserPhone_num(), deliveryPerson.getUserPassword(),
-                deliveryPerson.getUserType(), null);
-        assertTrue(um.verifyUser(customer.getUserPhone_num(), customer.getUserPassword()));
-        assertTrue(um.verifyUser(popeyes.getUserPhone_num(), popeyes.getUserPassword()));
-        assertTrue(um.verifyUser(deliveryPerson.getUserPhone_num(), deliveryPerson.getUserPassword()));
-        assertFalse(um.verifyUser(customer2.getUserPhone_num(), customer2.getUserPassword()));
-        assertFalse(um.verifyUser(kfc.getUserPhone_num(), kfc.getUserPassword()));
+        Random rnd = new Random();
+        int phoneNum = 100000 + rnd.nextInt(900000);
+        int phoneNum1 = 100000 + rnd.nextInt(900000);
+        int phoneNum2 = 100000 + rnd.nextInt(900000);
+
+        String username = "Leo";
+        String password = "qwe123";
+        String address = "Downtown Toronto";
+
+        User user = new Customer(username,String.valueOf(phoneNum),password,"c", address);
+        User user2 = new Restaurant(username,String.valueOf(phoneNum1),password,"r", address);
+        User user3 = new DeliveryPerson(username,String.valueOf(phoneNum2),password, "d");
+
+        um.createUser(user.getUserName(), user.getUserPhone_num(), user.getUserPassword(), user.getUserType(), address);
+        um.createUser(user2.getUserName(), user2.getUserPhone_num(), user2.getUserPassword(), user2.getUserType(), address);
+        um.createUser(user3.getUserName(), user3.getUserPhone_num(), user3.getUserPassword(), user3.getUserType(), null);
+    }
+
+    @Test
+    public void testUpdateUser() {
+        Random rnd = new Random();
+        int phone = 100000 + rnd.nextInt(900000);
+
+        String username = "Bob";
+        String password = "qaz234";
+        String address = "Airports";
+
+        User user = new Customer(username,String.valueOf(phone),password,address);
+        User user2 = new Restaurant(username,String.valueOf(phone),password,"r", address);
+        User user3 = new DeliveryPerson(username,String.valueOf(phone),password,address);
+
+        um.updateUser(user);
+        um.updateUser(user2);
+        um.updateUser(user3);
     }
 
     @Test
     public void testAddUser() {
-        um.addUser(customer.getUserPhone_num(), customer);
-        um.addUser(popeyes.getUserPhone_num(), popeyes);
-        um.addUser(deliveryPerson.getUserPhone_num(), deliveryPerson);
-        assertTrue(um.verifyUser(customer.getUserPhone_num(), customer.getUserPassword()));
-        assertTrue(um.verifyUser(popeyes.getUserPhone_num(), popeyes.getUserPassword()));
-        assertTrue(um.verifyUser(deliveryPerson.getUserPhone_num(), deliveryPerson.getUserPassword()));
-        assertFalse(um.verifyUser(customer2.getUserPhone_num(), customer2.getUserPassword()));
-        assertFalse(um.verifyUser(kfc.getUserPhone_num(), kfc.getUserPassword()));
+        Random rnd = new Random();
+        int phoneNum = 100000 + rnd.nextInt(900000);
+
+        String username = "Allen";
+        String password = "abc123";
+        String address = "11 Bay St";
+
+        Customer user1 = new Customer(username,String.valueOf(phoneNum),password,address);
+        Restaurant user2 = new Restaurant(username, String.valueOf(phoneNum), password, "r", address);
+        DeliveryPerson user3 = new DeliveryPerson(username, String.valueOf(phoneNum), password, "d");
+        um.addUser(String.valueOf(phoneNum),user1);
+        um.addUser(String.valueOf(phoneNum),user2);
+        um.addUser(String.valueOf(phoneNum),user3);
     }
 
     @Test
-    public void testGetUser() {
-        um.addUser(customer.getUserPhone_num(), customer);
-        um.addUser(popeyes.getUserPhone_num(), popeyes);
-        assertEquals(customer.getUserPhone_num(), um.getCustomer(customer.getUserPhone_num()).getUserPhone_num());
-        assertEquals(popeyes.getUserPhone_num(), um.getRestaurant(popeyes.getUserPhone_num()).getUserPhone_num());
+    public void testGetCustomer() {
+        String customerNum = "6470000000";
+        assert um.getCustomer(customerNum) != null;
+
+        String customerNum2 = "6470000000not";
+        assert um.getCustomer(customerNum2) == null;
+    }
+
+    @Test
+    public void testGetRestaurant() {
+        String restaurantNum = "139516356663";
+        assert um.getRestaurant(restaurantNum) != null;
+
+        String restaurantNumNotExist = "139516356663not";
+        assert um.getRestaurant(restaurantNumNotExist) == null;
     }
 
     @Test
     public void testUserLookup() {
-        um.addUser(customer.getUserPhone_num(), customer);
-        um.addUser(popeyes.getUserPhone_num(), popeyes);
-        assertTrue(um.userLookup(customer.getUserPhone_num()));
-        assertTrue(um.userLookup(popeyes.getUserPhone_num()));
-        assertFalse(um.userLookup(customer2.getUserPhone_num()));
-        assertFalse(um.userLookup(kfc.getUserPhone_num()));
+        String phoneNum = "6470000000";
+        assertTrue(um.userLookup(phoneNum));
     }
 
     @Test
     public void testGetType() {
-        um.addUser(customer.getUserPhone_num(), customer);
-        um.addUser(popeyes.getUserPhone_num(), popeyes);
-        assertEquals("c", um.getType(customer.getUserPhone_num()));
-        assertEquals("r", um.getType(popeyes.getUserPhone_num()));
+        String phoneNum = "6470000000";
+        assertEquals(um.getType(phoneNum),"c");
+    }
+
+    @Test
+    public void testVerifyUser() {
+        String username = "6470000000";
+        String pass = "dummy11111";
+        assertTrue(um.verifyUser(username,pass));
+        assertFalse(um.verifyUser("3245343244",pass));
+    }
+
+    @Test
+    public void testUpdateUserOrderHistory() {
+        String customerNum = "6470000000";
+        String restaurantNum = "139516356663";
+        Order order = new Order("1234567");
+        um.updateUserOrderHistory(order,customerNum,restaurantNum);
     }
 }

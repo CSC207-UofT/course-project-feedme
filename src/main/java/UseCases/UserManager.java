@@ -99,5 +99,4 @@ public class UserManager {
         readWrite.updateRestaurant(restaurantList);
 
     }
-
 }
